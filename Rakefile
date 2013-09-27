@@ -13,12 +13,14 @@ task :install do
     end
     new_path = File.expand_path("~/.#{basename}")
 
-    if !File.symlink?(new_path)
+    if !File.file?(new_path)
       File.symlink(old_path, new_path)
-    elsif File.readlink(new_path) != old_path
+    elsif File.symlink?(new_path) && File.readlink(new_path) != old_path
       File.unlink(new_path) && File.symlink(old_path, new_path)
-    else
+    elsif File.symlink?(new_path)
       puts "Already linked: #{new_path} --> #{old_path}"
+    else
+      puts "Not modifying existent file: #{new_path}"
     end
   end
 end
