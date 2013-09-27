@@ -1,0 +1,89 @@
+%include ~/.hgrc.local
+
+# ui ---------------------------------------------------------------------- {{{
+[ui]
+editor         = vim
+commitsubrepos = False
+logtemplate    = '[{phase}] {desc} ({node|short})\n'
+ignore         = ~/.hgignore
+# /ui --------------------------------------------------------------------- }}}
+
+# extensions -------------------------------------------------------------- {{{
+[extensions]
+hgext.churn =
+hgext.extdiff =
+hgext.hbisect =
+hgext.mq =
+hgext.record =
+# hgext.shelve = ~/.hgext/hgshelve/hgshelve.py
+color =
+fetch =
+graphlog =
+hggit = ~/.hgext/hg-git/hggit
+# histedit =
+parentrevspec =
+patchbomb =
+progress =
+prompt   = ~/.hgext/hg-prompt/prompt.py
+purge =
+rebase =
+remotebranches = ~/.hgext/hg-remotebranches/hg_remotebranches.py
+schemes =
+transplant =
+# /extensions ------------------------------------------------------------- }}}
+
+# defaults ---------------------------------------------------------------- {{{
+[defaults]
+rebase    = --keepbranches
+addremove = --similarity 100
+# /defaults --------------------------------------------------------------- }}}
+
+# aliases ----------------------------------------------------------------- {{{
+[alias]
+show  = log --color=always -pr
+qq    = qqueue
+qs    = qseries -v -s
+qsow  = qseries -v -s
+qi    = init --mq
+qf    = qfinish .
+qc    = commit --mq
+qci   = commit --mq -m
+qn    = qnew -m
+qr    = qrefresh
+qpo   = qpop
+qpoa  = qpop -a
+qpu   = qpush
+qpua  = qpush -a
+nudge = push --rev .
+book  = bookmark
+st    = status -SC
+cm    = commit -m
+gl    = log -G -l10 --template='\033[0;31m{rev}:{phase}\033[0m {desc|firstline|strip} \033[0;35m{branch}\033[00m \033[0;33m{tags}\033[0m\n\033[0;36m({date|age} by {author|person})\033[0m\n\n'
+gll   = log -G --template='\033[0;31m{rev}:{phase}\033[0m {desc|firstline|strip} \033[0;35m{branch}\033[00m \033[0;33m{tags}\033[0m\n\033[0;36m({date|age} by {author|person})\033[0m\n\n'
+slog  = log --style=$HOME/.hgext/templates/map-cmdline.slog
+nlog  = log --style=$HOME/.hgext/templates/map-cmdline.nlog
+sglog = glog --style=$HOME/.hgext/templates/map-cmdline.sglog
+gslog = sglog
+lga   = glog --style=$HOME/.hgext/templates/map-cmdline.lg
+lg    = lga --rev 'ancestors(.)'
+dlog  = log --style=$HOME/.hgext/templates/map-cmdline.dlog
+qst   = st --mq
+qgl   = gl --mq
+qlog  = log --mq
+# /aliases ---------------------------------------------------------------- }}}
+
+[bookmarks]
+track.current = True
+
+[diff]
+git = True
+
+[mq]
+keepchanges = True
+secret      = True
+
+[progress]
+delay = 1.5
+
+[color]
+qseries.unapplied        = green bold
