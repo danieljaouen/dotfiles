@@ -1,3 +1,4 @@
+require 'fileutils'
 require 'rake'
 
 task :default => [:install]
@@ -8,7 +9,7 @@ task :install do
     basename = File.basename(filename, File.extname(filename))
     old_path = File.absolute_path(File.join(File.dirname(filename), basename))
     if basename.match(/\.local$/) && !File.file?(old_path)
-      File.new old_path
+      FileUtils.touch old_path
     end
     new_path = File.expand_path("~/.#{basename}")
 
