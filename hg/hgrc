@@ -16,6 +16,7 @@ hgext.hbisect =
 hgext.mq =
 hgext.record =
 color =
+convert =
 fetch =
 graphlog =
 parentrevspec =
