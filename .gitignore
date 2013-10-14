@@ -3,3 +3,5 @@
 *.pyc
 .hg
 *.local
+*.rej
+*.orig
