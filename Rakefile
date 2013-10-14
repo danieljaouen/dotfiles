@@ -5,7 +5,7 @@ require 'set'
 # utils ------------------------------------------------------------------- {{{
 def file_listing(end_pattern)
   files = Dir.glob("locations/**/*#{end_pattern}").map do |name|
-    old_base = File.join(File.dirname(name), File.readlink(name)).chomp('.template')
+    old_base = File.join(File.dirname(name), File.readlink(name)).chomp('.placeholder')
     new_base = name.sub(/^locations\//, '').chomp(end_pattern)
 
     old_path = File.expand_path(old_base)
