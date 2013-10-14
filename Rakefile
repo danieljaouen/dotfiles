@@ -125,5 +125,17 @@ task :ensure_links_exist => [:ensure_directories_exist, :ensure_locals_exist] do
   end
 end
 
-task :default => :ensure_links_exist
+task :uninstall do
+  locals_listing.each do |f|
+    puts "Warn!  | Unlink    | file: #{f[:new_path]}"
+    File.unlink f[:new_path]
+  end
+  dotfile_listing.each do |f|
+    puts "Warn!  | Unlink    | file: #{f[:new_path]}"
+    File.unlink f[:new_path]
+  end
+end
+
+task :install => :ensure_links_exist
+task :default => :install
 # /rake tasks ------------------------------------------------------------- }}}
