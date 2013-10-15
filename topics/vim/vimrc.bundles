@@ -18,6 +18,7 @@ Bundle 'ap/vim-css-color'
 Bundle 'bling/vim-airline'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'danieljaouen/riv.vim'
 Bundle 'daylerees/colour-schemes', { "rtp": "vim-themes/" }
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'fsouza/go.vim'

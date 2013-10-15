@@ -20,8 +20,17 @@ set nocompatible
 "     - let @a = 'hello!'
 "
 " - scoping:
-"   - prefixes indicate local scope:
-"     - let b:somevar = 'variable'
+"   - prefixes
+"     - g:var
+"       - a global variable
+"     - b:var
+"       - a buffer-local variable
+"     - s:var
+"       - a script-local variable
+"     - l:var
+"       - a function-local variable
+"     - a:var
+"       - a function-parameter-local variable
 "
 " - comparisons:
 "   - always use ==# (case-sensitive) and ==? (case-insensitive) operators
