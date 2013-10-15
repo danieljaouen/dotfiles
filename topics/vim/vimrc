@@ -387,6 +387,13 @@ augroup yamlmode
 augroup END
 " /yaml -------------------------------------- }}}
 
+" rst ---------------------------------------- {{{
+augroup rstmode
+    au!
+    au BufRead,BufNewFile *.rst.inc set filetype=rst
+augroup END
+" /rst --------------------------------------- }}}
+
 " VimOrganizer ------------------------------- {{{
 augroup vimorganizermode
     au!
