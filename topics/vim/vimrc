@@ -419,6 +419,7 @@ let g:syntastic_mode_map = { "mode": "active",
             \ "passive_filetypes": ["c", "cucumber", "feature", "html", "scss"],
             \ }
 let g:syntastic_css_checkers=['csslint']
+let g:syntastic_rst_checkers=[]
 "let g:syntastic_ruby_checkers=['rubocop', 'mri']
 " syntastic ---------------------------------- }}}
 
