@@ -205,6 +205,9 @@ nnoremap <C-n> :nohlsearch<cr>
 nnoremap <Space> <C-f>
 nnoremap <leader>] :TagbarToggle<CR>
 nnoremap <leader>a :Ack<space>
+nnoremap <leader>ah :Tabularize /=>/l1c1l0<CR>
+nnoremap <leader>ae :Tabularize /=/l1c1l0<CR>
+nnoremap <leader>a: :Tabularize /:/l1c1l0<CR>
 nnoremap <leader>i :set list!<cr>
 nnoremap <leader>n :setlocal number!<cr>
 nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
@@ -221,6 +224,9 @@ vnoremap <C-n> :nohlsearch<cr>
 vnoremap <Leader>s :sort<CR>
 vnoremap <leader>] :TagbarToggle<CR>
 vnoremap <leader>a :Ack<space>
+vnoremap <leader>ah :Tabularize /=>/l1c1l0<CR>
+vnoremap <leader>ae :Tabularize /=/l1c1l0<CR>
+vnoremap <leader>a: :Tabularize /:/l1c1l0<CR>
 vnoremap > >gv  " better indentation
 vnoremap / /\v
 vnoremap ? ?\v
