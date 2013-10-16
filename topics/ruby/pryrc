@@ -1,5 +1,11 @@
 Pry.config.editor = '~/.bin/vim'
 Pry.config.theme = 'solarized'
+Pry.config.prompt = proc do |obj, level, _|
+  prompt = ''
+  prompt << "#{Rails.version}@" if defined?(Rails)
+  prompt << "#{RUBY_VERSION}"
+  "#{prompt} (#{obj})>"
+end
 
 begin
   require 'awesome_print'
