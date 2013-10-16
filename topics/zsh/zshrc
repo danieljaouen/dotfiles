@@ -146,6 +146,7 @@ alias ber='bundle exec rake'
 alias bers='bundle exec rspec'
 alias bi='bundle install'
 alias bu='bundle update'
+alias bug='bundle gem --bin --test'
 alias rn='rails new'
 # /ruby/rails ------------------------------------------------------------- }}}
 
