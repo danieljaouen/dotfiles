@@ -18,6 +18,7 @@ hgext.record =
 color =
 convert =
 fetch =
+hggit = ~/.hgext/hg-git/hggit
 graphlog =
 parentrevspec =
 patchbomb =
