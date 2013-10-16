@@ -146,8 +146,11 @@ alias ber='bundle exec rake'
 alias bers='bundle exec rspec'
 alias bi='bundle install'
 alias bu='bundle update'
-alias bug='bundle gem --bin --test'
 alias rn='rails new'
+
+function bug {
+    bundle gem $1 --bin --test
+}
 # /ruby/rails ------------------------------------------------------------- }}}
 
 # vagrant ----------------------------------------------------------------- {{{
