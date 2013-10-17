@@ -31,10 +31,18 @@ then
     export PATH=${HOME}/.rbenv/shims:${HOME}/.bin:${HOME}/.rbenv/bin:/usr/texbin:/usr/local/var/go/bin:/usr/local/share/npm/bin:/usr/local/opt/ruby/bin:/usr/local/opt/varnish/bin:/usr/local/opt/varnish/sbin:/usr/local/sbin:/usr/local/bin:/usr/local/Cellar/php54/5.4.15/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:${PATH}
     export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
     export SHELL=/usr/local/bin/zsh
+    export JAVA_HOME="$(/usr/libexec/java_home)"
 
     unalias run-help
     autoload run-help
     HELPDIR=/usr/local/share/zsh/helpfiles
+
+    # aws --------------------------------------------------------------------- {{{
+    export EC2_PRIVATE_KEY="$(/bin/ls "$HOME"/.ec2/pk-*.pem | /usr/bin/head -1)"
+    export EC2_CERT="$(/bin/ls "$HOME"/.ec2/cert-*.pem | /usr/bin/head -1)"
+    export AWS_CLOUDFORMATION_HOME="/usr/local/Library/LinkedKegs/aws-cfn-tools/jars"
+    export AWS_CREDENTIAL_FILE="$HOME/.boto"
+    # /aws -------------------------------------------------------------------- }}}
 else
     export PATH=${HOME}/.rbenv/shims:${HOME}/.bin/bin:${HOME}/.bin:${HOME}/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:${PATH}
     export SHELL=/usr/bin/zsh
