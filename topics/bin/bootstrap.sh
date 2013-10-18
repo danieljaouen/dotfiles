@@ -26,7 +26,7 @@ pip install mercurial
 mkdir -p ~/src
 
 # Download and install Ansible
-git clone git://github.com/danieljaouen/ansible.git ~/src/ansible
+git clone -b brew git://github.com/danieljaouen/ansible.git ~/src/ansible
 
 # Use the forked Ansible
 source ~/src/ansible/hacking/env-setup
