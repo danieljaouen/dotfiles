@@ -58,7 +58,7 @@ fi
 (cd $ANSIBLE_DIRECTORY && git checkout brew)
 
 # Use the forked Ansible
-source $ANSIBLE_DIRECTORY/hacking/env-setup
+source $ANSIBLE_DIRECTORY/hacking/env-setup > /dev/null
 
 # Clone down the Ansible repo
 if [[ ! -d $ANSIBLE_CONFIGURATION_DIRECTORY ]]; then

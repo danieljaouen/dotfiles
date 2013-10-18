@@ -1,9 +1,7 @@
 # Dotfile config
 
 ## Install
-1. clone this repository
-2. cd into the repository
-3. run `rake`
+$ curl https://raw.github.com/danieljaouen/dotfiles/master/topics/bin/bootstrap.sh | bash
 
 ## Structure
 1. Symlinks (under `locations`) indicate where the soon-to-be-created symlinks
