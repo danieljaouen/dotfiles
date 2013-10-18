@@ -169,6 +169,7 @@ alias v="vagrant"
 alias vp="vagrant provision"
 alias vs="vagrant suspend"
 alias vup="vagrant up"
+alias vupa="vagrant up --provider=aws"
 # /vagrant ---------------------------------------------------------------- }}}
 
 # prompt ------------------------------------------------------------------ {{{
