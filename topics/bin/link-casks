@@ -1,0 +1,100 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+
+# utils ------------------------------------------------------------------- {{{
+def app_listing
+  Dir.glob("/opt/homebrew-cask/Caskroom/*/*/*.app").map do |name|
+    basename = File.basename(name)
+    old_path = name
+    new_path = "/Applications/#{basename}"
+
+    { old_path: old_path, new_path: new_path }
+  end
+end
+
+def current_file(f)
+  _old_path, new_path = f[:old_path], f[:new_path]
+
+  if File.symlink? new_path
+    { type: :symlink, path: new_path, old_path: File.expand_path(File.readlink(new_path)), new_path: new_path }
+  elsif File.directory? new_path
+    { type: :directory, path: new_path, old_path: new_path, new_path: new_path }
+  elsif File.file? new_path
+    { type: :file, path: new_path, old_path: new_path, new_path: new_path }
+  else
+    { type: nil, path: new_path, old_path: new_path, new_path: new_path }
+  end
+end
+
+def maybe_overwrite_symlink!(old_link, new_link, noinput = false)
+  if noinput
+    puts "Warn!  | Overwrite | path: #{new_link[:new_path]}, old: #{old_link[:old_path]}, new: #{new_link[:old_path]}"
+    FileUtils.ln_sf new_link[:old_path], new_link[:new_path]
+  else
+    print "Warn!  | Prompt    | #{new_link[:new_path]} already exists and points to #{old_link[:old_path]}! overwrite? (y/n): "
+    input = gets.chomp.strip.downcase
+    if input == 'y' || input == 'yes'
+      puts "Warn!  | Overwrite | path: #{new_link[:new_path]}, old: #{old_link[:old_path]}, new: #{new_link[:old_path]}"
+      FileUtils.ln_sf new_link[:old_path], new_link[:new_path]
+    else
+      puts "Info   | Info      | not overwriting link: #{new_link[:new_path]}, current_val: #{old_link[:old_path]}"
+    end
+  end
+end
+
+def maybe_overwrite_file!(old_file, new_link, noinput = false)
+  if noinput
+    puts "Warn!  | Overwrite | file: #{new_link[:new_path]}"
+    FileUtils.rm old_file[:path]
+    FileUtils.ln_s new_link[:old_path], new_link[:new_path]
+  else
+    print "Warn!  | Prompt    | #{old_file[:path]} already exists! overwrite? (y/n): "
+    input = gets.chomp.strip.downcase
+    if input == 'y' || input == 'yes'
+      puts "Warn!  | Overwrite | file: #{old_file[:path]}"
+      FileUtils.rm old_file[:path]
+      FileUtils.ln_s new_link[:old_path], new_link[:new_path]
+    else
+      puts "Info   | Info      | not overwriting file: #{new_link[:new_path]}"
+    end
+  end
+end
+
+def symlink_file(new_link, noinput = false)
+  old_path, new_path = new_link[:old_path], new_link[:new_path]
+  old_file = current_file(new_link)
+
+  case old_file[:type]
+  when :directory
+    puts "Error! | Exists    | #{new_path} : directory"
+    false
+  when :symlink
+    if old_file[:old_path] != old_path
+      maybe_overwrite_symlink!(old_file, new_link, noinput)
+    else
+      puts "Info   | Exists    | #{new_path} --> #{old_path}"
+    end
+  when :file
+    maybe_overwrite_file!(old_file, new_link, noinput)
+  when nil
+    puts "Info   | Linking   | #{new_path} --> #{old_path}"
+    FileUtils.ln_s new_link[:old_path], new_link[:new_path]
+  end
+end
+# /utils ------------------------------------------------------------------ }}}
+
+def install(noinput = false)
+  app_listing.each do |f|
+    symlink_file(f, noinput)
+  end
+end
+
+def uninstall(noinput = false)
+  app_listing.each do |f|
+    puts "Warn!  | Unlink    | file: #{f[:new_path]}"
+    File.unlink f[:new_path]
+  end
+end
+
+install(false)
