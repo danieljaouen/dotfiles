@@ -33,6 +33,8 @@ then
     export SHELL=/usr/local/bin/zsh
     export JAVA_HOME="$(/usr/libexec/java_home)"
 
+    alias update='https://raw.github.com/danieljaouen/dotfiles/master/topics/bin/bootstrap.sh | bash'
+
     unalias run-help
     autoload run-help
     HELPDIR=/usr/local/share/zsh/helpfiles
