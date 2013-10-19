@@ -188,6 +188,7 @@ endif
 " let localmapleader=','
 let mapleader=','
 inoremap jk <esc>
+inoremap <C-l> <C-x><C-]>
 " noremap <C-h> <C-w>h
 " noremap <C-j> <C-w>j
 " noremap <C-k> <C-w>k
