@@ -161,6 +161,7 @@ alias bi='bundle install'
 alias bu='bundle update'
 alias rn='rails new'
 alias rt='rake ctags'
+alias rr='rbenv rehash'
 
 function bug {
     bundle gem $1 --bin --test
