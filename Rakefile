@@ -53,7 +53,7 @@ def maybe_overwrite_symlink!(old_link, new_link, noinput = false)
   else
     print "Warn!  | Prompt    | #{new_link[:new_path]} already exists and points to #{old_link[:old_path]}! overwrite? (y/n): "
     input = gets.chomp.strip.downcase
-    if input == 'y' || input == 'yes'
+    if ['y', 'yes'].include? input
       puts "Warn!  | Overwrite | path: #{new_link[:new_path]}, old: #{old_link[:old_path]}, new: #{new_link[:old_path]}"
       FileUtils.ln_sf new_link[:old_path], new_link[:new_path]
     else
@@ -70,7 +70,7 @@ def maybe_overwrite_file!(old_file, new_link, noinput = false)
   else
     print "Warn!  | Prompt    | #{old_file[:path]} already exists! overwrite? (y/n): "
     input = gets.chomp.strip.downcase
-    if input == 'y' || input == 'yes'
+    if ['y', 'yes'].include? input
       puts "Warn!  | Overwrite | file: #{old_file[:path]}"
       FileUtils.rm old_file[:path]
       FileUtils.ln_s new_link[:old_path], new_link[:new_path]
