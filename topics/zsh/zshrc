@@ -160,6 +160,7 @@ alias bers='bundle exec rspec'
 alias bi='bundle install'
 alias bu='bundle update'
 alias rn='rails new'
+alias rt='rake ctags'
 
 function bug {
     bundle gem $1 --bin --test
