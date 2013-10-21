@@ -115,13 +115,13 @@ task :ensure_locals_exist do
   locals_listing.each do |f|
     puts "Info   | Touch     | #{f[:old_path]}"
     FileUtils.touch f[:old_path]
-    symlink_file(f, true)
+    symlink_file!(f, true)
   end
 end
 
 task :ensure_links_exist => [:ensure_directories_exist, :ensure_locals_exist] do
   dotfile_listing.each do |f|
-    symlink_file(f, true)
+    symlink_file!(f, true)
   end
 end
 
