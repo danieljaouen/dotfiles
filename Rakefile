@@ -80,7 +80,7 @@ def maybe_overwrite_file!(old_file, new_link, noinput = false)
   end
 end
 
-def symlink_file(new_link, noinput = false)
+def symlink_file!(new_link, noinput = false)
   old_path, new_path = new_link[:old_path], new_link[:new_path]
   old_file = current_file(new_link)
 
