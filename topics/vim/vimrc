@@ -318,7 +318,7 @@ let g:ycm_autoclose_preview_window_after_completion=1
 " ruby-mode ---------------------------------- {{{
 augroup rubymode
     au!
-    au BufRead,BufNewFile *.cap set filetype=markdown
+    au BufRead,BufNewFile *.cap set filetype=ruby
     au Filetype ruby setlocal ts=2 sts=2 sw=2
     au FileType ruby let &l:colorcolumn  = gitcommit_short_summary_max_length
     au FileType ruby let &l:colorcolumn .= "," . docstring_max_length
