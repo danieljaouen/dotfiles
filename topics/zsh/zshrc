@@ -95,6 +95,8 @@ alias apios="ansible-playbook -i ~/.ansible.d/inventories/osx ~/.ansible.d/site.
 
 # git --------------------------------------------------------------------- {{{
 alias gc='git commit -m'
+alias gp='git'
+alias gpu='git'
 # /git -------------------------------------------------------------------- }}}
 
 # go ---------------------------------------------------------------------- {{{
@@ -105,6 +107,8 @@ export GOPATH=/usr/local/var/go
 alias h="hg"
 alias hc="hg commit -m"
 alias hm="hg commit -m 'merge.'"
+alias hp="hg"
+alias hpu="hg"
 alias hqci="hg qci"
 alias hqf="hg qf"
 alias hqgl="hg qgl"

@@ -40,6 +40,10 @@ addremove = --similarity 100
 # aliases ----------------------------------------------------------------- {{{
 [alias]
 show  = log --color=always -pr
+ull   = pull
+ll    = pull
+ush   = push
+sh    = push
 qq    = qqueue
 qs    = qseries -v -s
 qsow  = qseries -v -s
