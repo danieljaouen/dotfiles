@@ -17,8 +17,8 @@
     # publish = !legit publish \"$@\"
     # graft = !legit graft \"$@\"
 
-    gl   = log -10 --color= always --all --graph --topo-order --pretty ='format:%Cred%h%Creset %s %C(yellow)%d%Creset%n%C(cyan)(%cr by %cn)%Creset%n'
-    gll  = log --color    = always --all --graph --topo-order --pretty ='format:%Cred%h%Creset %s %C(yellow)%d%Creset%n%C(cyan)(%cr by %cn)%Creset%n'
+    gl   = log -10 --color=always --all --graph --topo-order --pretty='format:%Cred%h%Creset %s %C(yellow)%d%Creset%n%C(cyan)(%cr by %cn)%Creset%n'
+    gll  = log --color=always --all --graph --topo-order --pretty='format:%Cred%h%Creset %s %C(yellow)%d%Creset%n%C(cyan)(%cr by %cn)%Creset%n'
 
     ull  = pull
     ll   = pull
