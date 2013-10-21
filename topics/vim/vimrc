@@ -189,6 +189,10 @@ endif
 let mapleader=','
 inoremap jk <esc>
 inoremap <C-l> <C-x><C-]>
+inoremap <C-d>o {%<space><space>%}<left><left><left>
+inoremap <C-d>t {{<space><space>}}<left><left><left>
+inoremap <C-e>o <%<space><space>%><left><left><left>
+inoremap <C-e>t <%=<space><space>%><left><left><left>
 " noremap <C-h> <C-w>h
 " noremap <C-j> <C-w>j
 " noremap <C-k> <C-w>k
