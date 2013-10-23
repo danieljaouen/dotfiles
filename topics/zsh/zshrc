@@ -1,11 +1,5 @@
 # oh-my-zsh defaults ------------------------------------------------------ {{{
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="robbyrussell"
-# CASE_SENSITIVE="true"
-# DISABLE_AUTO_UPDATE="true"
-# DISABLE_LS_COLORS="true"
-# DISABLE_AUTO_TITLE="true"
-# COMPLETION_WAITING_DOTS="true"
 
 case "$OSTYPE" in
   darwin*) OS="OSX" ;;
@@ -14,11 +8,43 @@ esac
 # /oh-my-zsh defaults ----------------------------------------------------- }}}
 
 # Plugins ----------------------------------------------------------------- {{{
+base_plugins=(
+    bundler
+    capistrano
+    django
+    fabric
+    gem
+    git
+    git-extras
+    mercurial
+    mix
+    node
+    npm
+    nvm
+    pip
+    postgres
+    python
+    rails4
+    rake
+    rbenv
+    redis-cli
+    rsync
+    ruby
+    taskwarrior
+    tmux
+    vagrant
+    virtualenv
+    virtualenvwrapper
+    vundle
+    zsh-syntax-highlighting
+)
 if [[ "x$OS" == "xOSX" ]]
 then
-    plugins=(git brew django lein mercurial node npm osx pip python fabric vagrant zsh-syntax-highlighting)
+    local_plugins=(osx brew)
+    plugins=($local_plugins $base_plugins)
 else
-    plugins=(git django lein mercurial node npm pip python fabric vagrant zsh-syntax-highlighting)
+    local_plugins=()
+    plugins=($local_plugins $base_plugins)
 fi
 # /Plugins ---------------------------------------------------------------- }}}
 
