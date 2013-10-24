@@ -58,6 +58,7 @@ then
     export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
     export SHELL=/usr/local/bin/zsh
     export JAVA_HOME="$(/usr/libexec/java_home)"
+    export PAGER=vimpager
 
     alias update='curl https://raw.github.com/danieljaouen/dotfiles/master/topics/bin/bootstrap.sh | bash'
 
@@ -83,7 +84,6 @@ unsetopt correct_all
 setopt INTERACTIVE_COMMENTS
 
 export EDITOR=vim
-export PAGER=vimpager
 export TERM=screen-256color-bce
 export ANSIBLE_PARAMIKO_AGENT_FORWARDING=sudo_user
 export ANSIBLE_NOCOWS=1
