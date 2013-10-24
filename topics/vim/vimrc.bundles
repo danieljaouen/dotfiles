@@ -11,6 +11,7 @@ Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'daylerees/colour-schemes', { "rtp": "vim-themes/" }
 Bundle 'elixir-lang/vim-elixir'
+Bundle 'empanda/vim-varnish'
 Bundle 'fsouza/go.vim'
 Bundle 'gmarik/vundle'
 Bundle 'godlygeek/tabular'
