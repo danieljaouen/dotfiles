@@ -204,6 +204,7 @@ alias pmsdb='python manage.py syncdb'
 alias pmsi='python manage.py schemamigration --initial'
 alias pmsm='python manage.py schemamigration --auto'
 alias pmsp='python manage.py shell_plus'
+alias pyr='pyenv rehash'
 # /python/django ---------------------------------------------------------- }}}
 
 # ruby/rails -------------------------------------------------------------- {{{
