@@ -7,6 +7,30 @@ case "$OSTYPE" in
 esac
 # /oh-my-zsh defaults ----------------------------------------------------- }}}
 
+# PATH -------------------------------------------------------------------- {{{
+BASE_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+RBENV_PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin
+PYENV_PATH=$HOME/.pyenv/shims:$HOME/.pyenv/bin
+if [[ "x$OS" == "xOSX" ]]
+then
+    # LOCAL_PATH --------------------------------------------------- {{{
+    LOCAL_PATH=/usr/X11/bin
+    LOCAL_PATH=/usr/local/opt/ruby/bin:$LOCAL_PATH
+    LOCAL_PATH=/usr/local/share/npm/bin:$LOCAL_PATH
+    LOCAL_PATH=/usr/local/var/go/bin:$LOCAL_PATH
+    LOCAL_PATH=/usr/texbin:$LOCAL_PATH
+    # /LOCAL_PATH -------------------------------------------------- }}}
+
+    export PATH=$PYENV_PATH:$RBENV_PATH:$LOCAL_PATH:$BASE_PATH
+else
+    # LOCAL_PATH --------------------------------------------------- {{{
+    LOCAL_PATH=''
+    # /LOCAL_PATH -------------------------------------------------- }}}
+
+    export PATH=$PYENV_PATH:$RBENV_PATH:$LOCAL_PATH:$BASE_PATH
+fi
+# /PATH ------------------------------------------------------------------- }}}
+
 # Plugins ----------------------------------------------------------------- {{{
 base_plugins=(
     bundler
@@ -50,11 +74,13 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-# Path and OS-specific Config --------------------------------------------- {{{
+# OS-specific config ------------------------------------------------------ {{{
+BASE_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+RBENV_PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin
+PYENV_PATH=$HOME/.pyenv/shims:$HOME/.pyenv/bin
 if [[ "x$OS" == "xOSX" ]]
 then
     export MAIL=~/Mail
-    export PATH=${HOME}/.rbenv/shims:${HOME}/.bin:${HOME}/.rbenv/bin:/usr/texbin:/usr/local/var/go/bin:/usr/local/share/npm/bin:/usr/local/opt/ruby/bin:/usr/local/opt/varnish/bin:/usr/local/opt/varnish/sbin:/usr/local/sbin:/usr/local/bin:/usr/local/Cellar/php54/5.4.15/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:${PATH}
     export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
     export SHELL=/usr/local/bin/zsh
     export JAVA_HOME="$(/usr/libexec/java_home)"
@@ -73,11 +99,10 @@ then
     export AWS_CREDENTIAL_FILE="$HOME/.boto"
     # /aws -------------------------------------------------------------------- }}}
 else
-    export PATH=${HOME}/.rbenv/shims:${HOME}/.bin/bin:${HOME}/.bin:${HOME}/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:${PATH}
     export SHELL=/usr/bin/zsh
     # eval "$(ssh-agent)"
 fi
-# /Path and OS-specific Config -------------------------------------------- }}}
+# /OS-specific config ----------------------------------------------------- }}}
 
 # Global Options and Aliases ---------------------------------------------- {{{
 unsetopt correct_all
@@ -85,6 +110,7 @@ setopt INTERACTIVE_COMMENTS
 
 export EDITOR=vim
 export TERM=screen-256color-bce
+export PYENV_ROOT=$HOME/.pyenv
 export ANSIBLE_PARAMIKO_AGENT_FORWARDING=sudo_user
 export ANSIBLE_NOCOWS=1
 
@@ -156,6 +182,7 @@ alias hup="hg up"
 # /javascript/node.js ----------------------------------------------------- }}}
 
 # python/django ----------------------------------------------------------- {{{
+eval "$(pyenv init - zsh)"
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
 
 if [[ "x$OS" == "xOSX" ]]; then
