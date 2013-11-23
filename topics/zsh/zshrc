@@ -66,11 +66,10 @@ base_plugins=(
 if [[ "x$OS" == "xOSX" ]]
 then
     local_plugins=(osx brew)
-    # plugins=($local_plugins $base_plugins)
-    plugins=()
+    plugins=($local_plugins $base_plugins)
 else
     local_plugins=()
-    plugins=()
+    plugins=($local_plugins $base_plugins)
 fi
 # /Plugins ---------------------------------------------------------------- }}}
 
