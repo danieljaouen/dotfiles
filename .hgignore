@@ -1,6 +1,7 @@
 syntax: glob
 
 *~
+*.bak
 .*DS_Store
 *.pyc
 .git
