@@ -115,6 +115,7 @@ export TERM=screen-256color-bce
 export PYENV_ROOT=$HOME/.pyenv
 export ANSIBLE_PARAMIKO_AGENT_FORWARDING=sudo_user
 export ANSIBLE_NOCOWS=1
+export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
 alias debug_email="python -m smtpd -n -c DebuggingServer localhost:1025"
 alias j="z"
