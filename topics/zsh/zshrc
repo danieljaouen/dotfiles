@@ -49,7 +49,7 @@ base_plugins=(
     pip
     postgres
     python
-    rails4
+    rails
     rake
     rbenv
     redis-cli
