@@ -322,6 +322,19 @@ augroup END
 let g:rubycomplete_rails = 1
 " /ruby-mode --------------------------------- }}}
 
+" elixir-mode -------------------------------- {{{
+augroup elixirmode
+    au!
+    au Filetype elixir setlocal ts=2 sts=2 sw=2
+    au FileType elixir let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType elixir let &l:colorcolumn .= "," . docstring_max_length
+    au FileType elixir let &l:colorcolumn .= "," . short_line_max_length
+    au FileType elixir let &l:colorcolumn .= "," . long_line_max_length
+    au Filetype elixir setlocal foldmethod=marker
+    au Filetype elixir nnoremap <buffer> <leader>t :!mix test<CR>
+augroup END
+" /elixir-mode ------------------------------- }}}
+
 " rails-mode --------------------------------- {{{
 augroup railsmode
     au!
