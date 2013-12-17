@@ -158,6 +158,15 @@ alias drr="docker run"
 alias drs="docker search"
 # /docker ----------------------------------------------------------------- }}}
 
+# elixir ------------------------------------------------------------------ {{{
+alias m="mix"
+alias mn="mix new"
+alias md="mix dynamo"
+alias mwn="mix weber.new"
+alias mc="mix compile"
+alias mcf="mix compile --all --force"
+# /elixir ----------------------------------------------------------------- }}}
+
 # git --------------------------------------------------------------------- {{{
 alias gc='git commit -m'
 alias gp='git'
