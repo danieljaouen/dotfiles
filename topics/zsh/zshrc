@@ -148,6 +148,10 @@ alias apio="ansible-playbook -i ~/.ansible.d/inventories/osx"
 alias apios="ansible-playbook -i ~/.ansible.d/inventories/osx ~/.ansible.d/site.yml"
 # /ansible ---------------------------------------------------------------- }}}
 
+# cloc -------------------------------------------------------------------- {{{
+alias cloc="cloc --read-lang-def=${HOME}/.clocrc"
+# /cloc ------------------------------------------------------------------- }}}
+
 # docker ------------------------------------------------------------------ {{{
 alias dr="docker"
 alias dri="docker images"
