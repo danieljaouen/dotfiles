@@ -164,11 +164,12 @@ alias drs="docker search"
 
 # elixir ------------------------------------------------------------------ {{{
 alias m="mix"
-alias mn="mix new"
-alias md="mix dynamo"
-alias mwn="mix weber.new"
 alias mc="mix compile"
 alias mcf="mix compile --all --force"
+alias md="mix dynamo"
+alias mdg="mix deps.get"
+alias mn="mix new"
+alias mwn="mix weber.new"
 # /elixir ----------------------------------------------------------------- }}}
 
 # git --------------------------------------------------------------------- {{{
