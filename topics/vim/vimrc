@@ -322,18 +322,17 @@ augroup END
 let g:rubycomplete_rails = 1
 " /ruby-mode --------------------------------- }}}
 
-" elixir-mode -------------------------------- {{{
-augroup elixirmode
+" rails-mode --------------------------------- {{{
+augroup railsmode
     au!
-    au Filetype elixir setlocal ts=2 sts=2 sw=2
-    au FileType elixir let &l:colorcolumn  = gitcommit_short_summary_max_length
-    au FileType elixir let &l:colorcolumn .= "," . docstring_max_length
-    au FileType elixir let &l:colorcolumn .= "," . short_line_max_length
-    au FileType elixir let &l:colorcolumn .= "," . long_line_max_length
-    au Filetype elixir setlocal foldmethod=syntax
-    au Filetype elixir nnoremap <buffer> <leader>t :!mix test<CR>
+    au User Rails silent! Rnavcommand decorator      app/decorators            -glob=**/* -suffix=_decorator.rb
+    au User Rails silent! Rnavcommand observer       app/observers             -glob=**/* -suffix=_observer.rb
+    au User Rails silent! Rnavcommand feature        features                  -glob=**/* -suffix=.feature
+    au User Rails silent! Rnavcommand job            app/jobs                  -glob=**/* -suffix=_job.rb
+    au User Rails silent! Rnavcommand mediator       app/mediators             -glob=**/* -suffix=_mediator.rb
+    au User Rails silent! Rnavcommand stepdefinition features/step_definitions -glob=**/* -suffix=_steps.rb
 augroup END
-" /elixir-mode ------------------------------- }}}
+" /rails-mode -------------------------------- }}}
 
 " erlang-mode -------------------------------- {{{
 augroup erlangmode
@@ -351,17 +350,18 @@ augroup END
 let g:rubycomplete_rails = 1
 " /erlang-mode ------------------------------- }}}
 
-" rails-mode --------------------------------- {{{
-augroup railsmode
+" elixir-mode -------------------------------- {{{
+augroup elixirmode
     au!
-    au User Rails silent! Rnavcommand decorator      app/decorators            -glob=**/* -suffix=_decorator.rb
-    au User Rails silent! Rnavcommand observer       app/observers             -glob=**/* -suffix=_observer.rb
-    au User Rails silent! Rnavcommand feature        features                  -glob=**/* -suffix=.feature
-    au User Rails silent! Rnavcommand job            app/jobs                  -glob=**/* -suffix=_job.rb
-    au User Rails silent! Rnavcommand mediator       app/mediators             -glob=**/* -suffix=_mediator.rb
-    au User Rails silent! Rnavcommand stepdefinition features/step_definitions -glob=**/* -suffix=_steps.rb
+    au Filetype elixir setlocal ts=2 sts=2 sw=2
+    au FileType elixir let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType elixir let &l:colorcolumn .= "," . docstring_max_length
+    au FileType elixir let &l:colorcolumn .= "," . short_line_max_length
+    au FileType elixir let &l:colorcolumn .= "," . long_line_max_length
+    au Filetype elixir setlocal foldmethod=syntax
+    au Filetype elixir nnoremap <buffer> <leader>t :!mix test<CR>
 augroup END
-" /rails-mode -------------------------------- }}}
+" /elixir-mode ------------------------------- }}}
 
 " stylus-mode -------------------------------- {{{
 augroup stylusmode
@@ -395,6 +395,17 @@ augroup markdownmode
     au FileType markdown let &l:colorcolumn .= "," . long_line_max_length
 augroup END
 " /markdown ---------------------------------- }}}
+
+" htmldjango --------------------------------- {{{
+augroup htmlmode
+    au!
+    au BufRead,BufNewFile *.html set filetype=htmldjango
+    au FileType markdown let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType markdown let &l:colorcolumn .= "," . docstring_max_length
+    au FileType markdown let &l:colorcolumn .= "," . short_line_max_length
+    au FileType markdown let &l:colorcolumn .= "," . long_line_max_length
+augroup END
+" /htmldjango -------------------------------- }}}
 
 " yaml --------------------------------------- {{{
 augroup yamlmode
