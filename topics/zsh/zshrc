@@ -8,13 +8,13 @@ esac
 # /oh-my-zsh defaults ----------------------------------------------------- }}}
 
 # PATH -------------------------------------------------------------------- {{{
-local BASE_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-local RBENV_PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin
-local PYENV_PATH=$HOME/.pyenv/shims:$HOME/.pyenv/bin
+BASE_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+RBENV_PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin
+PYENV_PATH=$HOME/.pyenv/shims:$HOME/.pyenv/bin
 if [[ "x$OS" == "xOSX" ]]
 then
     # LOCAL_PATH --------------------------------------------------- {{{
-    local LOCAL_PATH=/usr/X11/bin
+    LOCAL_PATH=/usr/X11/bin
     LOCAL_PATH=/usr/local/opt/ruby/bin:$LOCAL_PATH
     LOCAL_PATH=/usr/local/share/npm/bin:$LOCAL_PATH
     LOCAL_PATH=/usr/local/var/go/bin:$LOCAL_PATH
@@ -276,14 +276,6 @@ function prompt_char {
     echo '○'
 }
 
-function rbenv_info {
-    rbenv local 2>/dev/null || rbenv global 2>/dev/null
-}
-
-function pyenv_info {
-    pyenv local 2>/dev/null || pyenv global 2>/dev/null
-}
-
 function battery_charge {
     echo `$BAT_CHARGE` 2>/dev/null
 }
@@ -292,184 +284,24 @@ function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
 }
 
-# TODO: this is a terrible way to do this.  fix this up when it's not 3:30AM.
-# zsh prompt expansions -------------------------------------------- {{{
-local RESET_COLORS="[0m"
-local RESET_COLORS_TMUX="Ptmux;[0m\\"
-local BLACK_FOREGROUND="[30m"
-local BLACK_FOREGROUND_BOLD="[1m[30m"
-local BLACK_BACKGROUND="[40m"
-local RED_FOREGROUND="[31m"
-local RED_FOREGROUND_BOLD="[1m[31m"
-local RED_BACKGROUND="[41m"
-local GREEN_FOREGROUND="[32m"
-local GREEN_FOREGROUND_BOLD="[1m[32m"
-local GREEN_BACKGROUND="[42m"
-local YELLOW_FOREGROUND="[33m"
-local YELLOW_FOREGROUND_BOLD="[1m[33m"
-local YELLOW_BACKGROUND="[43m"
-local BLUE_FOREGROUND="[34m"
-local BLUE_FOREGROUND_BOLD="[1m[34m"
-local BLUE_BACKGROUND="[44m"
-local MAGENTA_FOREGROUND="[35m"
-local MAGENTA_FOREGROUND_BOLD="[1m[35m"
-local MAGENTA_BACKGROUND="[45m"
-local CYAN_FOREGROUND="[36m"
-local CYAN_FOREGROUND_BOLD="[1m[36m"
-local CYAN_BACKGROUND="[46m"
-local WHITE_FOREGROUND="[37m"
-local WHITE_FOREGROUND_BOLD="[1m[37m"
-local WHITE_BACKGROUND="[47m"
-local CLEAR_TO_EOL="[K"
-local CLEAR_TO_EOL_TMUX="Ptmux;[K\\"
-# /zsh prompt expansions ------------------------------------------- }}}
-
-if [[ ! "x$TMUX" = "x" ]]; then
-    CLEAR_TO_EOL=$CLEAR_TO_EOL_TMUX
-fi
-
 function hg_prompt_info {
     hg prompt --angle-brackets "\
-${CLEAR_TO_EOL}\
-${RESET_COLORS}
-${GREEN_BOLD}\
-${BLACK_BACKGROUND}\
-[\
-${BLACK_BACKGROUND}\
-hg: \
-${RESET_COLORS}\
-${BLUE_FOREGROUND}\
-${BLACK_BACKGROUND}\
-<branch>\
-${RESET_COLORS}\
-${RED_FOREGROUND}\
-${BLACK_BACKGROUND}\
-<status|modified|unknown>\
-<update>\
-${RESET_COLORS}\
-${BLACK_BACKGROUND}\
- \
-<\
-${RESET_COLORS}\
-${MAGENTA_FOREGROUND}\
-${BLACK_BACKGROUND}\
-<\
-tags|\
-${RESET_COLORS}\
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-:\
-${RESET_COLORS}\
-${MAGENTA_FOREGROUND}\
-${BLACK_BACKGROUND}\
->\
->\
-${RESET_COLORS}\
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-]\
-${CLEAR_TO_EOL}\
-${RESET_COLORS}\
-<
-${RESET_COLORS}\
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-[\
-${RESET_COLORS}\
-${BLACK_BACKGROUND}\
-hg-patches: \
-<\
-patches\
-|join( → )\
-|pre_applied(${RESET_COLORS}${YELLOW_FOREGROUND}${BLACK_BACKGROUND})\
-|post_applied(${RESET_COLORS}${BLACK_BACKGROUND})\
-|pre_unapplied(${RESET_COLORS}${GREEN_FOREGROUND_BOLD}${BLACK_BACKGROUND})\
-|post_unapplied(${RESET_COLORS}${BLACK_BACKGROUND})\
->\
-${RESET_COLORS}\
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-]\
->" 2>/dev/null
+< on %{$fg[red]%}<branch>%{$reset_color%}>\
+< at %{$fg[yellow]%}<tags|%{$reset_color%}, %{$fg[yellow]%}>%{$reset_color%}>\
+%{$fg[green]%}<status|modified|unknown><update>%{$reset_color%}<
+patches: <patches|join( → )|pre_applied(%{$fg[yellow]%})|post_applied(%{$reset_color%})|pre_unapplied(%{$fg_bold[green]%})|post_unapplied(%{$reset_color%})>>" 2>/dev/null
 }
 
-PROMPT='\
-${RESET_COLORS}
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-[\
-${RED_FOREGROUND_BOLD}\
-%n\
-${GREEN_FOREGROUND_BOLD}\
-@\
-${RESET_COLORS}\
-${MAGENTA_FOREGROUND}\
-${BLACK_BACKGROUND}\
-%m\
-${GREEN_FOREGROUND_BOLD}\
-] \
-${GREEN_FOREGROUND_BOLD}\
-[\
-${RESET_COLORS}\
-${BLACK_BACKGROUND}\
-pwd: \
-${RESET_COLORS}\
-${CYAN_FOREGROUND}\
-${BLACK_BACKGROUND}\
-$(collapse_pwd)\
-${GREEN_FOREGROUND_BOLD}\
-]\
-$(git_prompt_info)\
-$(hg_prompt_info)\
-${CLEAR_TO_EOL}\
-${RESET_COLORS}
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-[\
-${RESET_COLORS}\
-${BLACK_BACKGROUND}\
-python: \
-${RESET_COLORS}\
-${YELLOW_FOREGROUND}\
-${BLACK_BACKGROUND}\
-$(pyenv_info)\
-${RESET_COLORS}\
-${BLACK_BACKGROUND}\
-, \
-ruby: \
-${RESET_COLORS}\
-${YELLOW_FOREGROUND}\
-${BLACK_BACKGROUND}\
-$(rbenv_info)\
-${RESET_COLORS}\
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-]\
-${CLEAR_TO_EOL}\
-${RESET_COLORS}
-${GREEN_FOREGROUND}\
-${BLACK_BACKGROUND}\
-$(virtualenv_info)\
-${RESET_COLORS}\
-${BLACK_BACKGROUND}\
-$(prompt_char)\
-${RESET_COLORS} '
+PROMPT='
+%{$fg[red]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}$(git_prompt_info)$(hg_prompt_info)
+$(virtualenv_info)$(prompt_char) '
 
-ZSH_THEME_GIT_PROMPT_PREFIX="\
-${CLEAR_TO_EOL}\
-${RESET_COLORS}
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-[\
-${RESET_COLORS}\
-${BLACK_BACKGROUND}\
-git: \
-${RESET_COLORS}\
-${BLUE_FOREGROUND}\
-${BLACK_BACKGROUND}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="${GREEN_FOREGROUND_BOLD}]"
-ZSH_THEME_GIT_PROMPT_DIRTY="${RED_FOREGROUND_BOLD}!"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="${RED_FOREGROUND_BOLD}?"
+RPROMPT='$(battery_charge)'
+
+ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}!"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[green]%}?"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 # /prompt ----------------------------------------------------------------- }}}
 
