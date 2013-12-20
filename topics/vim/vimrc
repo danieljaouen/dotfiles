@@ -335,6 +335,22 @@ augroup elixirmode
 augroup END
 " /elixir-mode ------------------------------- }}}
 
+" erlang-mode -------------------------------- {{{
+augroup erlangmode
+    au!
+    au BufRead,BufNewFile boss.config set filetype=erlang
+    au BufRead,BufNewFile rebar.config set filetype=erlang
+    au BufRead,BufNewFile *.app.src set filetype=erlang
+    au FileType erlang let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType erlang let &l:colorcolumn .= "," . docstring_max_length
+    au FileType erlang let &l:colorcolumn .= "," . short_line_max_length
+    au FileType erlang let &l:colorcolumn .= "," . long_line_max_length
+    au Filetype erlang setlocal foldmethod=syntax
+augroup END
+
+let g:rubycomplete_rails = 1
+" /erlang-mode ------------------------------- }}}
+
 " rails-mode --------------------------------- {{{
 augroup railsmode
     au!
