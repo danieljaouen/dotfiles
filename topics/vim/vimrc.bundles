@@ -9,6 +9,7 @@ Bundle 'ap/vim-css-color'
 Bundle 'bling/vim-airline'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'dag/vim-fish'
 Bundle 'daylerees/colour-schemes', { "rtp": "vim-themes/" }
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'empanda/vim-varnish'
