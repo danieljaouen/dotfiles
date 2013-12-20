@@ -340,6 +340,7 @@ augroup erlangmode
     au BufRead,BufNewFile boss.config set filetype=erlang
     au BufRead,BufNewFile rebar.config set filetype=erlang
     au BufRead,BufNewFile *.app.src set filetype=erlang
+    au BufRead,BufNewFile *.routes set filetype=erlang
     au FileType erlang let &l:colorcolumn  = gitcommit_short_summary_max_length
     au FileType erlang let &l:colorcolumn .= "," . docstring_max_length
     au FileType erlang let &l:colorcolumn .= "," . short_line_max_length
