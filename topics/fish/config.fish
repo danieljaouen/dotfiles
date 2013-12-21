@@ -67,145 +67,145 @@ set -x ANSIBLE_NOCOWS 1
 # set -x LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
 
 function l
-    ls -lah
+    command ls -lah $argv
 end
 function less
-    vimpager
+    command vimpager
 end
 function mtr
-    sudo mtr -t
+    command sudo mtr -t $argv
 end
 function mute
-    vol 0
+    command vol 0 $argv
 end
 function n
-    newsbeuter
+    command newsbeuter $argv
 end
 function serve_this
-    python -m SimpleHTTPServer 8100
+    command python -m SimpleHTTPServer 8100 $argv
 end
 function t
-    task
+    command task $argv
 end
 function zless
-    $PAGER
+    command $PAGER $argv
 end
 # /Global Options and Aliases --------------------------------------------- }}}
 
 # ag ---------------------------------------------------------------------- {{{
 function agjs
-    ag -G '.*\.js$'
+    command ag -G '.*\.js$' $argv
 end
 function agpy
-    ag -G '.*\.py$'
+    command ag -G '.*\.py$' $argv
 end
 function aghtml
-    ag -G '.*\.html$'
+    command ag -G '.*\.html$' $argv
 end
 function agyml
-    ag -G '.*\.yml$'
+    command ag -G '.*\.yml$' $argv
 end
 function agrb
-    ag -G '.*\.rb$'
+    command ag -G '.*\.rb$' $argv
 end
 # /ag --------------------------------------------------------------------- }}}
 
 # ansible ----------------------------------------------------------------- {{{
 function a
-    ansible
+    command ansible $argv
 end
 function ap
-    ansible-playbook
+    command ansible-playbook $argv
 end
 function api
-    ansible-playbook -i
+    command ansible-playbook -i $argv
 end
 function apik
-    ansible-playbook --ask-sudo-pass -i
+    command ansible-playbook --ask-sudo-pass -i $argv
 end
 function apvi
-    ansible-playbook -vvvv -i
+    command ansible-playbook -vvvv -i $argv
 end
 function apvik
-    ansible-playbook -vvvv --ask-sudo-pass -i
+    command ansible-playbook -vvvv --ask-sudo-pass -i $argv
 end
 function apio
-    ansible-playbook -i ~/.ansible.d/inventories/osx
+    command ansible-playbook -i ~/.ansible.d/inventories/osx $argv
 end
 function apios
-    ansible-playbook -i ~/.ansible.d/inventories/osx ~/.ansible.d/site.yml
+    command ansible-playbook -i ~/.ansible.d/inventories/osx ~/.ansible.d/site.yml $argv
 end
 # /ansible ---------------------------------------------------------------- }}}
 
 # cloc -------------------------------------------------------------------- {{{
 function cloc
-    cloc --read-lang-def=$HOME/.clocrc
+    command cloc --read-lang-def=$HOME/.clocrc $argv
 end
 # /cloc ------------------------------------------------------------------- }}}
 
 # docker ------------------------------------------------------------------ {{{
 function dr
-    docker
+    command docker $argv
 end
 function dri
-    docker images
+    command docker images $argv
 end
 function drpl
-    docker pull
+    command docker pull $argv
 end
 function drps
-    docker ps
+    command docker ps $argv
 end
 function drpu
-    docker push
+    command docker push $argv
 end
 function drr
-    docker run
+    command docker run $argv
 end
 function drs
-    docker search
+    command docker search $argv
 end
 # /docker ----------------------------------------------------------------- }}}
 
 # elixir ------------------------------------------------------------------ {{{
 function m
-    mix
+    command mix $argv
 end
 function mc
-    mix compile
+    command mix compile $argv
 end
 function mcf
-    mix compile --all --force
+    command mix compile --all --force $argv
 end
 function md
-    mix dynamo
+    command mix dynamo $argv
 end
 function mdg
-    mix deps.get
+    command mix deps.get $argv
 end
 function mn
-    mix new
+    command mix new $argv
 end
 function mwn
-    mix weber.new
+    command mix weber.new $argv
 end
 # /elixir ----------------------------------------------------------------- }}}
 
 # erlang ------------------------------------------------------------------ {{{
 function re
-    rebar
+    command rebar $argv
 end
 # /erlang ----------------------------------------------------------------- }}}
 
 # git --------------------------------------------------------------------- {{{
 function gc
-    git commit -m
+    command git commit -m $argv
 end
 function gp
-    git
+    command git $argv
 end
 function gpu
-    git
+    command git $argv
 end
 # /git -------------------------------------------------------------------- }}}
 
@@ -215,61 +215,61 @@ set -x GOPATH /usr/local/var/go
 
 # hg ---------------------------------------------------------------------- {{{
 function h
-    hg
+    command hg $argv
 end
 function hc
-    hg commit -m
+    command hg commit -m $argv
 end
 function hm
-    hg commit -m 'merge.'
+    command hg commit -m 'merge.' $argv
 end
 function hp
-    hg
+    command hg $argv
 end
 function hpu
-    hg
+    command hg $argv
 end
 function hqci
-    hg qci
+    command hg qci $argv
 end
 function hqf
-    hg qf
+    command hg qf $argv
 end
 function hqgl
-    hg qgl
+    command hg qgl $argv
 end
 function hqi
-    hg qi
+    command hg qi $argv
 end
 function hqlog
-    hg gqlog
+    command hg gqlog $argv
 end
 function hqn
-    hg qn
+    command hg qn $argv
 end
 function hqpo
-    hg qpo
+    command hg qpo $argv
 end
 function hqpoa
-    hg qpoa
+    command hg qpoa $argv
 end
 function hqpua
-    hg qpua
+    command hg qpua $argv
 end
 function hqq
-    hg qq
+    command hg qq $argv
 end
 function hqr
-    hg qr
+    command hg qr $argv
 end
 function hqrm
-    hg qrm
+    command hg qrm $argv
 end
 function hqst
-    hg qst
+    command hg qst $argv
 end
 function hup
-    hg up
+    command hg up $argv
 end
 # /hg --------------------------------------------------------------------- }}}
 
@@ -286,101 +286,101 @@ set -x PYTHONSTARTUP "$HOME/.pythonrc.py"
 set -x VIRTUAL_ENV_DISABLE_PROMPT 0
 
 function daspt
-    django-admin.py startproject --template=https://github.com/twoscoops/django-twoscoops-project/archive/master.zip --extension=py,rst,html
+    command django-admin.py startproject --template=https://github.com/twoscoops/django-twoscoops-project/archive/master.zip --extension=py,rst,html $argv
 end
 function fd
-    fab dev
+    command fab dev $argv
 end
 function pm
-    python manage.py
+    command python manage.py $argv
 end
 function pmm
-    'python manage.py migrate'
+    command 'python manage.py migrate' $argv
 end
 function pmr
-    'python manage.py runserver'
+    command 'python manage.py runserver' $argv
 end
 function pmrp
-    'python manage.py runserver_plus'
+    command 'python manage.py runserver_plus' $argv
 end
 function pmrpg
-    'python manage.py runserver_plus --adminmedia=`pwd`/media/admin'
+    command 'python manage.py runserver_plus --adminmedia=`pwd`/media/admin' $argv
 end
 function pms
-    'python manage.py shell'
+    command 'python manage.py shell' $argv
 end
 function pmsdb
-    'python manage.py syncdb'
+    command 'python manage.py syncdb' $argv
 end
 function pmsi
-    'python manage.py schemamigration --initial'
+    command 'python manage.py schemamigration --initial' $argv
 end
 function pmsm
-    'python manage.py schemamigration --auto'
+    command 'python manage.py schemamigration --auto' $argv
 end
 function pmsp
-    'python manage.py shell_plus'
+    command 'python manage.py shell_plus' $argv
 end
 function pyr
-    'pyenv rehash'
+    command 'pyenv rehash' $argv
 end
 # /python/django ---------------------------------------------------------- }}}
 
 # ruby/rails -------------------------------------------------------------- {{{
 function b
-    bundle
+    command bundle $argv
 end
 function be
-    bundle exec
+    command bundle exec $argv
 end
 function bec
-    bundle exec cucumber
+    command bundle exec cucumber $argv
 end
 function beg
-    bundle exec rails generate
+    command bundle exec rails generate $argv
 end
 function ber
-    bundle exec rake
+    command bundle exec rake $argv
 end
 function bers
-    bundle exec rspec
+    command bundle exec rspec $argv
 end
 function bi
-    bundle install
+    command bundle install $argv
 end
 function bu
-    bundle update
+    command bundle update $argv
 end
 function rn
-    rails new
+    command rails new $argv
 end
 function rt
-    rake ctags
+    command rake ctags $argv
 end
 function rr
-    rbenv rehash
+    command rbenv rehash $argv
 end
 
 function bug
-    bundle gem $1 --bin --test
+    command bundle gem $1 --bin --test $argv
 end
 # /ruby/rails ------------------------------------------------------------- }}}
 
 # vagrant ----------------------------------------------------------------- {{{
 function v
-    vagrant
+    command vagrant $argv
 end
 function vp
-    vagrant provision
+    command vagrant provision $argv
 end
 function vs
-    vagrant suspend
+    command vagrant suspend $argv
 end
 function vup
-    vagrant up
+    command vagrant up $argv
 end
 function vupa
-    vagrant up --provider=aws
+    command vagrant up --provider=aws $argv
 end
 # /vagrant ---------------------------------------------------------------- }}}
 
