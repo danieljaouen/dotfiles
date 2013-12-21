@@ -198,6 +198,9 @@ end
 # /erlang ----------------------------------------------------------------- }}}
 
 # git --------------------------------------------------------------------- {{{
+function g
+    command git $argv
+end
 function gc
     command git commit -m $argv
 end
