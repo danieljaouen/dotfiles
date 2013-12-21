@@ -1,6 +1,6 @@
 # setup ------------------------------------------------------------------- {{{
 set fish_path $HOME/.oh-my-fish
-set fish_theme uggedal
+set fish_theme numist
 set fish_plugins autojump brew bundler django ec2 pyenv python rbenv
 # /setup ------------------------------------------------------------------ }}}
 
@@ -283,6 +283,7 @@ end
 # python/django ----------------------------------------------------------- {{{
 set -x PYTHONSTARTUP "$HOME/.pythonrc.py"
 
+set -x VIRTUALFISH_COMPAT_ALIASES 1
 . $HOME/.virtualfish/virtual.fish
 . $HOME/.virtualfish/auto_activation.fish
 . $HOME/.virtualfish/global_requirements.fish
