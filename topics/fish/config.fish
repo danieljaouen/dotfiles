@@ -64,7 +64,7 @@ set -x EDITOR vim
 set -x TERM screen-256color-bce
 set -x PYENV_ROOT $HOME/.pyenv
 set -x ANSIBLE_NOCOWS 1
-# set -x LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
+set -x LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
 
 function l
     command ls -lah $argv
@@ -89,6 +89,9 @@ function t
 end
 function zless
     command $PAGER $argv
+end
+function ...
+    cd ../..
 end
 # /Global Options and Aliases --------------------------------------------- }}}
 
