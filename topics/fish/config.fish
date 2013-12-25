@@ -1,6 +1,6 @@
 # setup ------------------------------------------------------------------- {{{
 set fish_path $HOME/.oh-my-fish
-set fish_theme numist
+set fish_theme danieljaouen
 set fish_plugins autojump brew bundler django ec2 pyenv python rbenv
 # /setup ------------------------------------------------------------------ }}}
 
