@@ -2,5 +2,5 @@
 # note:
 #     FXXX is PyFlakes
 #     WXXX, EXXX is for pep8
-ignore = F403,E128,E221
+ignore = F403,E128,E221,E241
 max-line-length = 100
