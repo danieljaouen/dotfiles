@@ -346,7 +346,7 @@ augroup erlangmode
     au FileType erlang let &l:colorcolumn .= "," . docstring_max_length
     au FileType erlang let &l:colorcolumn .= "," . short_line_max_length
     au FileType erlang let &l:colorcolumn .= "," . long_line_max_length
-    au Filetype erlang setlocal foldmethod=syntax
+    au Filetype erlang setlocal foldmethod=marker foldmarker={{{{{,}}}}}
 augroup END
 
 let g:rubycomplete_rails = 1
