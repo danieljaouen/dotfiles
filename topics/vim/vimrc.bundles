@@ -11,6 +11,7 @@ Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'dag/vim-fish'
 Bundle 'daylerees/colour-schemes', { "rtp": "vim-themes/" }
+Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'empanda/vim-varnish'
 Bundle 'fsouza/go.vim'
