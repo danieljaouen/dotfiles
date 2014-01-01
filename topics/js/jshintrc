@@ -18,7 +18,7 @@
         "angular"
     ],
     "debug": false,
-    "devel": false,
+    "devel": true,
     "strict": true,
     "globalstrict": false,
     "asi": false,
