@@ -317,7 +317,7 @@ augroup rubymode
     au FileType ruby let &l:colorcolumn .= "," . docstring_max_length
     au FileType ruby let &l:colorcolumn .= "," . short_line_max_length
     au FileType ruby let &l:colorcolumn .= "," . long_line_max_length
-    au Filetype ruby setlocal foldmethod=marker
+    au Filetype ruby setlocal foldmethod=syntax
 augroup END
 
 let g:rubycomplete_rails = 1
