@@ -335,6 +335,17 @@ augroup railsmode
 augroup END
 " /rails-mode -------------------------------- }}}
 
+" js-mode ------------------------------------ {{{
+augroup jsmode
+    au!
+    au FileType javascript let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType javascript let &l:colorcolumn .= "," . docstring_max_length
+    au FileType javascript let &l:colorcolumn .= "," . short_line_max_length
+    au FileType javascript let &l:colorcolumn .= "," . long_line_max_length
+    au Filetype javascript setlocal foldmethod=syntax
+augroup END
+" /js-mode ----------------------------------- }}}
+
 " erlang-mode -------------------------------- {{{
 augroup erlangmode
     au!
