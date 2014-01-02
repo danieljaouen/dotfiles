@@ -1,0 +1,7 @@
+#!/usr/bin/env escript
+
+-export([main/1]).
+
+main([FileName, Module, BinDir]) ->
+    l(erlydtl),
+    erlydtl:compile(FileName, Module, [{out_dir, BinDir}]).
