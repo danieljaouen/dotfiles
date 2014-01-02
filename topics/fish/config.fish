@@ -198,6 +198,10 @@ end
 function re
     command rebar $argv
 end
+
+function erlpa
+    command erl -pa ebin deps/*/ebin
+end
 # /erlang ----------------------------------------------------------------- }}}
 
 # git --------------------------------------------------------------------- {{{
