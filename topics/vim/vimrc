@@ -415,6 +415,7 @@ augroup END
 " htmldjango --------------------------------- {{{
 augroup htmlmode
     au!
+    au BufRead,BufNewFile *.dtl  set filetype=htmldjango
     au BufRead,BufNewFile *.html set filetype=htmldjango
     au FileType markdown let &l:colorcolumn  = gitcommit_short_summary_max_length
     au FileType markdown let &l:colorcolumn .= "," . docstring_max_length
