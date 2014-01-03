@@ -318,6 +318,8 @@ augroup rubymode
     au FileType ruby let &l:colorcolumn .= "," . short_line_max_length
     au FileType ruby let &l:colorcolumn .= "," . long_line_max_length
     au Filetype ruby setlocal foldmethod=syntax
+    au Filetype eruby inoremap <buffer> <C-d>o <%<space><space>%><left><left><left>
+    au Filetype eruby inoremap <buffer> <C-d>t <%=<space><space>%><left><left><left>
 augroup END
 
 let g:rubycomplete_rails = 1
@@ -351,6 +353,7 @@ augroup erlangmode
     au!
     au BufRead,BufNewFile boss.config set filetype=erlang
     au BufRead,BufNewFile rebar.config set filetype=erlang
+    au BufRead,BufNewFile relx.config set filetype=erlang
     au BufRead,BufNewFile *.app.src set filetype=erlang
     au BufRead,BufNewFile *.routes set filetype=erlang
     au FileType erlang let &l:colorcolumn  = gitcommit_short_summary_max_length
