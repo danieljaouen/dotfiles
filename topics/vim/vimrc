@@ -451,6 +451,17 @@ augroup vimorganizermode
 augroup END
 " /VimOrganizer ------------------------------ }}}
 
+" haproxy ------------------------------------ {{{
+augroup haproxymode
+    au!
+    au BufRead,BufNewFile *.haproxy.conf set filetype=haproxy
+    au FileType yaml let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType yaml let &l:colorcolumn .= "," . docstring_max_length
+    au FileType yaml let &l:colorcolumn .= "," . short_line_max_length
+    au FileType yaml let &l:colorcolumn .= "," . long_line_max_length
+augroup END
+" /haproxy ----------------------------------- }}}
+
 " powerline ---------------------------------- {{{
 let g:Powerline_symbols = 'unicode'
 " /powerline --------------------------------- }}}
