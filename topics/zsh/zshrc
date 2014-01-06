@@ -10,7 +10,7 @@ esac
 # PATH -------------------------------------------------------------------- {{{
 BASE_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 RBENV_PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin
-PYENV_PATH=$HOME/.pyenv/shims:$HOME/.pyenv/bin
+# PYENV_PATH=$HOME/.pyenv/shims:$HOME/.pyenv/bin
 if [[ "x$OS" == "xOSX" ]]
 then
     # LOCAL_PATH --------------------------------------------------- {{{
@@ -22,13 +22,13 @@ then
     LOCAL_PATH=$HOME/.bin:$LOCAL_PATH
     # /LOCAL_PATH -------------------------------------------------- }}}
 
-    export PATH=$PYENV_PATH:$RBENV_PATH:$LOCAL_PATH:$BASE_PATH
+    export PATH=$RBENV_PATH:$LOCAL_PATH:$BASE_PATH
 else
     # LOCAL_PATH --------------------------------------------------- {{{
     LOCAL_PATH=$HOME/.bin:$LOCAL_PATH
     # /LOCAL_PATH -------------------------------------------------- }}}
 
-    export PATH=$PYENV_PATH:$RBENV_PATH:$LOCAL_PATH:$BASE_PATH
+    export PATH=$RBENV_PATH:$LOCAL_PATH:$BASE_PATH
 fi
 # /PATH ------------------------------------------------------------------- }}}
 
@@ -78,7 +78,7 @@ source $ZSH/oh-my-zsh.sh
 # OS-specific config ------------------------------------------------------ {{{
 BASE_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 RBENV_PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin
-PYENV_PATH=$HOME/.pyenv/shims:$HOME/.pyenv/bin
+# PYENV_PATH=$HOME/.pyenv/shims:$HOME/.pyenv/bin
 if [[ "x$OS" == "xOSX" ]]
 then
     export MAIL=~/Mail
@@ -213,7 +213,7 @@ alias hup="hg up"
 # /javascript/node.js ----------------------------------------------------- }}}
 
 # python/django ----------------------------------------------------------- {{{
-eval "$(pyenv init - zsh)"
+# eval "$(pyenv init - zsh)"
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
 
 if [[ "x$OS" == "xOSX" ]]; then
@@ -281,7 +281,7 @@ function rbenv_info {
 }
 
 function pyenv_info {
-    pyenv local 2>/dev/null || pyenv global 2>/dev/null
+    # pyenv local 2>/dev/null || pyenv global 2>/dev/null
 }
 
 function battery_charge {
