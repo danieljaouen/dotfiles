@@ -451,6 +451,10 @@ augroup vimorganizermode
 augroup END
 " /VimOrganizer ------------------------------ }}}
 
+" YouCompleteMe ------------------------------ {{{
+let g:ycm_path_to_python_interpreter = "/usr/local/bin/python"
+" /YouCompleteMe ----------------------------- }}}
+
 " haproxy ------------------------------------ {{{
 augroup haproxymode
     au!
