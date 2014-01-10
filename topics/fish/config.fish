@@ -1,7 +1,7 @@
 # setup ------------------------------------------------------------------- {{{
 set fish_path $HOME/.oh-my-fish
 set fish_theme danieljaouen
-set fish_plugins autojump brew bundler django rbenv
+set fish_plugins autojump brew bundler django pyenv rbenv
 # /setup ------------------------------------------------------------------ }}}
 
 # PATH -------------------------------------------------------------------- {{{
