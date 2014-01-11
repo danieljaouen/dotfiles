@@ -3,4 +3,5 @@
 #     FXXX is PyFlakes
 #     WXXX, EXXX is for pep8
 ignore = E128,E221,E241
+excludes = steps/*
 max-line-length = 100
