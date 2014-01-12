@@ -14,15 +14,18 @@ set BASE_PATH /usr/local/sbin $BASE_PATH
 
 switch (uname)
     case Darwin
+        set -x GOPATH /usr/local/var/go
         set LOCAL_PATH /usr/X11/bin
+        set LOCAL_PATH /usr/texbin $LOCAL_PATH
         set LOCAL_PATH /usr/local/opt/ruby/bin $LOCAL_PATH
         set LOCAL_PATH /usr/local/share/npm/bin $LOCAL_PATH
-        set LOCAL_PATH /usr/local/var/go/bin $LOCAL_PATH
-        set LOCAL_PATH /usr/texbin $LOCAL_PATH
+        set LOCAL_PATH $GOPATH/bin $LOCAL_PATH
         set LOCAL_PATH $HOME/.bin $LOCAL_PATH
         set -x PATH $LOCAL_PATH $BASE_PATH
     case Linux
-        set LOCAL_PATH $HOME/.bin
+        set -x GOPATH /var/go
+        set LOCAL_PATH $GOPATH/bin
+        set LOCAL_PATH $HOME/.bin $LOCALPATH
         set -x PATH $LOCAL_PATH $BASE_PATH
 end
 # /PATH ------------------------------------------------------------------- }}}
@@ -220,7 +223,6 @@ end
 # /git -------------------------------------------------------------------- }}}
 
 # go ---------------------------------------------------------------------- {{{
-set -x GOPATH /usr/local/var/go
 # /go --------------------------------------------------------------------- }}}
 
 # hg ---------------------------------------------------------------------- {{{
