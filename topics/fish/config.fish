@@ -400,6 +400,15 @@ function vupa
 end
 # /vagrant ---------------------------------------------------------------- }}}
 
+# tmux -------------------------------------------------------------------- {{{
+function tms
+    command tmux -S /tmp/shareds new -s shared $argv
+end
+function tma
+    command tmux -S /tmp/shareds attach -t shared $argv
+end
+# /tmux ------------------------------------------------------------------- }}}
+
 # Local Configuration ----------------------------------------------------- {{{
 if test -s $HOME/.fishrc.local
     source $HOME/.fishrc.local
