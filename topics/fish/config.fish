@@ -154,14 +154,14 @@ end
 function smi
     command salt-minion $argv
 end
-function smi
+function smid
     command salt-minion -c $HOME/.virtualenvs/salt $argv
 end
 
 function sma
     command salt-master $argv
 end
-function sma
+function smad
     command salt-master -c $HOME/.virtualenvs/salt $argv
 end
 # /salt ------------------------------------------------------------------- }}}
