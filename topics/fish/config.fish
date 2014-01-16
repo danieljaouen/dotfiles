@@ -148,21 +148,21 @@ function sc
     command salt-call $argv
 end
 function scd
-    command salt-call -c $HOME/.virtualenvs/salt $argv
+    command salt-call -c $HOME/.virtualenvs/salt/etc/salt $argv
 end
 
 function smi
     command salt-minion $argv
 end
 function smid
-    command salt-minion -c $HOME/.virtualenvs/salt $argv
+    command salt-minion -c $HOME/.virtualenvs/salt/etc/salt $argv
 end
 
 function sma
     command salt-master $argv
 end
 function smad
-    command salt-master -c $HOME/.virtualenvs/salt $argv
+    command salt-master -c $HOME/.virtualenvs/salt/etc/salt $argv
 end
 # /salt ------------------------------------------------------------------- }}}
 
