@@ -34,7 +34,7 @@ end
 #set fish_custom $HOME/dotfiles/oh-my-fish
 
 # Load oh-my-fish configuration.
-. $fish_path/oh-my-fish.fish
+source $fish_path/oh-my-fish.fish
 
 # OS-specific configuration ----------------------------------------------- {{{
 switch (uname)
@@ -142,6 +142,29 @@ function apios
     command ansible-playbook -i ~/.ansible.d/inventories/osx ~/.ansible.d/site.yml $argv
 end
 # /ansible ---------------------------------------------------------------- }}}
+
+# salt -------------------------------------------------------------------- {{{
+function sc
+    command salt-call $argv
+end
+function scd
+    command salt-call -c $HOME/.virtualenvs/salt $argv
+end
+
+function smi
+    command salt-minion $argv
+end
+function smi
+    command salt-minion -c $HOME/.virtualenvs/salt $argv
+end
+
+function sma
+    command salt-master $argv
+end
+function sma
+    command salt-master -c $HOME/.virtualenvs/salt $argv
+end
+# /salt ------------------------------------------------------------------- }}}
 
 # cloc -------------------------------------------------------------------- {{{
 function cloc
@@ -296,9 +319,9 @@ end
 set -x PYTHONSTARTUP "$HOME/.pythonrc.py"
 
 set -x VIRTUALFISH_COMPAT_ALIASES 1
-. $HOME/.virtualfish/virtual.fish
-. $HOME/.virtualfish/auto_activation.fish
-. $HOME/.virtualfish/global_requirements.fish
+source $HOME/.virtualfish/virtual.fish
+source $HOME/.virtualfish/auto_activation.fish
+source $HOME/.virtualfish/global_requirements.fish
 set -x VIRTUAL_ENV_DISABLE_PROMPT 0
 
 function daspt
