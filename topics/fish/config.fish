@@ -144,6 +144,13 @@ end
 # /ansible ---------------------------------------------------------------- }}}
 
 # salt -------------------------------------------------------------------- {{{
+function sk
+    command salt-key $argv
+end
+function skd
+    command salt-key -c $HOME/.virtualenvs/salt/etc/salt $argv
+end
+
 function sc
     command salt-call $argv
 end
