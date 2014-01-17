@@ -305,6 +305,7 @@ augroup pythonmode
     au Filetype python vnoremap <buffer> gf :YcmCompleter GoToDefinitionElseDeclaration<CR>
     au Filetype python setlocal foldmethod=expr
 augroup END
+
 let g:ycm_autoclose_preview_window_after_completion=1
 " /python-mode ------------------------------- }}}
 
