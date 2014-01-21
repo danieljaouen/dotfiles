@@ -191,6 +191,7 @@ inoremap <C-d>o {%<space><space>%}<left><left><left>
 inoremap <C-d>t {{<space><space>}}<left><left><left>
 inoremap <C-e>o <%<space><space>%><left><left><left>
 inoremap <C-e>t <%=<space><space>%><left><left><left>
+noremap <Leader>lo :lopen<cr>
 noremap <Leader>t :SyntasticToggle<cr>
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 nnoremap <tab> za
@@ -483,6 +484,7 @@ hi clear SignColumn
 " /quickfix signs ---------------------------- }}}
 
 " syntastic ---------------------------------- {{{
+let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list=1 " automatically open error window
 let g:syntastic_mode_map = { "mode": "active",
             \ "active_filetypes": ["python", "javascript"],
