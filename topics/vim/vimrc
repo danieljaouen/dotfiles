@@ -458,6 +458,7 @@ if has('macunix')
 else
     let g:ycm_path_to_python_interpreter = "/usr/bin/python"
 endif
+let g:ycm_confirm_extra_conf = 0
 " /YouCompleteMe ----------------------------- }}}
 
 " haproxy ------------------------------------ {{{
