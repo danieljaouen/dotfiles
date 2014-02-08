@@ -341,7 +341,7 @@ source $HOME/.virtualfish/global_requirements.fish
 set -x VIRTUAL_ENV_DISABLE_PROMPT 0
 
 function daspt
-    command django-admin.py startproject --template=https://github.com/twoscoops/django-twoscoops-project/archive/master.zip --extension=py,rst,html $argv
+    command django-admin.py startproject --template=https://github.com/danieljaouen/django-twoscoops-project/archive/develop.zip --extension=py,rst,html $argv
 end
 function fd
     command fab dev $argv
