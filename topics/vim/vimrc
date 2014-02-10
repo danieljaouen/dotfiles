@@ -156,6 +156,7 @@ set showcmd
 set smartcase  " match case if a capital letter is present in the regexp
 set smarttab                    " make <tab> and <backspace> smarter
 set softtabstop=4               " softtabstops of 2
+set spell spelllang=en_us
 set tabstop=4                   " tabstops of 2
 set tw=79   " width of document (used by gd)
 set undolevels=10000            " number of forgivable mistakes
@@ -193,6 +194,7 @@ inoremap <C-e>o <%<space><space>%><left><left><left>
 inoremap <C-e>t <%=<space><space>%><left><left><left>
 noremap <Leader>lo :lopen<cr>
 noremap <Leader>t :SyntasticToggle<cr>
+noremap <Leader>s :set spell!<cr>
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 nnoremap <tab> za
 nnoremap zO zCzO
