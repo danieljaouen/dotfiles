@@ -62,7 +62,7 @@ source $ANSIBLE_DIRECTORY/hacking/env-setup > /dev/null
 
 # Clone down the Ansible repo
 if [[ ! -d $ANSIBLE_CONFIGURATION_DIRECTORY ]]; then
-    git clone git://github.com/danieljaouen/ansible-base-osx.git $ANSIBLE_CONFIGURATION_DIRECTORY
+    git clone git@bitbucket.org:danieljaouen/ansible-base-box.git $ANSIBLE_CONFIGURATION_DIRECTORY
 fi
 
 # Provision the box
