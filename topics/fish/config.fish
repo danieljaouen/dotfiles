@@ -45,6 +45,7 @@ switch (uname)
         set -x SHELL /usr/local/bin/fish
         set -x JAVA_HOME (/usr/libexec/java_home)
         set -x PAGER vimpager
+        set -x CA_CERTIFICATE /usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
         function update
             curl https://raw.github.com/danieljaouen/dotfiles/master/topics/bin/bootstrap.sh | bash
