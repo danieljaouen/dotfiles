@@ -383,6 +383,18 @@ augroup elixirmode
 augroup END
 " /elixir-mode ------------------------------- }}}
 
+" go-mode -------------------------------- {{{
+augroup gomode
+    au!
+    au Filetype go setlocal ts=4 sw=4 sts=0 noexpandtab
+    au FileType go let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType go let &l:colorcolumn .= "," . docstring_max_length
+    au FileType go let &l:colorcolumn .= "," . short_line_max_length
+    au FileType go let &l:colorcolumn .= "," . long_line_max_length
+    au Filetype go setlocal foldmethod=syntax
+augroup END
+" /elixir-mode ------------------------------- }}}
+
 " stylus-mode -------------------------------- {{{
 augroup stylusmode
     au!
