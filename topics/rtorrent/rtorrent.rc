@@ -49,7 +49,7 @@ schedule = untied_directory,5,5,stop_untied= ; stop torrents once removed from t
 # Colors # only in rtorrent extended
 ## Colors: 0 = black 1 = red 2 = green 3 = yellow 4 = blue 5 = magenta 6 = cyan 7 = white
 
-done_fg_color = 6
+#done_fg_color = 6
 #done_bg_color
-active_fg_color = 7
+#active_fg_color = 7
 #active_bg_color
