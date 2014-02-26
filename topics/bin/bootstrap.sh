@@ -46,6 +46,11 @@ if [[ ! -x /usr/local/bin/hg ]]; then
     pip install mercurial
 fi
 
+# Download and install Ansible
+if [[ ! -x /usr/local/bin/ansible ]]; then
+    pip install ansible
+fi
+
 # Make the code directory
 mkdir -p $SRC_DIRECTORY
 
@@ -53,6 +58,7 @@ mkdir -p $SRC_DIRECTORY
 if [[ ! -d $ANSIBLE_DIRECTORY ]]; then
     git clone -b brew git://github.com/danieljaouen/ansible.git $ANSIBLE_DIRECTORY
 fi
+
 
 # Check out the 'brew' branch
 (cd $ANSIBLE_DIRECTORY && git checkout brew)
