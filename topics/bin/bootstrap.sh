@@ -48,7 +48,7 @@ fi
 
 # Download and install Ansible
 if [[ ! -x /usr/local/bin/ansible ]]; then
-    pip install ansible
+    brew install ansible
 fi
 
 # Make the code directory
