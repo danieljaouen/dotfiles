@@ -66,6 +66,9 @@ switch (uname)
         function pbpaste
             xclip -selection clipboard -o $argv
         end
+        function open
+            xdg-open $argv
+        end
         # eval "$(ssh-agent)"
 end
 # /OS-specific configuration ---------------------------------------------- }}}
