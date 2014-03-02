@@ -60,6 +60,12 @@ switch (uname)
         # /aws -------------------------------------------------------------------- }}}
     case Linux
         set -x SHELL /usr/bin/fish
+        function pbcopy
+            xclip -selection clipboard $argv
+        end
+        function pbpaste
+            xclip -selection clipboard -o $argv
+        end
         # eval "$(ssh-agent)"
 end
 # /OS-specific configuration ---------------------------------------------- }}}
