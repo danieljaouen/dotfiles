@@ -469,7 +469,7 @@ augroup END
 
 " YouCompleteMe ------------------------------ {{{
 if has('macunix')
-    let g:ycm_path_to_python_interpreter = "/usr/local/bin/python"
+    let g:ycm_path_to_python_interpreter = "/usr/bin/python"
 else
     let g:ycm_path_to_python_interpreter = "/usr/bin/python"
 endif
