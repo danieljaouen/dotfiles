@@ -56,7 +56,7 @@ mkdir -p $SRC_DIRECTORY
 
 # Clone down ansible
 if [[ ! -d $ANSIBLE_DIRECTORY ]]; then
-    git clone -b brew git://github.com/danieljaouen/ansible.git $ANSIBLE_DIRECTORY
+    git clone -b devel git://github.com/ansible/ansible.git $ANSIBLE_DIRECTORY
 fi
 
 
