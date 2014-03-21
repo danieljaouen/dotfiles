@@ -1,5 +1,5 @@
 "Bundle 'mileszs/ack.vim'
-Bundle 'Blackrush/vim-gocode'
+"Bundle 'Blackrush/vim-gocode'
 Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'MarcWeber/vim-addon-mw-utils'
