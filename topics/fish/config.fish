@@ -103,9 +103,9 @@ end
 function t
     command task $argv
 end
-function zless
-    command $PAGER $argv
-end
+# function zless
+#     command $PAGER $argv
+# end
 function ...
     cd ../..
 end
