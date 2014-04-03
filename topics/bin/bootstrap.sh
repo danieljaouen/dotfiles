@@ -69,7 +69,7 @@ if [[ ! -d $ANSIBLE_CONFIGURATION_DIRECTORY ]]; then
 fi
 
 # Provision the box
-ansible-playbook --ask-sudo-pass -i $ANSIBLE_CONFIGURATION_DIRECTORY/inventories/osx $ANSIBLE_CONFIGURATION_DIRECTORY/site.yml
+ansible-playbook --ask-sudo-pass -i $ANSIBLE_CONFIGURATION_DIRECTORY/inventories/osx $ANSIBLE_CONFIGURATION_DIRECTORY/site.yml --connection=local
 
 # Link the casks.
 ~/.bin/link-casks
