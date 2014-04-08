@@ -6,8 +6,6 @@ SRC_DIRECTORY="$HOME/src"
 ANSIBLE_DIRECTORY="$SRC_DIRECTORY/ansible"
 ANSIBLE_CONFIGURATION_DIRECTORY="$HOME/.ansible.d"
 
-# Prerequisites: local SSH server
-
 # Download and install Command Line Tools
 if [[ ! -x /usr/bin/gcc ]]; then
     echo "Info   | Install   | xcode"
