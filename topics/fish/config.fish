@@ -363,34 +363,34 @@ function pm
     command python manage.py $argv
 end
 function pmm
-    command 'python manage.py migrate' $argv
+    command python manage.py migrate $argv
 end
 function pmr
-    command 'python manage.py runserver' $argv
+    command python manage.py runserver $argv
 end
 function pmrp
-    command 'python manage.py runserver_plus' $argv
+    command python manage.py runserver_plus $argv
 end
 function pmrpg
-    command 'python manage.py runserver_plus --adminmedia=`pwd`/media/admin' $argv
+    command python manage.py runserver_plus --adminmedia=`pwd`/media/admin $argv
 end
 function pms
-    command 'python manage.py shell' $argv
+    command python manage.py shell $argv
 end
 function pmsdb
-    command 'python manage.py syncdb' $argv
+    command python manage.py syncdb $argv
 end
 function pmsi
-    command 'python manage.py schemamigration --initial' $argv
+    command python manage.py schemamigration --initial $argv
 end
 function pmsm
-    command 'python manage.py schemamigration --auto' $argv
+    command python manage.py schemamigration --auto $argv
 end
 function pmsp
-    command 'python manage.py shell_plus' $argv
+    command python manage.py shell_plus $argv
 end
 function pyr
-    command 'pyenv rehash' $argv
+    command pyenv rehash $argv
 end
 # /python/django ---------------------------------------------------------- }}}
 
