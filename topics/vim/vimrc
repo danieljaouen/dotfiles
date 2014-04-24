@@ -384,7 +384,7 @@ let g:Powerline_symbols = 'unicode'
 " python-mode -------------------------------- {{{
 augroup pythonmode
     au!
-    au BufWritePre *.py :%s/\s\+$//e
+    " au BufWritePre *.py :%s/\s\+$//e
     au FileType python let &l:colorcolumn  = gitcommit_short_summary_max_length
     au FileType python let &l:colorcolumn .= "," . docstring_max_length
     au FileType python let &l:colorcolumn .= "," . short_line_max_length
