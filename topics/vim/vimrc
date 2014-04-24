@@ -235,39 +235,17 @@ vnoremap ? ?\v
 " /Keybindings ------------------------------------------------------------ }}}
 
 " Plugin Settings --------------------------------------------------------- {{{
+" ack-mode ----------------------------------- {{{
+if executable('ag')
+  let g:ackprg = 'ag --nogroup --column'
 
-" vim-mode ----------------------------------- {{{
-augroup vimmode
-    au!
-    au FileType vim setlocal foldmethod=marker
-    au FileType vim let &l:colorcolumn  = gitcommit_short_summary_max_length
-    au FileType vim let &l:colorcolumn .= "," . docstring_max_length
-    au FileType vim let &l:colorcolumn .= "," . short_line_max_length
-    au FileType vim let &l:colorcolumn .= "," . long_line_max_length
-augroup END
-" /vim-mode ---------------------------------- }}}
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
 
-" zsh-mode ----------------------------------- {{{
-augroup zshmode
-    au!
-    au FileType zsh setlocal foldmethod=marker
-    au FileType zsh let &l:colorcolumn  = gitcommit_short_summary_max_length
-    au FileType zsh let &l:colorcolumn .= "," . docstring_max_length
-    au FileType zsh let &l:colorcolumn .= "," . short_line_max_length
-    au FileType zsh let &l:colorcolumn .= "," . long_line_max_length
-augroup END
-" /zsh-mode ---------------------------------- }}}
-
-" text-mode ---------------------------------- {{{
-augroup textmode
-    au!
-    au Filetype text setlocal wrap
-    au FileType text let &l:colorcolumn  = gitcommit_short_summary_max_length
-    au FileType text let &l:colorcolumn .= "," . docstring_max_length
-    au FileType text let &l:colorcolumn .= "," . short_line_max_length
-    au FileType text let &l:colorcolumn .= "," . long_line_max_length
-augroup END
-" /text-mode --------------------------------- }}}
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+" ack-mode ----------------------------------- }}}
 
 " coffee-mode -------------------------------- {{{
 augroup coffeemode
@@ -280,77 +258,29 @@ augroup coffeemode
 augroup END
 " /coffee-mode ------------------------------- }}}
 
-" hgcommit-mode ------------------------------ {{{
-augroup hgcommitmode
+" cucumber-mode ------------------------------ {{{
+augroup cucumbermode
     au!
-    au FileType hgcommit let &l:colorcolumn  = gitcommit_short_summary_max_length
-    au FileType hgcommit let &l:colorcolumn .= "," . docstring_max_length
+    au Filetype cucumber setlocal ts=2 sts=2 sw=2
+    au FileType cucumber let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType cucumber let &l:colorcolumn .= "," . docstring_max_length
+    au FileType cucumber let &l:colorcolumn .= "," . short_line_max_length
+    au FileType cucumber let &l:colorcolumn .= "," . long_line_max_length
 augroup END
-" /hgcommit-mode ----------------------------- }}}
+" /cucumber-mode ----------------------------- }}}
 
-" gitcommit-mode ----------------------------- {{{
-augroup gitcommitmode
+" elixir-mode -------------------------------- {{{
+augroup elixirmode
     au!
-    au FileType gitcommit let &l:colorcolumn  = gitcommit_short_summary_max_length
-    au FileType gitcommit let &l:colorcolumn .= "," . docstring_max_length
+    au Filetype elixir setlocal ts=2 sts=2 sw=2
+    au FileType elixir let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType elixir let &l:colorcolumn .= "," . docstring_max_length
+    au FileType elixir let &l:colorcolumn .= "," . short_line_max_length
+    au FileType elixir let &l:colorcolumn .= "," . long_line_max_length
+    au Filetype elixir setlocal foldmethod=syntax
+    au Filetype elixir nnoremap <buffer> <leader>t :!mix test<CR>
 augroup END
-" /gitcommit-mode ---------------------------- }}}
-
-" python-mode -------------------------------- {{{
-augroup pythonmode
-    au!
-    au BufWritePre *.py :%s/\s\+$//e
-    au FileType python let &l:colorcolumn  = gitcommit_short_summary_max_length
-    au FileType python let &l:colorcolumn .= "," . docstring_max_length
-    au FileType python let &l:colorcolumn .= "," . short_line_max_length
-    au FileType python let &l:colorcolumn .= "," . long_line_max_length
-    au Filetype python nnoremap <buffer> gf :YcmCompleter GoToDefinitionElseDeclaration<CR>
-    au Filetype python vnoremap <buffer> gf :YcmCompleter GoToDefinitionElseDeclaration<CR>
-    au Filetype python setlocal foldmethod=expr
-augroup END
-
-let g:ycm_autoclose_preview_window_after_completion=1
-" /python-mode ------------------------------- }}}
-
-" ruby-mode ---------------------------------- {{{
-augroup rubymode
-    au!
-    au BufRead,BufNewFile *.cap set filetype=ruby
-    au Filetype ruby setlocal ts=2 sts=2 sw=2
-    au FileType ruby let &l:colorcolumn  = gitcommit_short_summary_max_length
-    au FileType ruby let &l:colorcolumn .= "," . docstring_max_length
-    au FileType ruby let &l:colorcolumn .= "," . short_line_max_length
-    au FileType ruby let &l:colorcolumn .= "," . long_line_max_length
-    au Filetype ruby setlocal foldmethod=syntax
-    au Filetype eruby inoremap <buffer> <C-d>o <%<space><space>%><left><left><left>
-    au Filetype eruby inoremap <buffer> <C-d>t <%=<space><space>%><left><left><left>
-augroup END
-
-let g:rubycomplete_rails = 1
-" /ruby-mode --------------------------------- }}}
-
-" rails-mode --------------------------------- {{{
-augroup railsmode
-    au!
-    au User Rails silent! Rnavcommand decorator      app/decorators            -glob=**/* -suffix=_decorator.rb
-    au User Rails silent! Rnavcommand observer       app/observers             -glob=**/* -suffix=_observer.rb
-    au User Rails silent! Rnavcommand feature        features                  -glob=**/* -suffix=.feature
-    au User Rails silent! Rnavcommand job            app/jobs                  -glob=**/* -suffix=_job.rb
-    au User Rails silent! Rnavcommand mediator       app/mediators             -glob=**/* -suffix=_mediator.rb
-    au User Rails silent! Rnavcommand stepdefinition features/step_definitions -glob=**/* -suffix=_steps.rb
-augroup END
-" /rails-mode -------------------------------- }}}
-
-" js-mode ------------------------------------ {{{
-augroup jsmode
-    au!
-    au FileType javascript let &l:colorcolumn  = gitcommit_short_summary_max_length
-    au FileType javascript let &l:colorcolumn .= "," . docstring_max_length
-    au FileType javascript let &l:colorcolumn .= "," . short_line_max_length
-    au FileType javascript let &l:colorcolumn .= "," . long_line_max_length
-    au Filetype javascript setlocal foldmethod=syntax
-augroup END
-" /js-mode ----------------------------------- }}}
+" /elixir-mode ------------------------------- }}}
 
 " erlang-mode -------------------------------- {{{
 augroup erlangmode
@@ -370,18 +300,13 @@ augroup END
 let g:rubycomplete_rails = 1
 " /erlang-mode ------------------------------- }}}
 
-" elixir-mode -------------------------------- {{{
-augroup elixirmode
+" gitcommit-mode ----------------------------- {{{
+augroup gitcommitmode
     au!
-    au Filetype elixir setlocal ts=2 sts=2 sw=2
-    au FileType elixir let &l:colorcolumn  = gitcommit_short_summary_max_length
-    au FileType elixir let &l:colorcolumn .= "," . docstring_max_length
-    au FileType elixir let &l:colorcolumn .= "," . short_line_max_length
-    au FileType elixir let &l:colorcolumn .= "," . long_line_max_length
-    au Filetype elixir setlocal foldmethod=syntax
-    au Filetype elixir nnoremap <buffer> <leader>t :!mix test<CR>
+    au FileType gitcommit let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType gitcommit let &l:colorcolumn .= "," . docstring_max_length
 augroup END
-" /elixir-mode ------------------------------- }}}
+" /gitcommit-mode ---------------------------- }}}
 
 " go-mode -------------------------------- {{{
 augroup gomode
@@ -395,38 +320,24 @@ augroup gomode
 augroup END
 " /elixir-mode ------------------------------- }}}
 
-" stylus-mode -------------------------------- {{{
-augroup stylusmode
+" haproxy ------------------------------------ {{{
+augroup haproxymode
     au!
-    au Filetype stylus setlocal ts=2 sts=2 sw=2
-    au FileType stylus let &l:colorcolumn  = gitcommit_short_summary_max_length
-    au FileType stylus let &l:colorcolumn .= "," . docstring_max_length
-    au FileType stylus let &l:colorcolumn .= "," . short_line_max_length
-    au FileType stylus let &l:colorcolumn .= "," . long_line_max_length
+    au BufRead,BufNewFile *.haproxy.conf set filetype=haproxy
+    au FileType haproxy let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType haproxy let &l:colorcolumn .= "," . docstring_max_length
+    au FileType haproxy let &l:colorcolumn .= "," . short_line_max_length
+    au FileType haproxy let &l:colorcolumn .= "," . long_line_max_length
 augroup END
-" /stylus-mode ------------------------------- }}}
+" /haproxy ----------------------------------- }}}
 
-" cucumber-mode ------------------------------ {{{
-augroup cucumbermode
+" hgcommit-mode ------------------------------ {{{
+augroup hgcommitmode
     au!
-    au Filetype cucumber setlocal ts=2 sts=2 sw=2
-    au FileType cucumber let &l:colorcolumn  = gitcommit_short_summary_max_length
-    au FileType cucumber let &l:colorcolumn .= "," . docstring_max_length
-    au FileType cucumber let &l:colorcolumn .= "," . short_line_max_length
-    au FileType cucumber let &l:colorcolumn .= "," . long_line_max_length
+    au FileType hgcommit let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType hgcommit let &l:colorcolumn .= "," . docstring_max_length
 augroup END
-" /cucumber-mode ----------------------------- }}}
-
-" markdown ----------------------------------- {{{
-augroup markdownmode
-    au!
-    au BufRead,BufNewFile *.md set filetype=markdown
-    au FileType markdown let &l:colorcolumn  = gitcommit_short_summary_max_length
-    au FileType markdown let &l:colorcolumn .= "," . docstring_max_length
-    au FileType markdown let &l:colorcolumn .= "," . short_line_max_length
-    au FileType markdown let &l:colorcolumn .= "," . long_line_max_length
-augroup END
-" /markdown ---------------------------------- }}}
+" /hgcommit-mode ----------------------------- }}}
 
 " htmldjango --------------------------------- {{{
 augroup htmlmode
@@ -440,17 +351,69 @@ augroup htmlmode
 augroup END
 " /htmldjango -------------------------------- }}}
 
-" yaml --------------------------------------- {{{
-augroup yamlmode
+" js-mode ------------------------------------ {{{
+augroup jsmode
     au!
-    au Filetype yaml setlocal ts=2 sts=2 sw=2
-    au BufRead,BufNewFile *.fdoc set filetype=yaml
-    au FileType yaml let &l:colorcolumn  = gitcommit_short_summary_max_length
-    au FileType yaml let &l:colorcolumn .= "," . docstring_max_length
-    au FileType yaml let &l:colorcolumn .= "," . short_line_max_length
-    au FileType yaml let &l:colorcolumn .= "," . long_line_max_length
+    au FileType javascript let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType javascript let &l:colorcolumn .= "," . docstring_max_length
+    au FileType javascript let &l:colorcolumn .= "," . short_line_max_length
+    au FileType javascript let &l:colorcolumn .= "," . long_line_max_length
+    au Filetype javascript setlocal foldmethod=syntax
 augroup END
-" /yaml -------------------------------------- }}}
+" /js-mode ----------------------------------- }}}
+
+" LaTeX-Box ---------------------------------- {{{
+let g:LatexBox_Folding = 1
+" /LaTeX-Box ---------------------------------- }}}
+
+" markdown ----------------------------------- {{{
+augroup markdownmode
+    au!
+    au BufRead,BufNewFile *.md set filetype=markdown
+    au FileType markdown let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType markdown let &l:colorcolumn .= "," . docstring_max_length
+    au FileType markdown let &l:colorcolumn .= "," . short_line_max_length
+    au FileType markdown let &l:colorcolumn .= "," . long_line_max_length
+augroup END
+" /markdown ---------------------------------- }}}
+
+" powerline ---------------------------------- {{{
+let g:Powerline_symbols = 'unicode'
+" /powerline --------------------------------- }}}
+
+" python-mode -------------------------------- {{{
+augroup pythonmode
+    au!
+    au BufWritePre *.py :%s/\s\+$//e
+    au FileType python let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType python let &l:colorcolumn .= "," . docstring_max_length
+    au FileType python let &l:colorcolumn .= "," . short_line_max_length
+    au FileType python let &l:colorcolumn .= "," . long_line_max_length
+    au Filetype python nnoremap <buffer> gf :YcmCompleter GoToDefinitionElseDeclaration<CR>
+    au Filetype python vnoremap <buffer> gf :YcmCompleter GoToDefinitionElseDeclaration<CR>
+    au Filetype python setlocal foldmethod=expr
+augroup END
+
+let g:ycm_autoclose_preview_window_after_completion=1
+" /python-mode ------------------------------- }}}
+
+" quickfix signs ----------------------------- {{{
+let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
+hi clear LinNr
+hi clear SignColumn
+" /quickfix signs ---------------------------- }}}
+
+" rails-mode --------------------------------- {{{
+augroup railsmode
+    au!
+    au User Rails silent! Rnavcommand decorator      app/decorators            -glob=**/* -suffix=_decorator.rb
+    au User Rails silent! Rnavcommand observer       app/observers             -glob=**/* -suffix=_observer.rb
+    au User Rails silent! Rnavcommand feature        features                  -glob=**/* -suffix=.feature
+    au User Rails silent! Rnavcommand job            app/jobs                  -glob=**/* -suffix=_job.rb
+    au User Rails silent! Rnavcommand mediator       app/mediators             -glob=**/* -suffix=_mediator.rb
+    au User Rails silent! Rnavcommand stepdefinition features/step_definitions -glob=**/* -suffix=_steps.rb
+augroup END
+" /rails-mode -------------------------------- }}}
 
 " rst ---------------------------------------- {{{
 augroup rstmode
@@ -459,43 +422,33 @@ augroup rstmode
 augroup END
 " /rst --------------------------------------- }}}
 
-" VimOrganizer ------------------------------- {{{
-augroup vimorganizermode
+" ruby-mode ---------------------------------- {{{
+augroup rubymode
     au!
-    au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
-    au BufEnter *.org call org#SetOrgFileType()
+    au BufRead,BufNewFile *.cap set filetype=ruby
+    au Filetype ruby setlocal ts=2 sts=2 sw=2
+    au FileType ruby let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType ruby let &l:colorcolumn .= "," . docstring_max_length
+    au FileType ruby let &l:colorcolumn .= "," . short_line_max_length
+    au FileType ruby let &l:colorcolumn .= "," . long_line_max_length
+    au Filetype ruby setlocal foldmethod=syntax
+    au Filetype eruby inoremap <buffer> <C-d>o <%<space><space>%><left><left><left>
+    au Filetype eruby inoremap <buffer> <C-d>t <%=<space><space>%><left><left><left>
 augroup END
-" /VimOrganizer ------------------------------ }}}
 
-" YouCompleteMe ------------------------------ {{{
-if has('macunix')
-    let g:ycm_path_to_python_interpreter = "/usr/bin/python"
-else
-    let g:ycm_path_to_python_interpreter = "/usr/bin/python"
-endif
-let g:ycm_confirm_extra_conf = 0
-" /YouCompleteMe ----------------------------- }}}
+let g:rubycomplete_rails = 1
+" /ruby-mode --------------------------------- }}}
 
-" haproxy ------------------------------------ {{{
-augroup haproxymode
+" stylus-mode -------------------------------- {{{
+augroup stylusmode
     au!
-    au BufRead,BufNewFile *.haproxy.conf set filetype=haproxy
-    au FileType haproxy let &l:colorcolumn  = gitcommit_short_summary_max_length
-    au FileType haproxy let &l:colorcolumn .= "," . docstring_max_length
-    au FileType haproxy let &l:colorcolumn .= "," . short_line_max_length
-    au FileType haproxy let &l:colorcolumn .= "," . long_line_max_length
+    au Filetype stylus setlocal ts=2 sts=2 sw=2
+    au FileType stylus let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType stylus let &l:colorcolumn .= "," . docstring_max_length
+    au FileType stylus let &l:colorcolumn .= "," . short_line_max_length
+    au FileType stylus let &l:colorcolumn .= "," . long_line_max_length
 augroup END
-" /haproxy ----------------------------------- }}}
-
-" powerline ---------------------------------- {{{
-let g:Powerline_symbols = 'unicode'
-" /powerline --------------------------------- }}}
-
-" quickfix signs ----------------------------- {{{
-let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
-hi clear LinNr
-hi clear SignColumn
-" /quickfix signs ---------------------------- }}}
+" /stylus-mode ------------------------------- }}}
 
 " syntastic ---------------------------------- {{{
 let g:syntastic_always_populate_loc_list = 1
@@ -509,6 +462,17 @@ let g:syntastic_rst_checkers=[]
 "let g:syntastic_ruby_checkers=['rubocop', 'mri']
 " syntastic ---------------------------------- }}}
 
+" text-mode ---------------------------------- {{{
+augroup textmode
+    au!
+    au Filetype text setlocal wrap
+    au FileType text let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType text let &l:colorcolumn .= "," . docstring_max_length
+    au FileType text let &l:colorcolumn .= "," . short_line_max_length
+    au FileType text let &l:colorcolumn .= "," . long_line_max_length
+augroup END
+" /text-mode --------------------------------- }}}
+
 " UltiSnips ---------------------------------- {{{
 let g:UltiSnips = {}
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -516,18 +480,6 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnips.always_use_first_snippet = 1
 " /UltiSnips --------------------------------- }}}
-
-" ack-mode ----------------------------------- {{{
-if executable('ag')
-  let g:ackprg = 'ag --nogroup --column'
-
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-" ack-mode ----------------------------------- }}}
 
 " vim-airline -------------------------------- {{{
 if !exists('g:airline_powerline_fonts')
@@ -537,9 +489,56 @@ if !exists('g:airline_powerline_fonts')
 endif
 " /vim-airline ------------------------------- }}}
 
-" LaTeX-Box ---------------------------------- {{{
-let g:LatexBox_Folding = 1
-" /LaTeX-Box ---------------------------------- }}}
+" vim-mode ----------------------------------- {{{
+augroup vimmode
+    au!
+    au FileType vim setlocal foldmethod=marker
+    au FileType vim let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType vim let &l:colorcolumn .= "," . docstring_max_length
+    au FileType vim let &l:colorcolumn .= "," . short_line_max_length
+    au FileType vim let &l:colorcolumn .= "," . long_line_max_length
+augroup END
+" /vim-mode ---------------------------------- }}}
+
+" VimOrganizer ------------------------------- {{{
+augroup vimorganizermode
+    au!
+    au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
+    au BufEnter *.org call org#SetOrgFileType()
+augroup END
+" /VimOrganizer ------------------------------ }}}
+
+" yaml --------------------------------------- {{{
+augroup yamlmode
+    au!
+    au Filetype yaml setlocal ts=2 sts=2 sw=2
+    au BufRead,BufNewFile *.fdoc set filetype=yaml
+    au FileType yaml let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType yaml let &l:colorcolumn .= "," . docstring_max_length
+    au FileType yaml let &l:colorcolumn .= "," . short_line_max_length
+    au FileType yaml let &l:colorcolumn .= "," . long_line_max_length
+augroup END
+" /yaml -------------------------------------- }}}
+
+" YouCompleteMe ------------------------------ {{{
+if has('macunix')
+    let g:ycm_path_to_python_interpreter = "/usr/bin/python"
+else
+    let g:ycm_path_to_python_interpreter = "/usr/bin/python"
+endif
+let g:ycm_confirm_extra_conf = 0
+" /YouCompleteMe ----------------------------- }}}
+
+" zsh-mode ----------------------------------- {{{
+augroup zshmode
+    au!
+    au FileType zsh setlocal foldmethod=marker
+    au FileType zsh let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType zsh let &l:colorcolumn .= "," . docstring_max_length
+    au FileType zsh let &l:colorcolumn .= "," . short_line_max_length
+    au FileType zsh let &l:colorcolumn .= "," . long_line_max_length
+augroup END
+" /zsh-mode ---------------------------------- }}}
 " /Plugin Settings -------------------------------------------------------- }}}
 
 " Local Configuration ----------------------------------------------------- {{{
