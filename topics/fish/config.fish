@@ -154,6 +154,9 @@ end
 function apios
     command ansible-playbook -i ~/.ansible.d/inventories/osx ~/.ansible.d/site.yml $argv
 end
+function av
+    command ansible-vault $argv
+end
 # /ansible ---------------------------------------------------------------- }}}
 
 # salt -------------------------------------------------------------------- {{{
