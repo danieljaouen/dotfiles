@@ -43,4 +43,4 @@
     ui = auto
 
 [push]
-    default = tracking
+    default = upstream
