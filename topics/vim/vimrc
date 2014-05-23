@@ -187,6 +187,8 @@ endif
 " let localmapleader=','
 let mapleader=','
 inoremap jk <esc>
+inoremap Jk <esc>
+inoremap JK <esc>
 inoremap <C-l> <C-x><C-]>
 inoremap <C-d>o {%<space><space>%}<left><left><left>
 inoremap <C-d>t {{<space><space>}}<left><left><left>
