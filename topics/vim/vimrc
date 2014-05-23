@@ -353,6 +353,15 @@ augroup htmlmode
 augroup END
 " /htmldjango -------------------------------- }}}
 
+" indent-guides ------------------------------ {{{
+let g:indent_guides_auto_colors = 0
+augroup indentguides
+    au!
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
+augroup END
+" /indent-guides ----------------------------- }}}
+
 " js-mode ------------------------------------ {{{
 augroup jsmode
     au!
