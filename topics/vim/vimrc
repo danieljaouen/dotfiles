@@ -442,7 +442,7 @@ augroup rubymode
     au FileType ruby let &l:colorcolumn .= "," . docstring_max_length
     au FileType ruby let &l:colorcolumn .= "," . short_line_max_length
     au FileType ruby let &l:colorcolumn .= "," . long_line_max_length
-    au Filetype ruby setlocal foldmethod=syntax
+    au Filetype ruby setlocal foldmethod=marker
     au Filetype eruby inoremap <buffer> <C-d>o <%<space><space>%><left><left><left>
     au Filetype eruby inoremap <buffer> <C-d>t <%=<space><space>%><left><left><left>
 augroup END
