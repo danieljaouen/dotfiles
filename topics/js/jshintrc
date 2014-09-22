@@ -19,7 +19,7 @@
     ],
     "debug": false,
     "devel": true,
-    "strict": true,
+    "strict": false,
     "globalstrict": false,
     "asi": false,
     "bitwise": true,
