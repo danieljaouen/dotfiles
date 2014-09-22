@@ -18,6 +18,7 @@ switch (uname)
         set LOCAL_PATH /usr/X11/bin
         set LOCAL_PATH /usr/texbin $LOCAL_PATH
         set LOCAL_PATH /usr/local/opt/ruby/bin $LOCAL_PATH
+        set LOCAL_PATH /usr/local/deployd/bin $LOCAL_PATH
         set LOCAL_PATH /usr/local/share/npm/bin $LOCAL_PATH
         set LOCAL_PATH /usr/local/Cellar/go/1.2/libexec/bin $LOCAL_PATH
         set LOCAL_PATH $GOPATH/bin $LOCAL_PATH
