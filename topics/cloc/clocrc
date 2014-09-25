@@ -403,8 +403,6 @@ MATLAB
 MSBuild scripts
     filter remove_html_comments
     filter call_regexp_common HTML
-    extension csproj
-    extension wdproj
     3rd_gen_scale 1.90
 MUMPS
     filter remove_matches ^\s*;
@@ -442,11 +440,6 @@ NASTRAN DMAP
     filter remove_inline \$.*$
     extension dmap
     3rd_gen_scale 2.35
-NAnt scripts
-    filter remove_html_comments
-    filter call_regexp_common HTML
-    extension build
-    3rd_gen_scale 1.90
 OCaml
     filter call_regexp_common Pascal
     extension ml
