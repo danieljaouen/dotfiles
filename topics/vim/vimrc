@@ -279,6 +279,7 @@ augroup elixirmode
     au FileType elixir let &l:colorcolumn .= "," . docstring_max_length
     au FileType elixir let &l:colorcolumn .= "," . short_line_max_length
     au FileType elixir let &l:colorcolumn .= "," . long_line_max_length
+    au Filetype elixir setlocal foldlevel=99
     au Filetype elixir setlocal foldmethod=syntax
     au Filetype elixir nnoremap <buffer> <leader>t :!mix test<CR>
 augroup END
