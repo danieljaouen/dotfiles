@@ -215,7 +215,6 @@ nnoremap <leader>a: :Tabularize /:/l1c1l0<CR>
 nnoremap <leader>i :set list!<cr>
 nnoremap <leader>n :setlocal number!<cr>
 nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
-nnoremap <leader>l :lopen<cr>
 nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
 nnoremap / /\v
 nnoremap ? ?\v
@@ -260,6 +259,15 @@ augroup coffeemode
     au FileType coffee let &l:colorcolumn .= "," . long_line_max_length
 augroup END
 " /coffee-mode ------------------------------- }}}
+
+augroup cppmode
+    au!
+    au FileType cpp let &l:colorcolumn  = gitcommit_short_summary_max_length
+    au FileType cpp let &l:colorcolumn .= "," . docstring_max_length
+    au FileType cpp let &l:colorcolumn .= "," . short_line_max_length
+    au FileType cpp let &l:colorcolumn .= "," . long_line_max_length
+    au Filetype cpp let syntastic_auto_loc_list = 0
+augroup END
 
 " cucumber-mode ------------------------------ {{{
 augroup cucumbermode
