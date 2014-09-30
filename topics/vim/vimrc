@@ -215,6 +215,7 @@ nnoremap <leader>a: :Tabularize /:/l1c1l0<CR>
 nnoremap <leader>i :set list!<cr>
 nnoremap <leader>n :setlocal number!<cr>
 nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
+nnoremap <leader>l :lopen<cr>
 nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
 nnoremap / /\v
 nnoremap ? ?\v
@@ -468,7 +469,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list=1 " automatically open error window
 let g:syntastic_mode_map = { "mode": "active",
             \ "active_filetypes": ["python", "javascript"],
-            \ "passive_filetypes": ["c", "cucumber", "feature", "html", "scss"],
+            \ "passive_filetypes": ["cucumber", "feature", "html", "scss"],
             \ }
 let g:syntastic_css_checkers=['csslint']
 let g:syntastic_rst_checkers=[]
@@ -541,6 +542,7 @@ else
     let g:ycm_path_to_python_interpreter = "/usr/bin/python"
 endif
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_show_diagnostics_ui = 1
 " /YouCompleteMe ----------------------------- }}}
 
 " zsh-mode ----------------------------------- {{{
