@@ -523,14 +523,6 @@ augroup vimmode
 augroup END
 " /vim-mode ---------------------------------- }}}
 
-" VimOrganizer ------------------------------- {{{
-augroup vimorganizermode
-    au!
-    au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
-    au BufEnter *.org call org#SetOrgFileType()
-augroup END
-" /VimOrganizer ------------------------------ }}}
-
 " yaml --------------------------------------- {{{
 augroup yamlmode
     au!
