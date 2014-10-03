@@ -82,7 +82,6 @@ set -x TERM screen-256color-bce
 set -x PYENV_ROOT $HOME/.pyenv
 set -x ANSIBLE_NOCOWS 1
 set -x LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
-set -x TMUX_POWERLINE_THEME mytheme
 
 function l
     command ls -lah $argv
