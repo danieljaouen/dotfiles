@@ -260,6 +260,7 @@ augroup coffeemode
 augroup END
 " /coffee-mode ------------------------------- }}}
 
+" cpp-mode ----------------------------------- {{{
 augroup cppmode
     au!
     au FileType cpp let &l:colorcolumn  = gitcommit_short_summary_max_length
@@ -268,6 +269,7 @@ augroup cppmode
     au FileType cpp let &l:colorcolumn .= "," . long_line_max_length
     au Filetype cpp let syntastic_auto_loc_list = 0
 augroup END
+" /cpp-mode ---------------------------------- }}}
 
 " cucumber-mode ------------------------------ {{{
 augroup cucumbermode
