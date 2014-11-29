@@ -294,6 +294,8 @@ augroup elixirmode
     au Filetype elixir setlocal nospell
     au Filetype elixir setlocal foldmethod=syntax
     au Filetype elixir nnoremap <buffer> <leader>t :!mix test<CR>
+    au Filetype eelixir inoremap <buffer> <C-d>o <%<space><space>%><left><left><left>
+    au Filetype eelixir inoremap <buffer> <C-d>t <%=<space><space>%><left><left><left>
 augroup END
 " /elixir-mode ------------------------------- }}}
 
