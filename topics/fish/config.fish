@@ -23,6 +23,7 @@ switch (uname)
         set LOCAL_PATH /usr/local/Cellar/go/1.2/libexec/bin $LOCAL_PATH
         set LOCAL_PATH $GOPATH/bin $LOCAL_PATH
         set LOCAL_PATH $HOME/.cabal/bin $LOCAL_PATH
+        set LOCAL_PATH /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/bin $LOCAL_PATH
         set LOCAL_PATH $HOME/.bin $LOCAL_PATH
         set -x PATH $LOCAL_PATH $BASE_PATH
     case Linux
