@@ -47,7 +47,7 @@ switch (uname)
         set -x MAIL $HOME/Mail
         set -x PKG_CONFIG_PATH /opt/X11/lib/pkgconfig
         set -x SHELL /usr/local/bin/fish
-        set -x JAVA_HOME (/usr/libexec/java_home)
+        set -x JAVA_HOME (/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre)
         set -x PAGER vimpager
         set -x CA_CERTIFICATE /usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
@@ -57,7 +57,7 @@ switch (uname)
 
         # aws --------------------------------------------------------------------- {{{
         set -x AWS_CREDENTIAL_FILE "$HOME/.boto"
-        set -x JAVA_HOME (/usr/libexec/java_home)
+        set -x JAVA_HOME (/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre)
         set -x EC2_PRIVATE_KEY (/bin/ls "$HOME"/.ec2/pk-*.pem | /usr/bin/head -1)
         set -x EC2_CERT (/bin/ls "$HOME"/.ec2/cert-*.pem | /usr/bin/head -1)
         set -x EC2_HOME "/usr/local/Cellar/ec2-api-tools/1.6.12.0/libexec"
