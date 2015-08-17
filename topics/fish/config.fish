@@ -1,8 +1,42 @@
 # setup ------------------------------------------------------------------- {{{
 set fish_path $HOME/.oh-my-fish
-set fish_theme danieljaouen
-set fish_plugins autojump brew bundler django pyenv rbenv
-# /setup ------------------------------------------------------------------ }}}
+source $fish_path/oh-my-fish.fish
+
+# Global Options and Aliases --------------------------------------- {{{
+set -x EDITOR vim
+set -x TERM screen-256color-bce
+set -x PYENV_ROOT $HOME/.pyenv
+set -x ANSIBLE_NOCOWS 1
+set -x LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
+
+function l
+    command ls -lah $argv
+end
+function less
+    command vimpager
+end
+function mtr
+    command sudo mtr -t $argv
+end
+function mute
+    command vol 0 $argv
+end
+function n
+    command newsbeuter $argv
+end
+function serve_this
+    command python -m SimpleHTTPServer 8100 $argv
+end
+function t
+    command task $argv
+end
+# function zless
+#     command $PAGER $argv
+# end
+function ...
+    cd ../..
+end
+# /Global Options and Aliases -------------------------------------- }}}
 
 # PATH -------------------------------------------------------------------- {{{
 set BASE_PATH /bin
@@ -24,6 +58,8 @@ switch (uname)
         set LOCAL_PATH $GOPATH/bin $LOCAL_PATH
         set LOCAL_PATH $HOME/.cabal/bin $LOCAL_PATH
         set LOCAL_PATH /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/bin $LOCAL_PATH
+        set LOCAL_PATH $HOME/.rbenv/bin $LOCAL_PATH
+        set LOCAL_PATH $HOME/.pyenv/bin $LOCAL_PATH
         set LOCAL_PATH $HOME/.bin $LOCAL_PATH
         set -x PATH $LOCAL_PATH $BASE_PATH
     case Linux
@@ -35,11 +71,18 @@ switch (uname)
 end
 # /PATH ------------------------------------------------------------------- }}}
 
+# Plugins and Themes ----------------------------------------------- {{{
+Plugin "brew"
+Plugin "bundler"
+Plugin "django"
+Plugin "pyenv"
+Plugin "rbenv"
+Theme "danieljaouen"
+# /Plugins and Themes ---------------------------------------------- }}}
+# /setup ------------------------------------------------------------------ }}}
+
 # Path to your custom folder (default path is $FISH/custom)
 #set fish_custom $HOME/dotfiles/oh-my-fish
-
-# Load oh-my-fish configuration.
-source $fish_path/oh-my-fish.fish
 
 # OS-specific configuration ----------------------------------------------- {{{
 switch (uname)
@@ -76,42 +119,6 @@ switch (uname)
         # eval "$(ssh-agent)"
 end
 # /OS-specific configuration ---------------------------------------------- }}}
-
-# Global Options and Aliases ---------------------------------------------- {{{
-set -x EDITOR vim
-set -x TERM screen-256color-bce
-set -x PYENV_ROOT $HOME/.pyenv
-set -x ANSIBLE_NOCOWS 1
-set -x LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
-
-function l
-    command ls -lah $argv
-end
-function less
-    command vimpager
-end
-function mtr
-    command sudo mtr -t $argv
-end
-function mute
-    command vol 0 $argv
-end
-function n
-    command newsbeuter $argv
-end
-function serve_this
-    command python -m SimpleHTTPServer 8100 $argv
-end
-function t
-    command task $argv
-end
-# function zless
-#     command $PAGER $argv
-# end
-function ...
-    cd ../..
-end
-# /Global Options and Aliases --------------------------------------------- }}}
 
 # ag ---------------------------------------------------------------------- {{{
 function agjs
