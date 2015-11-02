@@ -50,7 +50,7 @@ switch (uname)
     case Darwin
         set -x GOPATH /usr/local/var/go
         set LOCAL_PATH /usr/X11/bin
-        set LOCAL_PATH /usr/texbin $LOCAL_PATH
+        set LOCAL_PATH /Library/TeX/texbin $LOCAL_PATH
         set LOCAL_PATH /usr/local/opt/ruby/bin $LOCAL_PATH
         set LOCAL_PATH /usr/local/deployd/bin $LOCAL_PATH
         set LOCAL_PATH /usr/local/share/npm/bin $LOCAL_PATH
