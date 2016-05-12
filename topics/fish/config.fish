@@ -72,12 +72,12 @@ end
 # /PATH ------------------------------------------------------------------- }}}
 
 # Plugins and Themes ----------------------------------------------- {{{
-Plugin "brew"
-Plugin "bundler"
-Plugin "django"
-Plugin "pyenv"
-Plugin "rbenv"
-Theme "danieljaouen"
+# Plugin "brew"
+# Plugin "bundler"
+# Plugin "django"
+# Plugin "pyenv"
+# Plugin "rbenv"
+# Theme "danieljaouen"
 # /Plugins and Themes ---------------------------------------------- }}}
 # /setup ------------------------------------------------------------------ }}}
 
