@@ -73,7 +73,8 @@ end
 
 # oh-my-fish setup ------------------------------------------------- {{{
 # Path to oh-my-fish.
-set -g OMF_PATH $HOME/.local/share/omf
+# set -g OMF_PATH $HOME/.local/share/omf
+set -g OMF_PATH $HOME/.oh-my-fish
 
 # Path to oh-my-fish configuration.
 set -g OMF_CONFIG $HOME/.config/omf
@@ -93,10 +94,10 @@ source $OMF_PATH/init.fish
 # Plugin "pyenv"
 # Plugin "rbenv"
 # Theme "danieljaouen"
-# /oh-my-fish setup ------------------------------------------------ }}}
 
 # Path to your custom folder (default path is $FISH/custom)
 #set fish_custom $HOME/dotfiles/oh-my-fish
+# /oh-my-fish setup ------------------------------------------------ }}}
 
 # OS-specific configuration ----------------------------------------------- {{{
 switch (uname)
@@ -133,6 +134,7 @@ switch (uname)
         # eval "$(ssh-agent)"
 end
 # /OS-specific configuration ---------------------------------------------- }}}
+# /setup ------------------------------------------------------------------ }}}
 
 # ag ---------------------------------------------------------------------- {{{
 function agjs
