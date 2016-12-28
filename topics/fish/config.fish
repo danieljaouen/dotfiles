@@ -381,6 +381,7 @@ source $HOME/.virtualfish/virtual.fish
 source $HOME/.virtualfish/auto_activation.fish
 source $HOME/.virtualfish/global_requirements.fish
 set -x VIRTUAL_ENV_DISABLE_PROMPT 0
+eval (pyenv init -)
 
 function daspt
     command django-admin.py startproject --template=https://github.com/danieljaouen/django-twoscoops-project/archive/develop.zip --extension=py,rst,html $argv
@@ -424,6 +425,7 @@ end
 # /python/django --------------------------------------------------- }}}
 
 # ruby/rails ------------------------------------------------------- {{{
+eval (rbenv init -)
 function b
     command bundle $argv
 end
