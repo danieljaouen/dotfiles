@@ -13,7 +13,7 @@ function l
     command ls -lah $argv
 end
 function less
-    eval "$PAGER $argv"
+    command vim $argv
 end
 function mtr
     command sudo mtr -t $argv
@@ -31,7 +31,7 @@ function t
     command task $argv
 end
 function zless
-    eval "$PAGER $argv"
+    command vim $argv
 end
 function ...
     cd ../..
@@ -106,7 +106,7 @@ switch (uname)
         set -x PKG_CONFIG_PATH /opt/X11/lib/pkgconfig
         set -x SHELL /usr/local/bin/fish
         set -x JAVA_HOME /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre
-        set -x PAGER vim
+        set -x PAGER vimpager
         set -x CA_CERTIFICATE /usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
         function update
