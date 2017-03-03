@@ -185,42 +185,6 @@ function av
 end
 # /ansible --------------------------------------------------------- }}}
 
-# salt ------------------------------------------------------------- {{{
-function sk
-    command salt-key $argv
-end
-function skd
-    command salt-key -c $HOME/.virtualenvs/salt/etc/salt $argv
-end
-
-function sc
-    command salt-call $argv
-end
-function scd
-    command salt-call -c $HOME/.virtualenvs/salt/etc/salt $argv
-end
-
-function smi
-    command salt-minion $argv
-end
-function smid
-    command salt-minion -c $HOME/.virtualenvs/salt/etc/salt $argv
-end
-
-function sma
-    command salt-master $argv
-end
-function smad
-    command salt-master -c $HOME/.virtualenvs/salt/etc/salt $argv
-end
-# /salt ------------------------------------------------------------ }}}
-
-# puppet ----------------------------------------------------------- {{{
-function pa
-    command puppet apply $argv
-end
-# /puppet ---------------------------------------------------------- }}}
-
 # cloc ------------------------------------------------------------- {{{
 function cloc
     command cloc --read-lang-def=$HOME/.clocrc $argv
@@ -441,6 +405,16 @@ function pyr
 end
 # /python/django --------------------------------------------------- }}}
 
+# puppet ----------------------------------------------------------- {{{
+function lp
+    command librarian-puppet $argv
+end
+
+function pa
+    command puppet apply $argv
+end
+# /puppet ---------------------------------------------------------- }}}
+
 # ruby/rails ------------------------------------------------------- {{{
 # rbenv -------------------------------------- {{{
 setenv PATH "$HOME/.rbenv/shims" $PATH
@@ -499,11 +473,44 @@ function bug
 end
 # /ruby/rails ------------------------------------------------------ }}}
 
-# puppet ----------------------------------------------------------- {{{
-function lp
-    command librarian-puppet $argv
+# salt ------------------------------------------------------------- {{{
+function sk
+    command salt-key $argv
 end
-# /puppet ---------------------------------------------------------- }}}
+function skd
+    command salt-key -c $HOME/.virtualenvs/salt/etc/salt $argv
+end
+
+function sc
+    command salt-call $argv
+end
+function scd
+    command salt-call -c $HOME/.virtualenvs/salt/etc/salt $argv
+end
+
+function smi
+    command salt-minion $argv
+end
+function smid
+    command salt-minion -c $HOME/.virtualenvs/salt/etc/salt $argv
+end
+
+function sma
+    command salt-master $argv
+end
+function smad
+    command salt-master -c $HOME/.virtualenvs/salt/etc/salt $argv
+end
+# /salt ------------------------------------------------------------ }}}
+
+# tmux ------------------------------------------------------------- {{{
+function tms
+    command tmux -S /tmp/shareds new -s shared $argv
+end
+function tma
+    command tmux -S /tmp/shareds attach -t shared $argv
+end
+# /tmux ------------------------------------------------------------ }}}
 
 # vagrant ---------------------------------------------------------- {{{
 function v
@@ -522,15 +529,6 @@ function vupa
     command vagrant up --provider=aws $argv
 end
 # /vagrant --------------------------------------------------------- }}}
-
-# tmux ------------------------------------------------------------- {{{
-function tms
-    command tmux -S /tmp/shareds new -s shared $argv
-end
-function tma
-    command tmux -S /tmp/shareds attach -t shared $argv
-end
-# /tmux ------------------------------------------------------------ }}}
 # /aliases and language-specific setup ------------------------------------ }}}
 
 # local configuration ----------------------------------------------------- {{{
