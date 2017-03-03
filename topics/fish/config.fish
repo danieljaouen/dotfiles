@@ -52,11 +52,11 @@ switch (uname)
         set LOCAL_PATH /usr/X11/bin
         set LOCAL_PATH /Library/TeX/texbin $LOCAL_PATH
         set LOCAL_PATH /usr/local/opt/ruby/bin $LOCAL_PATH
-        set LOCAL_PATH /usr/local/deployd/bin $LOCAL_PATH
-        set LOCAL_PATH /usr/local/share/npm/bin $LOCAL_PATH
-        set LOCAL_PATH /usr/local/Cellar/go/1.2/libexec/bin $LOCAL_PATH
-        set LOCAL_PATH $GOPATH/bin $LOCAL_PATH
-        set LOCAL_PATH $HOME/.cabal/bin $LOCAL_PATH
+        # set LOCAL_PATH /usr/local/deployd/bin $LOCAL_PATH
+        # set LOCAL_PATH /usr/local/share/npm/bin $LOCAL_PATH
+        # set LOCAL_PATH /usr/local/Cellar/go/1.2/libexec/bin $LOCAL_PATH
+        # set LOCAL_PATH $GOPATH/bin $LOCAL_PATH
+        # set LOCAL_PATH $HOME/.cabal/bin $LOCAL_PATH
         set LOCAL_PATH /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/bin $LOCAL_PATH
         set LOCAL_PATH $HOME/.rbenv/bin $LOCAL_PATH
         set LOCAL_PATH $HOME/.pyenv/bin $LOCAL_PATH
@@ -381,7 +381,24 @@ source $HOME/.virtualfish/virtual.fish
 source $HOME/.virtualfish/auto_activation.fish
 source $HOME/.virtualfish/global_requirements.fish
 set -x VIRTUAL_ENV_DISABLE_PROMPT 0
-eval (pyenv init -)
+
+# pyenv -------------------------------------- {{{
+setenv PATH "$HOME/.pyenv/shims" $PATH
+setenv PYENV_SHELL fish
+. "$HOME/.pyenv/libexec/../completions/pyenv.fish"
+command pyenv rehash 2>/dev/null
+function pyenv
+    set command $argv[1]
+    set -e argv[1]
+
+    switch "$command"
+    case rehash shell
+        . (pyenv "sh-$command" $argv|psub)
+    case '*'
+        command pyenv "$command" $argv
+    end
+end
+# /pyenv ------------------------------------- }}}
 
 function daspt
     command django-admin.py startproject --template=https://github.com/danieljaouen/django-twoscoops-project/archive/develop.zip --extension=py,rst,html $argv
@@ -425,7 +442,24 @@ end
 # /python/django --------------------------------------------------- }}}
 
 # ruby/rails ------------------------------------------------------- {{{
-eval (rbenv init -)
+# rbenv -------------------------------------- {{{
+setenv PATH "$HOME/.rbenv/shims" $PATH
+setenv RBENV_SHELL fish
+source "$HOME/.rbenv/libexec/../completions/rbenv.fish"
+command rbenv rehash 2>/dev/null
+function rbenv
+    set command $argv[1]
+    set -e argv[1]
+
+    switch "$command"
+    case rehash shell
+        source (rbenv "sh-$command" $argv|psub)
+    case '*'
+        command rbenv "$command" $argv
+    end
+end
+# /rbenv ------------------------------------- }}}
+
 function b
     command bundle $argv
 end
