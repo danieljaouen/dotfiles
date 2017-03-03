@@ -13,7 +13,7 @@ function l
     command ls -lah $argv
 end
 function less
-    command vimpager
+    eval "$PAGER $argv"
 end
 function mtr
     command sudo mtr -t $argv
@@ -30,9 +30,9 @@ end
 function t
     command task $argv
 end
-# function zless
-#     command $PAGER $argv
-# end
+function zless
+    eval "$PAGER $argv"
+end
 function ...
     cd ../..
 end
