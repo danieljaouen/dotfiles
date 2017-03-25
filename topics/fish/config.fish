@@ -8,6 +8,7 @@ set -x TERM screen-256color-bce
 set -x PYENV_ROOT $HOME/.pyenv
 set -x ANSIBLE_NOCOWS 1
 set -x LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
+set -x PYTHON_CONFIGURE_OPTS "--enable-framework"
 
 function l
     command ls -lah $argv
