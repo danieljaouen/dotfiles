@@ -348,7 +348,7 @@ source $HOME/.virtualfish/global_requirements.fish
 set -x VIRTUAL_ENV_DISABLE_PROMPT 0
 
 # pyenv -------------------------------------- {{{
-setenv PATH "$HOME/.pyenv/shims" $PATH
+set -gx PATH "$HOME/.pyenv/shims" $PATH
 setenv PYENV_SHELL fish
 . "$HOME/.pyenv/libexec/../completions/pyenv.fish"
 command pyenv rehash 2>/dev/null
@@ -418,7 +418,7 @@ end
 
 # ruby/rails ------------------------------------------------------- {{{
 # rbenv -------------------------------------- {{{
-setenv PATH "$HOME/.rbenv/shims" $PATH
+set -gx PATH "$HOME/.rbenv/shims" $PATH
 setenv RBENV_SHELL fish
 source "$HOME/.rbenv/libexec/../completions/rbenv.fish"
 command rbenv rehash 2>/dev/null
