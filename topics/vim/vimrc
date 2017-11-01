@@ -100,14 +100,14 @@ filetype plugin indent on
 " Global Settings --------------------------------------------------------- {{{
 syntax enable
 
-if !has('gui')
-    set term=$TERM
-endif
-if $term =~ '256color'
-    set t_co=256
-elseif $term =~ '^xterm$'
-    set t_co=256
-endif
+" if !has('gui')
+"     set term=$TERM
+" endif
+" if $term =~ '256color'
+"     set t_co=256
+" elseif $term =~ '^xterm$'
+"     set t_co=256
+" endif
 
 augroup globalsettings
     au!
@@ -177,10 +177,10 @@ hi! Search cterm=reverse
 set bs=2
 set mouse=a " allow mouse scrolling
 set pastetoggle=<F2>
-if exists('$TMUX')  " Support resizing in tmux
-    set clipboard+=unnamed
-    set ttymouse=xterm2
-endif
+" if exists('$TMUX')  " Support resizing in tmux
+"     set clipboard+=unnamed
+"     set ttymouse=xterm2
+" endif
 " /Global Settings -------------------------------------------------------- }}}
 
 " Keybindings ------------------------------------------------------------- {{{
