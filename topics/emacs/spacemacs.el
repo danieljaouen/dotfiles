@@ -318,6 +318,10 @@ you should place your code here."
     (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state)
     (define-key evil-normal-state-map (kbd ";") 'evil-ex)
     (global-set-key "\C-h" 'delete-backward-char)
+    (define-key evil-normal-state-map "\C-h" 'evil-window-left)
+    (define-key evil-normal-state-map "\C-j" 'evil-window-down)
+    (define-key evil-normal-state-map "\C-k" 'evil-window-up)
+    (define-key evil-normal-state-map "\C-l" 'evil-window-right)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
