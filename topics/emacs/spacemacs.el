@@ -43,13 +43,13 @@ values."
      erlang
      git
      helm
-     html
      markdown
      org
      osx
      python
      syntax-checking
      version-control
+     ;; html
      ;; better-defaults
      ;; (shell :variables
      ;;        shell-default-height 30
