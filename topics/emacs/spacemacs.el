@@ -323,6 +323,8 @@ you should place your code here."
     (define-key evil-normal-state-map "\C-j" 'evil-window-down)
     (define-key evil-normal-state-map "\C-k" 'evil-window-up)
     (define-key evil-normal-state-map "\C-l" 'evil-window-right)
+    (define-key evil-command-window-mode-map "\C-w" 'backwards-word-kill)
+    (define-key evil-ex-completion-map "\C-w" 'backwards-word-kill)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
