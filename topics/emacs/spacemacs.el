@@ -317,6 +317,7 @@ you should place your code here."
     (setq key-chord-two-keys-delay 0.3)
     (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state)
     (define-key evil-normal-state-map (kbd ";") 'evil-ex)
+    (global-set-key "\C-h" 'delete-backward-char)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
