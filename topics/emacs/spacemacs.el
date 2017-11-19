@@ -338,6 +338,8 @@ you should place your code here."
     ; (key-chord-mode 1)
     ; (setq key-chord-two-keys-delay 0.4)
     ; (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state)
+    (column-marker-1 73)
+    (column-marker-2 80)
     (setq-default evil-escape-key-sequence "jk")
     (setq-default evil-escape-delay 0.4)
     (setq-default evil-escape-unordered-key-sequence nil)
