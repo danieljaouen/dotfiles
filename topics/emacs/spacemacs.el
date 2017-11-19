@@ -327,11 +327,14 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-    (require 'key-chord)
     (require 'column-marker)
     (require 'helm)
-    (key-chord-mode 1)
-    (setq key-chord-two-keys-delay 0.4)
+    ; (require 'key-chord)
+    ; (key-chord-mode 1)
+    ; (setq key-chord-two-keys-delay 0.4)
+    (setq-default evil-escape-key-sequence "jk")
+    (setq-default evil-escape-delay 0.4)
+    (setq-default evil-escape-unordered-key-sequence nil)
     (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state)
     (define-key evil-normal-state-map (kbd ";") 'evil-ex)
     (define-key evil-visual-state-map (kbd ";") 'evil-ex)
