@@ -329,7 +329,7 @@ you should place your code here."
     (global-set-key "\C-w" 'backward-kill-word)
     (define-key helm-map "\C-h" 'delete-backward-char)
     (define-key helm-map "\C-w" 'backward-kill-word)
-    (define-key helm-find-files-map "\C-h" 'delete-backward-char)
+    ;(define-key helm-find-files-map "\C-h" 'delete-backward-char)
     (define-key helm-find-files-map "\C-w" 'backward-kill-word)
     (define-key evil-normal-state-map "\C-h" 'evil-window-left)
     (define-key evil-normal-state-map "\C-j" 'evil-window-down)
