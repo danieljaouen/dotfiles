@@ -46,8 +46,8 @@ values."
      go
      helm
      html
-     latex
      javascript
+     latex
      markdown
      org
      osx
