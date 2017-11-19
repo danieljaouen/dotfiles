@@ -225,7 +225,7 @@ vnoremap <BS> :nohlsearch<cr>
 vnoremap <C-c>n :lnext<cr>
 vnoremap <C-c>p :lprev<cr>
 vnoremap <C-n> :nohlsearch<cr>
-vnoremap <Leader>s :sort<CR>
+vnoremap <Leader>l :sort<CR>
 vnoremap <leader>] :TagbarToggle<CR>
 vnoremap <leader>a :Ack<space>
 vnoremap <leader>ah :Tabularize /=>/l1c1l0<CR>
