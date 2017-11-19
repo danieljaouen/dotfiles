@@ -49,6 +49,7 @@ values."
      javascript
      latex
      markdown
+     nginx
      org
      osx
      php
@@ -74,7 +75,6 @@ values."
    dotspacemacs-additional-packages '(
                                       column-marker
                                       key-chord
-                                      nginx-mode
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
