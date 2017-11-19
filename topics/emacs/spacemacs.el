@@ -69,7 +69,6 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
                                       column-marker
-                                      emms
                                       key-chord
                                       )
    ;; A list of packages that cannot be updated.
