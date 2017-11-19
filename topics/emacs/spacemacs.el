@@ -45,6 +45,7 @@ values."
      osx
      python
      syntax-checking
+     tmux
      version-control
      vimscript
      ;; better-defaults
@@ -318,18 +319,22 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
     (require 'key-chord)
     (require 'column-marker)
+    (require 'helm)
     (key-chord-mode 1)
     (setq key-chord-two-keys-delay 0.3)
     (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state)
     (define-key evil-normal-state-map (kbd ";") 'evil-ex)
     (define-key evil-visual-state-map (kbd ";") 'evil-ex)
     (global-set-key "\C-h" 'delete-backward-char)
+    (global-set-key "\C-w" 'backward-kill-word)
+    (define-key helm-map "\C-h" 'delete-backward-char)
+    (define-key helm-map "\C-w" 'backward-kill-word)
+    (define-key helm-find-files-map "\C-h" 'delete-backward-char)
+    (define-key helm-find-files-map "\C-w" 'backward-kill-word)
     (define-key evil-normal-state-map "\C-h" 'evil-window-left)
     (define-key evil-normal-state-map "\C-j" 'evil-window-down)
     (define-key evil-normal-state-map "\C-k" 'evil-window-up)
     (define-key evil-normal-state-map "\C-l" 'evil-window-right)
-    (define-key evil-command-window-mode-map "\C-w" 'backwards-word-kill)
-    (define-key evil-ex-completion-map "\C-w" 'backwards-word-kill)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
