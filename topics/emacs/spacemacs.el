@@ -362,6 +362,9 @@ you should place your code here."
     (add-hook 'before-save-hook 'delete-trailing-whitespace)
     ; (setq js-indent-level 2)
     (put 'dired-find-alternate-file 'disabled nil)
+    (setq backup-by-copying t
+          make-backup-files nil
+          create-lockfiles nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
