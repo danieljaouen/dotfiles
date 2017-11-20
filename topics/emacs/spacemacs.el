@@ -361,7 +361,7 @@ you should place your code here."
     (define-key evil-visual-state-map ",q" 'sort-lines)
     (add-hook 'before-save-hook 'delete-trailing-whitespace)
     ; (setq js-indent-level 2)
-    (put 'dired-find-alternate-file, 'disabled nil)
+    (put 'dired-find-alternate-file 'disabled nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
