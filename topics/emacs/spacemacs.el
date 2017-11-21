@@ -365,6 +365,9 @@ you should place your code here."
     (setq backup-by-copying t
           make-backup-files nil
           create-lockfiles nil)
+    ; (with-eval-after-load 'linum
+    ;   (linum-relative-toggle))
+    ; (global-linum-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
