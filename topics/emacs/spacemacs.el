@@ -353,6 +353,10 @@ you should place your code here."
     (define-key helm-map "\C-h" 'delete-backward-char)
     (define-key helm-map "\C-w" 'backward-kill-word)
     ;(define-key helm-find-files-map "\C-h" 'delete-backward-char)
+    (with-eval-after-load 'company
+      (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+      (define-key company-active-map (kbd "C-h") 'evil-delete-backward-char))
+
     (define-key helm-find-files-map "\C-w" 'backward-kill-word)
     (define-key evil-normal-state-map "\C-h" 'evil-window-left)
     (define-key evil-normal-state-map "\C-j" 'evil-window-down)
