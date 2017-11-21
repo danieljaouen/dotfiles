@@ -143,7 +143,7 @@ set listchars=tab:▸\ ,trail:•,extends:»,precedes:« " whitespace and traili
 set nobackup
 set nocursorline                " This fixes a lag issue with ruby syntax highlighting
 set nojoinspaces
-set norelativenumber
+set relativenumber
 set noswapfile
 set nowrap  " don't automatically wrap on load
 set nowritebackup
