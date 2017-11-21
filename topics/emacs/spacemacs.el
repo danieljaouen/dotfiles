@@ -336,7 +336,6 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
     (require 'column-marker)
     (require 'helm)
-    (require 'linum)
 
     ; (require 'key-chord)
     ; (key-chord-mode 1)
@@ -367,9 +366,7 @@ you should place your code here."
     (setq backup-by-copying t
           make-backup-files nil
           create-lockfiles nil)
-    (with-eval-after-load 'linum
-      (linum-relative-toggle))
-    (global-linum-mode)
+    (setq-default dotspacemacs-line-numbers 'relative)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
