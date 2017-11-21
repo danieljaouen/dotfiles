@@ -186,6 +186,8 @@ set pastetoggle=<F2>
 " Keybindings ------------------------------------------------------------- {{{
 " let localmapleader=','
 let mapleader=','
+nnoremap <space>ff :LustyFilesystemExplorerFromHere<CR>
+nnoremap <space>bb :LustyBufferExplorer<CR>
 inoremap jk <esc>
 inoremap Jk <esc>
 inoremap JK <esc>
