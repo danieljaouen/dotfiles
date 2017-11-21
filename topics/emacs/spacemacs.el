@@ -360,6 +360,8 @@ you should place your code here."
     (define-key evil-normal-state-map "\C-l" 'evil-window-right)
     (define-key evil-normal-state-map ",w" 'delete-trailing-whitespace)
     (define-key evil-visual-state-map ",q" 'sort-lines)
+    (define-key evil-insert-state-map "\C-n" 'next-line)
+    (define-key evil-insert-state-map "\C-p" 'previous-line)
     (add-hook 'before-save-hook 'delete-trailing-whitespace)
     ; (setq js-indent-level 2)
     (put 'dired-find-alternate-file 'disabled nil)
