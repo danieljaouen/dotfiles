@@ -358,21 +358,23 @@ source $HOME/.virtualfish/global_requirements.fish
 set -x VIRTUAL_ENV_DISABLE_PROMPT 0
 
 # pyenv -------------------------------------- {{{
-set -gx PATH "$HOME/.pyenv/shims" $PATH
-setenv PYENV_SHELL fish
-. "$HOME/.pyenv/libexec/../completions/pyenv.fish"
-command pyenv rehash 2>/dev/null
-function pyenv
-    set command $argv[1]
-    set -e argv[1]
-
-    switch "$command"
-    case rehash shell
-        . (pyenv "sh-$command" $argv|psub)
-    case '*'
-        command pyenv "$command" $argv
-    end
-end
+# . "(pyenv init -)"
+# . "(pyenv virtualenv-init -)"
+# set -gx PATH "$HOME/.pyenv/shims" $PATH
+# setenv PYENV_SHELL fish
+# . "$HOME/.pyenv/libexec/../completions/pyenv.fish"
+# command pyenv rehash 2>/dev/null
+# function pyenv
+#     set command $argv[1]
+#     set -e argv[1]
+#
+#     switch "$command"
+#     case rehash shell
+#         . (pyenv "sh-$command" $argv|psub)
+#     case '*'
+#         command pyenv "$command" $argv
+#     end
+# end
 # /pyenv ------------------------------------- }}}
 
 function daspt
