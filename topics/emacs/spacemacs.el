@@ -53,7 +53,7 @@ values."
      nginx
      org
      osx
-     php
+     ; php
      python
      ruby
      ruby-on-rails
