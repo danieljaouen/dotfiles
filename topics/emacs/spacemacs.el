@@ -354,6 +354,8 @@ you should place your code here."
     (define-key helm-map "\C-w" 'backward-kill-word)
     ;(define-key helm-find-files-map "\C-h" 'delete-backward-char)
     (with-eval-after-load 'company
+      (define-key company-active-map (kbd "C-n") 'company-select-next)
+      (define-key company-active-map (kbd "C-p") 'company-select-previous)
       (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
       (define-key company-active-map (kbd "C-h") 'evil-delete-backward-char))
 
