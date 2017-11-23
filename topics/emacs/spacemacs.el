@@ -44,6 +44,7 @@ values."
      erlang
      git
      github
+     gnus
      go
      helm
      html
