@@ -375,6 +375,8 @@ you should place your code here."
           make-backup-files nil
           create-lockfiles nil)
     (setq-default dotspacemacs-line-numbers 'relative)
+    (global-auto-revert-mode 1)
+    (setq auto-revert-verbose nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
