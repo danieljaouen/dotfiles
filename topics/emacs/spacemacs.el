@@ -336,6 +336,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
     (require 'column-marker)
     (require 'helm)
+    (require 'iedit)
 
     ; (require 'key-chord)
     ; (key-chord-mode 1)
@@ -368,6 +369,8 @@ you should place your code here."
     (define-key evil-visual-state-map ",q" 'sort-lines)
     (define-key evil-insert-state-map "\C-n" 'next-line)
     (define-key evil-insert-state-map "\C-p" 'previous-line)
+    (define-key iedit-mode-keymap "\C-h" 'delete-backward-char)
+    (define-key iedit-mode-occurrence-keymap "\C-h" 'delete-backward-char)
     (add-hook 'before-save-hook 'delete-trailing-whitespace)
     ; (setq js-indent-level 2)
     (put 'dired-find-alternate-file 'disabled nil)
