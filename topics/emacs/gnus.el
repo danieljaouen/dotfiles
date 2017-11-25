@@ -10,5 +10,3 @@
 (setq smtpmail-smtp-server "smtp.gmail.com"
       smtpmail-smtp-service 587
       gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
-
-(define-key isearch-mode-map "\C-h" 'isearch-delete-char)

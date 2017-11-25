@@ -422,6 +422,7 @@ you should place your code here."
       (define-key gnus-group-mode-map ";" 'evil-ex)
       )
     (add-hook 'gnus-article-mode-hook 'my-gnus-article-mode-hook)
+    (define-key isearch-mode-map "\C-h" 'isearch-delete-char)
 )
 
 
