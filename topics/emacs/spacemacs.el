@@ -394,6 +394,7 @@ you should place your code here."
       (define-key gnus-group-mode-map "\C-l" 'evil-window-right)
       (define-key gnus-group-mode-map "\C-wv" 'evil-window-vsplit)
       (define-key gnus-group-mode-map "\C-ws" 'evil-window-split)
+      (define-key gnus-group-mode-map ";" 'evil-ex)
       )
 
     (add-hook 'gnus-group-mode-hook 'my-gnus-group-mode-hook)
@@ -407,6 +408,7 @@ you should place your code here."
       (define-key gnus-summary-mode-map "\C-l" 'evil-window-right)
       (define-key gnus-summary-mode-map "\C-wv" 'evil-window-vsplit)
       (define-key gnus-summary-mode-map "\C-ws" 'evil-window-split)
+      (define-key gnus-summary-mode-map ";" 'evil-ex)
       )
 
     (add-hook 'gnus-summary-mode-hook 'my-gnus-summary-mode-hook)
@@ -419,7 +421,8 @@ you should place your code here."
       (define-key gnus-article-mode-map "\C-l" 'evil-window-right)
       (define-key gnus-article-mode-map "\C-wv" 'evil-window-vsplit)
       (define-key gnus-article-mode-map "\C-ws" 'evil-window-split)
-      (define-key gnus-group-mode-map ";" 'evil-ex)
+      (define-key gnus-article-mode-map ";" 'evil-ex)
+      (define-key gnus-article-mode-map "zt" 'evil-scroll-line-to-top)
       )
     (add-hook 'gnus-article-mode-hook 'my-gnus-article-mode-hook)
     (define-key isearch-mode-map "\C-h" 'isearch-delete-char)
