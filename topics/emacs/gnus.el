@@ -16,3 +16,5 @@
 (define-key gnus-group-mode-map "\C-k" 'evil-window-up)
 (define-key gnus-group-mode-map "\C-l" 'evil-window-right)
 (define-key gnus-group-mode-map ";" 'evil-ex)
+(define-key gnus-article-mode-map ";" 'evil-ex)
+(define-key isearch-mode-map "\C-h" 'isearch-delete-char)
