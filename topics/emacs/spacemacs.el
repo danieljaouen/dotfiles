@@ -426,6 +426,7 @@ you should place your code here."
       )
     (add-hook 'gnus-article-mode-hook 'my-gnus-article-mode-hook)
     (define-key isearch-mode-map "\C-h" 'isearch-delete-char)
+    (setq browse-url-browser-function 'browse-url-default-macosx-browser)
 )
 
 
