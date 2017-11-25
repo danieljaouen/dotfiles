@@ -384,7 +384,46 @@ you should place your code here."
       (setq web-mode-markup-indent-offset 2)
       )
     (add-hook 'web-mode-hook  'my-web-mode-hook)
-  )
+
+    (defun my-gnus-group-mode-hook ()
+      (define-key gnus-group-mode-map "\C-h" nil)
+      (define-key gnus-group-mode-map "\C-w" nil)
+      (define-key gnus-group-mode-map "\C-h" 'evil-window-left)
+      (define-key gnus-group-mode-map "\C-j" 'evil-window-down)
+      (define-key gnus-group-mode-map "\C-k" 'evil-window-up)
+      (define-key gnus-group-mode-map "\C-l" 'evil-window-right)
+      (define-key gnus-group-mode-map "\C-wv" 'evil-window-vsplit)
+      (define-key gnus-group-mode-map "\C-ws" 'evil-window-split)
+      )
+
+    (add-hook 'gnus-group-mode-hook 'my-gnus-group-mode-hook)
+
+    (defun my-gnus-summary-mode-hook ()
+      (define-key gnus-summary-mode-map "\C-h" nil)
+      (define-key gnus-summary-mode-map "\C-w" nil)
+      (define-key gnus-summary-mode-map "\C-h" 'evil-window-left)
+      (define-key gnus-summary-mode-map "\C-j" 'evil-window-down)
+      (define-key gnus-summary-mode-map "\C-k" 'evil-window-up)
+      (define-key gnus-summary-mode-map "\C-l" 'evil-window-right)
+      (define-key gnus-summary-mode-map "\C-wv" 'evil-window-vsplit)
+      (define-key gnus-summary-mode-map "\C-ws" 'evil-window-split)
+      )
+
+    (add-hook 'gnus-summary-mode-hook 'my-gnus-summary-mode-hook)
+    (defun my-gnus-article-mode-hook ()
+      (define-key gnus-article-mode-map "\C-h" nil)
+      (define-key gnus-article-mode-map "\C-w" nil)
+      (define-key gnus-article-mode-map "\C-h" 'evil-window-left)
+      (define-key gnus-article-mode-map "\C-j" 'evil-window-down)
+      (define-key gnus-article-mode-map "\C-k" 'evil-window-up)
+      (define-key gnus-article-mode-map "\C-l" 'evil-window-right)
+      (define-key gnus-article-mode-map "\C-wv" 'evil-window-vsplit)
+      (define-key gnus-article-mode-map "\C-ws" 'evil-window-split)
+      (define-key gnus-group-mode-map ";" 'evil-ex)
+      )
+    (add-hook 'gnus-article-mode-hook 'my-gnus-article-mode-hook)
+)
+
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
