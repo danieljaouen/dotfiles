@@ -420,6 +420,7 @@ you should place your code here."
       )
 
     (add-hook 'gnus-summary-mode-hook 'my-gnus-summary-mode-hook)
+
     (defun my-gnus-article-mode-hook ()
       (define-key gnus-article-mode-map "\C-h" nil)
       (define-key gnus-article-mode-map "\C-w" nil)
@@ -439,7 +440,9 @@ you should place your code here."
       (define-key gnus-article-mode-map "}" 'evil-forward-paragraph)
       (define-key gnus-article-mode-map "R" 'gnus-group-restart)
       )
+
     (add-hook 'gnus-article-mode-hook 'my-gnus-article-mode-hook)
+
     (define-key isearch-mode-map "\C-h" 'isearch-delete-char)
 
     (if (eq system-type 'darwin)
