@@ -400,6 +400,10 @@ you should place your code here."
       (define-key gnus-group-mode-map "\C-ws" 'evil-window-split)
       (define-key gnus-group-mode-map ";" 'evil-ex)
       (define-key gnus-group-mode-map "0" 'evil-digit-argument-or-evil-beginning-of-line)
+      (define-key gnus-group-mode-map "w" 'evil-forward-word-begin)
+      (define-key gnus-group-mode-map "W" 'evil-forward-WORD-begin)
+      (define-key gnus-group-mode-map "b" 'evil-backward-word-begin)
+      (define-key gnus-group-mode-map "B" 'evil-backward-WORD-begin)
       )
 
     (add-hook 'gnus-group-mode-hook 'my-gnus-group-mode-hook)
@@ -419,6 +423,10 @@ you should place your code here."
       (define-key gnus-summary-mode-map "\C-ws" 'evil-window-split)
       (define-key gnus-summary-mode-map ";" 'evil-ex)
       (define-key gnus-summary-mode-map "0" 'evil-digit-argument-or-evil-beginning-of-line)
+      (define-key gnus-summary-mode-map "w" 'evil-forward-word-begin)
+      (define-key gnus-summary-mode-map "W" 'evil-forward-WORD-begin)
+      (define-key gnus-summary-mode-map "b" 'evil-backward-word-begin)
+      (define-key gnus-summary-mode-map "B" 'evil-backward-WORD-begin)
       )
 
     (add-hook 'gnus-summary-mode-hook 'my-gnus-summary-mode-hook)
@@ -442,6 +450,10 @@ you should place your code here."
       (define-key gnus-article-mode-map "}" 'evil-forward-paragraph)
       (define-key gnus-article-mode-map "R" 'gnus-group-restart)
       (define-key gnus-article-mode-map "0" 'evil-digit-argument-or-evil-beginning-of-line)
+      (define-key gnus-article-mode-map "w" 'evil-forward-word-begin)
+      (define-key gnus-article-mode-map "W" 'evil-forward-WORD-begin)
+      (define-key gnus-article-mode-map "b" 'evil-backward-word-begin)
+      (define-key gnus-article-mode-map "B" 'evil-backward-WORD-begin)
       )
 
     (add-hook 'gnus-article-mode-hook 'my-gnus-article-mode-hook)
