@@ -423,6 +423,8 @@ you should place your code here."
       (define-key gnus-article-mode-map "\C-ws" 'evil-window-split)
       (define-key gnus-article-mode-map ";" 'evil-ex)
       (define-key gnus-article-mode-map "zt" 'evil-scroll-line-to-top)
+      (define-key gnus-article-mode-map "{" 'evil-backward-paragraph)
+      (define-key gnus-article-mode-map "}" 'evil-forward-paragraph)
       )
     (add-hook 'gnus-article-mode-hook 'my-gnus-article-mode-hook)
     (define-key isearch-mode-map "\C-h" 'isearch-delete-char)
