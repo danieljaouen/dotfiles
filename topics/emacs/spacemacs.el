@@ -399,6 +399,7 @@ you should place your code here."
       (define-key gnus-group-mode-map "\C-wv" 'evil-window-vsplit)
       (define-key gnus-group-mode-map "\C-ws" 'evil-window-split)
       (define-key gnus-group-mode-map ";" 'evil-ex)
+      (define-key gnus-group-mode-map "0" 'evil-digit-argument-or-evil-beginning-of-line)
       )
 
     (add-hook 'gnus-group-mode-hook 'my-gnus-group-mode-hook)
@@ -417,6 +418,7 @@ you should place your code here."
       (define-key gnus-summary-mode-map "\C-wv" 'evil-window-vsplit)
       (define-key gnus-summary-mode-map "\C-ws" 'evil-window-split)
       (define-key gnus-summary-mode-map ";" 'evil-ex)
+      (define-key gnus-summary-mode-map "0" 'evil-digit-argument-or-evil-beginning-of-line)
       )
 
     (add-hook 'gnus-summary-mode-hook 'my-gnus-summary-mode-hook)
@@ -439,6 +441,7 @@ you should place your code here."
       (define-key gnus-article-mode-map "{" 'evil-backward-paragraph)
       (define-key gnus-article-mode-map "}" 'evil-forward-paragraph)
       (define-key gnus-article-mode-map "R" 'gnus-group-restart)
+      (define-key gnus-article-mode-map "0" 'evil-digit-argument-or-evil-beginning-of-line)
       )
 
     (add-hook 'gnus-article-mode-hook 'my-gnus-article-mode-hook)
