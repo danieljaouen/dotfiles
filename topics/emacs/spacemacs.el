@@ -442,7 +442,9 @@ you should place your code here."
     (add-hook 'gnus-article-mode-hook 'my-gnus-article-mode-hook)
     (define-key isearch-mode-map "\C-h" 'isearch-delete-char)
 
-    (setq browse-url-browser-function 'browse-url-default-macosx-browser)
+    (if (eq system-type 'darwin)
+        (setq browse-url-browser-function 'browse-url-default-macosx-browser))
+
     (setq org-agenda-files `(,(expand-file-name "~/Dropbox/org/")))
 )
 
