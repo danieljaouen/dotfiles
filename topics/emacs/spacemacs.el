@@ -466,6 +466,9 @@ you should place your code here."
     (setq org-agenda-files `(,(expand-file-name "~/Dropbox/org/")))
 
     (setq exec-path (append exec-path '("/usr/local/bin")))
+
+    (setq js2-mode-show-parse-errors nil)
+    (setq js2-mode-show-strict-warnings nil)
 )
 
 
