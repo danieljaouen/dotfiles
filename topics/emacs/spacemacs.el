@@ -378,7 +378,6 @@ you should place your code here."
     (setq backup-by-copying t
           make-backup-files nil
           create-lockfiles nil)
-    (setq-default dotspacemacs-line-numbers 'relative)
     (defun my-web-mode-hook ()
       "Hooks for Web mode."
       (setq web-mode-markup-indent-offset 2)
