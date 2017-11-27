@@ -464,6 +464,8 @@ you should place your code here."
         (setq browse-url-browser-function 'browse-url-default-macosx-browser))
 
     (setq org-agenda-files `(,(expand-file-name "~/Dropbox/org/")))
+
+    (setq exec-path (append exec-path '("/usr/local/bin")))
 )
 
 
