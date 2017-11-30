@@ -11,7 +11,3 @@
    `locations`).
 4. Try not to symlink directories -- instead, create them (with
    `<dir>.directory.symlink` links) and then symlink dotfiles into them.
-
-## TODO
-- Created directories should copy over permissions.
-- The Rakefile should never overwrite locals.

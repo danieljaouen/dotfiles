@@ -113,9 +113,13 @@ end
 
 task :ensure_locals_exist do
   locals_listing.each do |f|
-    puts "Info   | Touch     | #{f[:old_path]}"
-    FileUtils.touch f[:old_path]
-    symlink_file!(f, true)
+    if !current_file(f)[:type]
+      FileUtils.touch f[:old_path]
+      symlink_file!(f, true)
+      else
+        puts "Info   | Exists    | #{f[:new_path]}"
+        FileUtils.touch f[:new_path]
+    end
   end
 end
 
