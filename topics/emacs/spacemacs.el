@@ -126,7 +126,7 @@ values."
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   dotspacemacs-editing-style 'vim
+   dotspacemacs-editing-style 'hybrid
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
@@ -375,13 +375,30 @@ you should place your code here."
     (add-hook 'before-save-hook 'delete-trailing-whitespace)
     ; (setq js-indent-level 2)
     (put 'dired-find-alternate-file 'disabled nil)
+
     (setq backup-by-copying t
           make-backup-files nil
           create-lockfiles nil)
+
+    (defun insert-opening-printed ()
+      (interactive)
+      (insert "<%=  %>")
+      (backward-char 3))
+
+    (defun insert-opening-non-printed ()
+      (interactive)
+      (insert "<%  %>")
+      (backward-char 3))
+
+    (global-set-key "\C-d" nil)
+    (global-set-key "\C-do" 'insert-opening-non-printed)
+    (global-set-key "\C-dt" 'insert-opening-printed)
+
     (defun my-web-mode-hook ()
       "Hooks for Web mode."
       (setq web-mode-markup-indent-offset 2)
       )
+
     (add-hook 'web-mode-hook  'my-web-mode-hook)
 
     (defun my-gnus-topic-mode-hook ()
@@ -544,6 +561,7 @@ you should place your code here."
     (setq js2-mode-show-parse-errors nil)
     (setq js2-mode-show-strict-warnings nil)
     (setq inhibit-message t)
+
 )
 
 
