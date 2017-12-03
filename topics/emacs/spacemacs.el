@@ -126,7 +126,7 @@ values."
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   dotspacemacs-editing-style 'hybrid
+   dotspacemacs-editing-style 'vim
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
@@ -390,9 +390,8 @@ you should place your code here."
       (insert "<%  %>")
       (backward-char 3))
 
-    (global-set-key "\C-d" nil)
-    (global-set-key "\C-do" 'insert-opening-non-printed)
-    (global-set-key "\C-dt" 'insert-opening-printed)
+    (evil-define-key 'insert web-mode-map "\C-do" 'insert-opening-non-printed)
+    (evil-define-key 'insert web-mode-map "\C-dt" 'insert-opening-printed)
 
     (defun my-web-mode-hook ()
       "Hooks for Web mode."
