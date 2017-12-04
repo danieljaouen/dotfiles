@@ -355,11 +355,6 @@ you should place your code here."
     (define-key helm-map "\C-h" 'evil-delete-backward-char)
     (define-key helm-map "\C-w" 'evil-delete-backward-word)
     ;(define-key helm-find-files-map "\C-h" 'evil-delete-backward-char)
-    (with-eval-after-load 'company
-      (define-key company-active-map (kbd "C-n") 'company-select-next)
-      (define-key company-active-map (kbd "C-p") 'company-select-previous)
-      (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
-      (define-key company-active-map (kbd "C-h") 'evil-delete-backward-char))
 
     (define-key helm-find-files-map "\C-w" 'evil-delete-backward-word)
     (define-key evil-normal-state-map "\C-h" 'evil-window-left)
@@ -393,6 +388,15 @@ you should place your code here."
     (evil-define-key 'insert web-mode-map "\C-d" nil)
     (evil-define-key 'insert web-mode-map "\C-do" 'insert-opening-non-printed)
     (evil-define-key 'insert web-mode-map "\C-dt" 'insert-opening-printed)
+
+    (with-eval-after-load 'company
+      (define-key company-active-map "\C-d" nil)
+      (define-key company-active-map "\C-do" 'insert-opening-non-printed)
+      (define-key company-active-map "\C-dt" 'insert-opening-printed)
+      (define-key company-active-map (kbd "C-n") 'company-select-next)
+      (define-key company-active-map (kbd "C-p") 'company-select-previous)
+      (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+      (define-key company-active-map (kbd "C-h") 'evil-delete-backward-char))
 
     (defun my-web-mode-hook ()
       "Hooks for Web mode."
