@@ -405,6 +405,13 @@ you should place your code here."
 
     (add-hook 'web-mode-hook  'my-web-mode-hook)
 
+    (defun my-magit-mode-hook ()
+      (evil-define-key 'normal magit-mode-map "\C-j" 'evil-window-down)
+      (evil-define-key 'normal magit-mode-map "\C-k" 'evil-window-up)
+      )
+
+    (add-hook 'magit-mode-hook 'my-magit-mode-hook)
+
     (defun my-gnus-topic-mode-hook ()
       (define-key gnus-topic-mode-map "\C-h" nil)
       (define-key gnus-topic-mode-map "\C-w" nil)
