@@ -339,6 +339,8 @@ you should place your code here."
     (require 'column-marker)
     (require 'helm)
     (require 'iedit)
+    (setq-default dotspacemacs-configuration-layers
+                  '((spell-checking :variables spell-checking-enable-by-default nil)))
 
     ; (require 'key-chord)
     ; (key-chord-mode 1)
