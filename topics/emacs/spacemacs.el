@@ -564,6 +564,15 @@ you should place your code here."
     (add-hook 'gnus-summary-mode-hook 'my-gnus-summary-mode-hook)
 
     (define-key isearch-mode-map "\C-h" 'isearch-delete-char)
+    (defun my-isearch-mode-hook ()
+      (setq inhibit-message nil))
+
+    (add-hook 'isearch-mode-hook 'my-isearch-mode-hook)
+
+    (defun my-isearch-mode-end-hook ()
+      (setq inhibit-message t))
+
+    (add-hook 'isearch-mode-end-hook 'my-isearch-mode-end-hook)
 
     (if (eq system-type 'darwin)
         (setq browse-url-browser-function 'browse-url-default-macosx-browser))
