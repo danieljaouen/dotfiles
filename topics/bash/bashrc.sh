@@ -2,7 +2,7 @@
 
 export PATH=$HOME/.bin:$HOME/.pyenv/bin:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
-# rbenv:
+# rbenv ------------------------------------------------------------------- {{{
 export PATH="/Users/dan/.rbenv/shims:${PATH}"
 export RBENV_SHELL=bash
 source '/Users/dan/.rbenv/libexec/../completions/rbenv.bash'
@@ -21,8 +21,9 @@ rbenv() {
             command rbenv "$command" "$@";;
     esac
 }
+# /rbenv ------------------------------------------------------------------ }}}
 
-# pyenv:
+# pyenv ------------------------------------------------------------------- {{{
 export PATH="/Users/dan/.pyenv/shims:${PATH}"
 export PYENV_SHELL=bash
 source '/Users/dan/.pyenv/libexec/../completions/pyenv.bash'
@@ -41,3 +42,4 @@ pyenv() {
             command pyenv "$command" "$@";;
     esac
 }
+# /pyenv ------------------------------------------------------------------ }}}
