@@ -375,10 +375,11 @@ function pyenv
         command pyenv "$command" $argv
     end
 end
+
 # /pyenv ------------------------------------- }}}
 
-function daspt
-    command django-admin.py startproject --template=https://github.com/danieljaouen/django-twoscoops-project/archive/develop.zip --extension=py,rst,html $argv
+function da
+    command django-admin.py startproject --template=https://github.com/twoscoops/django-twoscoops-project/archive/master.zip --extension=py,rst,html $argv
 end
 function fd
     command fab dev $argv
