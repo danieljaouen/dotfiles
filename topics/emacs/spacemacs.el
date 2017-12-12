@@ -582,6 +582,7 @@ you should place your code here."
     (setq js2-mode-show-parse-errors nil)
     (setq js2-mode-show-strict-warnings nil)
     (setq inhibit-message t)
+    (setq dired-recursive-deletes 'always)
 )
 
 
