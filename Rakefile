@@ -132,12 +132,12 @@ end
 task :uninstall do
   locals_listing.each do |f|
     if current_file(f)[:type] == :symlink
-      puts "Warn!  | Unlink    | file: #{f[:new_path]}"
+      puts "Warn!  | Unlink    | file: #{f[:new_path]} --> #{f[:old_path]}"
       File.unlink f[:new_path]
     end
   end
   dotfile_listing.each do |f|
-    puts "Warn!  | Unlink    | file: #{f[:new_path]}"
+    puts "Warn!  | Unlink    | file: #{f[:new_path]} --> #{f[:old_path]}"
     File.unlink f[:new_path]
   end
 end
