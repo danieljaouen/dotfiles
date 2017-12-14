@@ -588,6 +588,7 @@ you should place your code here."
     ; (with-eval-after-load 'auto-highlight-symbol
     ;   (define-key evil-motion-state-map (kbd "*") 'evil-search-word-forward)
     ;   (define-key evil-motion-state-map (kbd "#") 'evil-search-word-backward))
+    (setq-default search-invisible t)
 )
 
 
