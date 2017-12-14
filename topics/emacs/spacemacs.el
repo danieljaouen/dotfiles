@@ -583,6 +583,10 @@ you should place your code here."
     (setq js2-mode-show-strict-warnings nil)
     (setq inhibit-message t)
     (setq dired-recursive-deletes 'always)
+
+    ; (with-eval-after-load 'auto-highlight-symbol
+    ;   (define-key evil-motion-state-map (kbd "*") 'evil-search-word-forward)
+    ;   (define-key evil-motion-state-map (kbd "#") 'evil-search-word-backward))
 )
 
 
