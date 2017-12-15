@@ -589,6 +589,13 @@ you should place your code here."
     ;   (define-key evil-motion-state-map (kbd "*") 'evil-search-word-forward)
     ;   (define-key evil-motion-state-map (kbd "#") 'evil-search-word-backward))
     (setq-default search-invisible t)
+
+    (defun my-minibuffer-setup-hook ()
+      (setq gc-cons-threshold most-positive-fixnum))
+    (defun my-minibuffer-exit-hook ()
+      (setq gc-cons-threshold 10000000))
+    (add-hook 'minibuffer-setup-hook 'my-minibuffer-setup-hook)
+    (add-hook 'minibuffer-exit-hook 'my-minibuffer-exit-hook)
 )
 
 
