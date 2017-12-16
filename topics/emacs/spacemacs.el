@@ -585,9 +585,9 @@ you should place your code here."
     (setq dired-recursive-deletes 'always)
     (setq ahs-include "\\s_+")
 
-    ; (with-eval-after-load 'auto-highlight-symbol
-    ;   (define-key evil-motion-state-map (kbd "*") 'evil-search-word-forward)
-    ;   (define-key evil-motion-state-map (kbd "#") 'evil-search-word-backward))
+    (with-eval-after-load 'auto-highlight-symbol
+      (define-key evil-motion-state-map (kbd "*") 'evil-search-word-forward)
+      (define-key evil-motion-state-map (kbd "#") 'evil-search-word-backward))
     (setq-default search-invisible t)
 
     (defun my-minibuffer-setup-hook ()
