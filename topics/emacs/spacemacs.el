@@ -600,8 +600,8 @@ you should place your code here."
     (define-key evil-normal-state-map "N" 'evil-ex-search-previous)
 
     (with-eval-after-load 'auto-highlight-symbol
-      (define-key evil-motion-state-map (kbd "*") 'evil-search-word-forward)
-      (define-key evil-motion-state-map (kbd "#") 'evil-search-word-backward))
+      (define-key evil-motion-state-map (kbd "*") 'evil-ex-search-word-forward)
+      (define-key evil-motion-state-map (kbd "#") 'evil-ex-search-word-backward))
     (setq-default search-invisible t)
 
     (defun my-minibuffer-setup-hook ()
