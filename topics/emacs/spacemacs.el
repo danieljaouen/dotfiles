@@ -585,6 +585,9 @@ you should place your code here."
     (setq dired-recursive-deletes 'always)
     (setq ahs-include "\\s_+")
 
+    (define-key evil-normal-state-map "/" 'evil-ex-search-forward)
+    (define-key evil-normal-state-map "?" 'evil-ex-search-backward)
+
     (with-eval-after-load 'auto-highlight-symbol
       (define-key evil-motion-state-map (kbd "*") 'evil-search-word-forward)
       (define-key evil-motion-state-map (kbd "#") 'evil-search-word-backward))
