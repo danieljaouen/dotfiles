@@ -342,7 +342,6 @@ you should place your code here."
     (setq-default dotspacemacs-configuration-layers
                   '((spell-checking :variables spell-checking-enable-by-default nil)))
 
-    (setq evil-search-module 'evil-search)
     ; (require 'key-chord)
     ; (key-chord-mode 1)
     ; (setq key-chord-two-keys-delay 0.4)
@@ -408,22 +407,6 @@ you should place your code here."
       )
 
     (add-hook 'web-mode-hook  'my-web-mode-hook)
-
-    (defun my-magit-mode-hook ()
-      (evil-define-key 'normal magit-mode-map "\C-j" 'evil-window-down)
-      (evil-define-key 'normal magit-mode-map "\C-k" 'evil-window-up)
-      (evil-define-key 'normal magit-mode-map "/" 'evil-ex-search-forward)
-      (evil-define-key 'normal magit-mode-map "?" 'evil-ex-search-backward)
-      (evil-define-key 'normal magit-mode-map "n" 'evil-ex-search-next)
-      (evil-define-key 'normal magit-mode-map "N" 'evil-ex-search-previous)
-      )
-
-    (add-hook 'magit-mode-hook 'my-magit-mode-hook)
-
-    (define-key evil-evilified-state-map "/" 'evil-ex-search-forward)
-    (define-key evil-evilified-state-map "?" 'evil-ex-search-backward)
-    (define-key evil-evilified-state-map "n" 'evil-ex-search-next)
-    (define-key evil-evilified-state-map "N" 'evil-ex-search-previous)
 
     (defun my-gnus-topic-mode-hook ()
       (define-key gnus-topic-mode-map "\C-h" nil)
@@ -594,6 +577,24 @@ you should place your code here."
     (setq inhibit-message t)
     (setq dired-recursive-deletes 'always)
     (setq ahs-include "\\s_+")
+
+    (setq evil-search-module 'evil-search)
+
+    (defun my-magit-mode-hook ()
+      (evil-define-key 'normal magit-mode-map "\C-j" 'evil-window-down)
+      (evil-define-key 'normal magit-mode-map "\C-k" 'evil-window-up)
+      (evil-define-key 'normal magit-mode-map "/" 'evil-ex-search-forward)
+      (evil-define-key 'normal magit-mode-map "?" 'evil-ex-search-backward)
+      (evil-define-key 'normal magit-mode-map "n" 'evil-ex-search-next)
+      (evil-define-key 'normal magit-mode-map "N" 'evil-ex-search-previous)
+      )
+
+    (add-hook 'magit-mode-hook 'my-magit-mode-hook)
+
+    (define-key evil-evilified-state-map "/" 'evil-ex-search-forward)
+    (define-key evil-evilified-state-map "?" 'evil-ex-search-backward)
+    (define-key evil-evilified-state-map "n" 'evil-ex-search-next)
+    (define-key evil-evilified-state-map "N" 'evil-ex-search-previous)
 
     (define-key evil-normal-state-map "/" 'evil-ex-search-forward)
     (define-key evil-normal-state-map "?" 'evil-ex-search-backward)
