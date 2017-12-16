@@ -342,6 +342,7 @@ you should place your code here."
     (setq-default dotspacemacs-configuration-layers
                   '((spell-checking :variables spell-checking-enable-by-default nil)))
 
+    (setq evil-search-module 'evil-search)
     ; (require 'key-chord)
     ; (key-chord-mode 1)
     ; (setq key-chord-two-keys-delay 0.4)
