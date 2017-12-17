@@ -342,6 +342,13 @@ you should place your code here."
     (setq-default dotspacemacs-configuration-layers
                   '((spell-checking :variables spell-checking-enable-by-default nil)))
 
+    (defun my-tab-command ()
+      (interactive)
+      (indent-for-tab-command)
+      (yas-expand))
+
+    (define-key evil-insert-state-map (kbd "TAB") 'my-tab-command)
+
     ; (require 'key-chord)
     ; (key-chord-mode 1)
     ; (setq key-chord-two-keys-delay 0.4)
