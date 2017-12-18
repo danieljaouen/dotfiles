@@ -375,6 +375,7 @@ you should place your code here."
     (define-key evil-visual-state-map ",q" 'sort-lines)
     (define-key evil-insert-state-map "\C-n" 'next-line)
     (define-key evil-insert-state-map "\C-p" 'previous-line)
+    (define-key evil-insert-state-map (kbd "C-y") 'my-tab-command)
     (define-key iedit-mode-keymap "\C-h" 'evil-delete-backward-char)
     (define-key iedit-mode-occurrence-keymap "\C-h" 'evil-delete-backward-char)
     (add-hook 'before-save-hook 'delete-trailing-whitespace)
