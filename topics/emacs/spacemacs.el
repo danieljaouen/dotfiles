@@ -420,6 +420,8 @@ you should place your code here."
 
     (defun my-web-mode-hook ()
       "Hooks for Web mode."
+      (evil-define-key 'insert web-mode-map "\C-y" nil)
+      (evil-define-key 'insert web-mode-map (kbd "C-y ,") 'spacemacs/emmet-expand)
       (setq web-mode-markup-indent-offset 2)
       )
 
