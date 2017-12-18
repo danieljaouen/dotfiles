@@ -383,6 +383,14 @@ you should place your code here."
     ; (setq js-indent-level 2)
     (put 'dired-find-alternate-file 'disabled nil)
 
+    (defun align-repeat (start end regexp)
+      "Repeat alignment with respect to
+     the given regular expression."
+      (interactive "r\nsAlign regexp: ")
+      (align-regexp start end
+                    (concat "\\(\\s-*\\)" regexp) 1 1 t))
+    (define-key evil-visual-state-map ",ah" 'align-repeat)
+
     (setq backup-by-copying t
           make-backup-files nil
           create-lockfiles nil)
