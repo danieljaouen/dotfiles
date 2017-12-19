@@ -60,7 +60,6 @@ values."
      ruby-on-rails
      scheme
      shell-scripts
-     spell-checking
      syntax-checking
      tmux
      version-control
@@ -339,8 +338,6 @@ you should place your code here."
     (require 'column-marker)
     (require 'helm)
     (require 'iedit)
-    (setq-default dotspacemacs-configuration-layers
-                  '((spell-checking :variables spell-checking-enable-by-default nil)))
 
     (defun my-tab-command ()
       (interactive)
