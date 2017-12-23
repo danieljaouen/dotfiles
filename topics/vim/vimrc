@@ -209,7 +209,6 @@ nnoremap <C-c>n :lnext<cr>
 nnoremap <C-c>p :lprev<cr>
 nnoremap <C-n> :nohlsearch<cr>
 nnoremap <Space> <C-f>
-nnoremap <leader>] :TagbarToggle<CR>
 nnoremap <leader>a :Ack<space>
 nnoremap <leader>ah :Tabularize /=>/l1c1l0<CR>
 nnoremap <leader>ae :Tabularize /=/l1c1l0<CR>
@@ -228,7 +227,6 @@ vnoremap <C-c>n :lnext<cr>
 vnoremap <C-c>p :lprev<cr>
 vnoremap <C-n> :nohlsearch<cr>
 vnoremap <Leader>q :sort<CR>
-vnoremap <leader>] :TagbarToggle<CR>
 vnoremap <leader>a :Ack<space>
 vnoremap <leader>ah :Tabularize /=>/l1c1l0<CR>
 vnoremap <leader>ae :Tabularize /=/l1c1l0<CR>
