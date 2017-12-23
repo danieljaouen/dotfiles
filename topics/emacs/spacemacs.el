@@ -357,6 +357,7 @@ you should place your code here."
     (setq-default evil-escape-unordered-key-sequence nil)
     (define-key evil-normal-state-map (kbd ";") 'evil-ex)
     (define-key evil-visual-state-map (kbd ";") 'evil-ex)
+    (define-key evil-normal-state-map (kbd "TAB") 'evil-toggle-fold)
     (global-set-key "\C-h" 'evil-delete-backward-char)
     (global-set-key "\C-w" 'evil-delete-backward-word)
     (define-key helm-map "\C-h" 'evil-delete-backward-char)
