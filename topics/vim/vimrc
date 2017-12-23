@@ -191,7 +191,6 @@ nnoremap <space>bb :LustyBufferExplorer<CR>
 inoremap jk <esc>
 inoremap Jk <esc>
 inoremap JK <esc>
-inoremap <C-l> <C-x><C-]>
 inoremap <C-d>o {%<space><space>%}<left><left><left>
 inoremap <C-d>t {{<space><space>}}<left><left><left>
 inoremap <C-e>o <%<space><space>%><left><left><left>
