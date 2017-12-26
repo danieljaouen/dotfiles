@@ -54,7 +54,7 @@ mkdir -p $SRC_DIRECTORY
 
 # Clone down ansible
 if [[ ! -d $ANSIBLE_DIRECTORY ]]; then
-    git clone -b homebrew_update git://github.com/danieljaouen/ansible.git $ANSIBLE_DIRECTORY
+    git clone -b homebrew_services git://github.com/danieljaouen/ansible.git $ANSIBLE_DIRECTORY
 fi
 
 # Use the forked Ansible
