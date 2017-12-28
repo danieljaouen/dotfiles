@@ -408,9 +408,16 @@ you should place your code here."
       (insert "<%  %>")
       (backward-char 3))
 
+    (defun insert-map ()
+      (interactive)
+      (insert "%{}")
+      (backward-char 1))
+
     (evil-define-key 'insert web-mode-map "\C-d" nil)
     (evil-define-key 'insert web-mode-map "\C-do" 'insert-opening-non-printed)
     (evil-define-key 'insert web-mode-map "\C-dt" 'insert-opening-printed)
+    (evil-define-key 'insert elixir-mode-map "\C-do" 'insert-map)
+    (evil-define-key 'insert elixir-mode-map "\C-dt" 'insert-map)
 
     (with-eval-after-load 'company
       (define-key company-active-map "\C-d" nil)
