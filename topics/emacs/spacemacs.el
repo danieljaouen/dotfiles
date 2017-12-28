@@ -341,6 +341,8 @@ you should place your code here."
     (require 'column-marker)
     (require 'helm)
     (require 'iedit)
+    ;; (require 'evil-vimish-fold)
+    ;; (evil-vimish-fold-mode 1)
 
     (defun my-tab-command ()
       (interactive)
