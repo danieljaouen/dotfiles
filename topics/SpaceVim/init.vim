@@ -39,3 +39,40 @@ if has('python3')
 endif
 let g:clang2_placeholder_next = ''
 let g:clang2_placeholder_prev = ''
+
+let gitcommit_short_summary_max_length = 51
+let docstring_max_length = 73
+let short_line_max_length = 80
+let long_line_max_length = 100
+
+let &colorcolumn  = gitcommit_short_summary_max_length
+let &colorcolumn .= ',' . docstring_max_length
+let &colorcolumn .= ',' . short_line_max_length
+let &colorcolumn .= ',' . long_line_max_length
+
+inoremap jk <esc>
+inoremap Jk <esc>
+inoremap JK <esc>
+
+inoremap <C-d>o <%=<space><space>%><left><left><left>
+inoremap <C-d>t <%<space><space>%><left><left><left>
+
+nnoremap <tab> za
+
+nnoremap ,w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
+
+nnoremap ; :
+vnoremap ; :
+
+nnoremap / /\v
+nnoremap ? ?\v
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+vnoremap <C-h> <C-w>h
+vnoremap <C-j> <C-w>j
+vnoremap <C-k> <C-w>k
+vnoremap <C-l> <C-w>l
