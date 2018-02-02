@@ -370,7 +370,7 @@ you should place your code here."
     (define-key evil-normal-state-map (kbd "TAB") 'evil-toggle-fold)
     (global-set-key "\C-h" 'evil-delete-backward-char)
     (global-set-key "\C-w" 'evil-delete-backward-word)
-    (define-key helm-map "\C-h" 'evil-delete-backward-char)
+    (define-key helm-map "\C-h" 'delete-backward-char)
     (define-key helm-map "\C-w" 'evil-delete-backward-word)
     ;(define-key helm-find-files-map "\C-h" 'evil-delete-backward-char)
 
