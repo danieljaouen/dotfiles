@@ -76,3 +76,5 @@ vnoremap <C-h> <C-w>h
 vnoremap <C-j> <C-w>j
 vnoremap <C-k> <C-w>k
 vnoremap <C-l> <C-w>l
+
+let g:chromatica#libclang_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
