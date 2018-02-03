@@ -437,6 +437,10 @@ you should place your code here."
     (evil-define-key 'insert elixir-mode-map "\C-do" 'insert-map)
     (evil-define-key 'insert elixir-mode-map "\C-dt" 'insert-map)
 
+    (setq evil-ex-search-case nil)
+    (customize-set-variable 'case-fold-search nil)
+    (customize-set-variable 'case-replace nil)
+
     (with-eval-after-load 'company
       (define-key company-active-map "\C-d" nil)
       (define-key company-active-map "\C-do" 'insert-opening-non-printed)
