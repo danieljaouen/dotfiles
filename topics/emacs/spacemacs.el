@@ -418,9 +418,22 @@ you should place your code here."
       (insert "%{}")
       (backward-char 1))
 
+    (defun insert-opening-printed-j2 ()
+      (interactive)
+      (insert "{%  %}")
+      (backward-char 3))
+
+    (defun insert-opening-non-printed-j2 ()
+      (interactive)
+      (insert "{{  }}")
+      (backward-char 3))
+
     (evil-define-key 'insert web-mode-map "\C-d" nil)
     (evil-define-key 'insert web-mode-map "\C-do" 'insert-opening-non-printed)
     (evil-define-key 'insert web-mode-map "\C-dt" 'insert-opening-printed)
+    (evil-define-key 'insert yaml-mode-map "\C-d" nil)
+    (evil-define-key 'insert yaml-mode-map "\C-do" 'insert-opening-non-printed-j2)
+    (evil-define-key 'insert yaml-mode-map "\C-dt" 'insert-opening-printed-j2)
     (evil-define-key 'insert elixir-mode-map "\C-do" 'insert-map)
     (evil-define-key 'insert elixir-mode-map "\C-dt" 'insert-map)
 
