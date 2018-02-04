@@ -40,6 +40,13 @@ endif
 let g:clang2_placeholder_next = ''
 let g:clang2_placeholder_prev = ''
 
+set rtp+=~/src/bundle/vundle/
+call vundle#rc()
+
+Bundle 'sjbach/lusty'
+
+nnoremap <space>ff :LustyFilesystemExplorerFromHere<CR>
+
 let gitcommit_short_summary_max_length = 51
 let docstring_max_length = 73
 let short_line_max_length = 80
