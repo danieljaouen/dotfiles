@@ -571,6 +571,9 @@ you should place your code here."
       (evil-define-key 'normal magit-mode-map "?" 'evil-ex-search-backward)
       (evil-define-key 'normal magit-mode-map "n" 'evil-ex-search-next)
       (evil-define-key 'normal magit-mode-map "N" 'evil-ex-search-previous)
+      (evil-define-key 'normal magit-mode-map "z" nil)
+      (evil-define-key 'normal magit-mode-map "zt" 'evil-scroll-line-to-top)
+      (evil-define-key 'normal magit-mode-map "zz" 'evil-scroll-line-to-center)
       )
 
     (add-hook 'magit-mode-hook 'my-magit-mode-hook)
