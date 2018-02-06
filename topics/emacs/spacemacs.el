@@ -31,7 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     ansible
+     ; ansible
      auto-completion
      c-c++
      clojure
