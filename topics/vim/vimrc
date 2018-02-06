@@ -220,6 +220,8 @@ nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
 nnoremap / /\v
 nnoremap ? ?\v
+nnoremap zm zM
+nnoremap zr zR
 vnoremap Q gq
 vnoremap ; :
 vnoremap < <gv  " better indentation
