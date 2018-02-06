@@ -4,9 +4,11 @@ set shell=/bin/bash
 " Notes ------------------------------------------------------------------- {{{
 " - folding:
 "   - to 'reveal' folds:
+"     - zo (to open current fold)
 "     - zr (to reveal the current fold)
 "     - zR (to reveal all folds)
 "   - to 'mask' folds:
+"     - zc (to close current fold)
 "     - zm (to mask the current fold)
 "     - zM (to mask all folds)
 "
