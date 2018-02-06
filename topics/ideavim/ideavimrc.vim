@@ -216,6 +216,10 @@ nnoremap <leader>i :set list!<cr>
 nnoremap <leader>n :setlocal number!<cr>
 nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 vnoremap Q gq
 vnoremap ; :
 vnoremap < <gv  " better indentation
@@ -231,6 +235,10 @@ vnoremap <leader>a: :Tabularize /:/l1c1l0<CR>
 vnoremap > >gv  " better indentation
 vnoremap / /\v
 vnoremap ? ?\v
+vnoremap <C-h> <C-w>h
+vnoremap <C-j> <C-w>j
+vnoremap <C-k> <C-w>k
+vnoremap <C-l> <C-w>l
 " /Keybindings ------------------------------------------------------------ }}}
 
 " Plugin Settings --------------------------------------------------------- {{{
