@@ -362,6 +362,7 @@ you should place your code here."
     (require 'atomic-chrome)
     (atomic-chrome-start-server)
     (setq atomic-chrome-buffer-open-style 'frame)
+    (server-start)
 
     (require 'column-marker)
     (require 'helm)
