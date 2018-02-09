@@ -367,12 +367,11 @@ you should place your code here."
     (atomic-chrome-start-server)
     (setq atomic-chrome-buffer-open-style 'frame)
     (server-start)
-
     (require 'column-marker)
     (require 'helm)
     (require 'iedit)
     (require 'fill-column-indicator)
-    ;; (setq fci-rule-column "51,73,80,100")
+    (setq fci-rule-column 79)
     ;; (require 'evil-vimish-fold)
     ;; (evil-vimish-fold-mode 1)
 
