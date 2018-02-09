@@ -373,6 +373,8 @@ you should place your code here."
     ;; (require 'evil-vimish-fold)
     ;; (evil-vimish-fold-mode 1)
 
+    (setq inferior-lisp-program "/usr/local/bin/clisp")
+
     (defun my-tab-command ()
       (interactive)
       (indent-for-tab-command)
