@@ -373,6 +373,10 @@ you should place your code here."
     ;; (require 'evil-vimish-fold)
     ;; (evil-vimish-fold-mode 1)
 
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((lisp . t)))
+
     ;; (setq inferior-lisp-program "/usr/local/bin/clisp")
     (setq inferior-lisp-program "/usr/local/bin/sbcl")
 
