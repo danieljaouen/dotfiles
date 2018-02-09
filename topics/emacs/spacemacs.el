@@ -99,6 +99,7 @@ values."
                                       atomic-chrome
                                       column-marker
                                       dired+
+                                      fill-column-indicator
                                       key-chord
                                       kotlin-mode
                                       vimish-fold
@@ -370,6 +371,8 @@ you should place your code here."
     (require 'column-marker)
     (require 'helm)
     (require 'iedit)
+    (require 'fill-column-indicator)
+    ;; (setq fci-rule-column "51,73,80,100")
     ;; (require 'evil-vimish-fold)
     ;; (evil-vimish-fold-mode 1)
 
