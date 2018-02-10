@@ -363,12 +363,12 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-    (load "~/.spacemacs.d/requires.el")
-    (load "~/.spacemacs.d/defuns.el")
-    (load "~/.spacemacs.d/vars.el")
-    (load "~/.spacemacs.d/hooks.el")
-    (load "~/.spacemacs.d/keybindings.el")
-    (load "~/.spacemacs.d/misc.el")
+    (load "~/.spacemacs.d/requires")
+    (load "~/.spacemacs.d/defuns")
+    (load "~/.spacemacs.d/vars")
+    (load "~/.spacemacs.d/hooks")
+    (load "~/.spacemacs.d/keybindings")
+    (load "~/.spacemacs.d/misc")
     )
 
 
