@@ -6,5 +6,3 @@
  '((lisp . t)))
 
 (put 'dired-find-alternate-file 'disabled nil)
-
-(set-fill-column 79)
