@@ -9,6 +9,7 @@
       create-lockfiles nil)
 (customize-set-variable 'case-fold-search nil)
 (customize-set-variable 'case-replace nil)
+(customize-set-variable 'fill-column 79)
 
 (if (eq system-type 'darwin)
     (setq browse-url-browser-function 'browse-url-default-macosx-browser))
