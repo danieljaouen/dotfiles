@@ -58,7 +58,7 @@ switch (uname)
         # set LOCAL_PATH /usr/local/Cellar/go/1.2/libexec/bin $LOCAL_PATH
         # set LOCAL_PATH $GOPATH/bin $LOCAL_PATH
         # set LOCAL_PATH $HOME/.cabal/bin $LOCAL_PATH
-        set LOCAL_PATH /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/bin $LOCAL_PATH
+        set LOCAL_PATH /Library/Java/JavaVirtualMachines/jdk-9.0.4.jdk/Contents/Home/bin $LOCAL_PATH
         set LOCAL_PATH $HOME/.rbenv/bin $LOCAL_PATH
         set LOCAL_PATH $HOME/.pyenv/bin $LOCAL_PATH
         set LOCAL_PATH $HOME/.bin $LOCAL_PATH
