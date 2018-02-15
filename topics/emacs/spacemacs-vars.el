@@ -25,3 +25,6 @@
 (setq evil-search-module 'evil-search)
 
 (setq-default search-invisible t)
+
+(setq spacemacs-default-jump-handlers
+      (remove 'evil-goto-definition spacemacs-default-jump-handlers))
