@@ -28,3 +28,4 @@
 
 (setq spacemacs-default-jump-handlers
       (remove 'evil-goto-definition spacemacs-default-jump-handlers))
+(setq c-basic-offset 2)
