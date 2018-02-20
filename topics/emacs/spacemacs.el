@@ -432,7 +432,9 @@ you should place your code here."
     (evil-define-key 'insert web-mode-map "\C-do" 'insert-opening-non-printed)
     (evil-define-key 'insert web-mode-map "\C-dt" 'insert-opening-printed)
     (evil-define-key 'insert yaml-mode-map "\C-d" nil)
-    (evil-define-key 'insert yaml-mode-map "\C-do" 'insert-opening-non-printed-j2)
+    (evil-define-key 'insert yaml-mode-map "\C-do"
+      'insert-opening-non-printed-j2
+      )
     (evil-define-key 'insert yaml-mode-map "\C-dt" 'insert-opening-printed-j2)
     (evil-define-key 'insert elixir-mode-map "\C-do" 'insert-map)
     (evil-define-key 'insert elixir-mode-map "\C-dt" 'insert-map)
@@ -453,7 +455,9 @@ you should place your code here."
     (defun my-web-mode-hook ()
       "Hooks for Web mode."
       (evil-define-key 'insert web-mode-map "\C-y" nil)
-      (evil-define-key 'insert web-mode-map (kbd "C-y ,") 'spacemacs/emmet-expand)
+      (evil-define-key 'insert web-mode-map (kbd "C-y ,")
+        'spacemacs/emmet-expand
+        )
       (setq web-mode-markup-indent-offset 2)
       )
 
