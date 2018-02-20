@@ -1,5 +1,5 @@
 (setq fci-rule-column 79)
-(setq inferior-lisp-program "/usr/local/bin/sbcl")
+(setq inferior-lisp-program "sbcl")
 (setq-default evil-escape-key-sequence "jk")
 (setq-default evil-escape-delay 0.4)
 (setq-default evil-escape-unordered-key-sequence nil)
