@@ -85,7 +85,6 @@
   (evil-define-key 'normal magit-mode-map "\C-j" 'evil-window-down)
   (evil-define-key 'normal magit-mode-map "\C-k" 'evil-window-up)
   (evil-define-key 'normal magit-mode-map "/" 'evil-ex-search-forward)
-  (evil-define-key 'normal magit-mode-map "?" 'evil-ex-search-backward)
   (evil-define-key 'normal magit-mode-map "n" 'evil-ex-search-next)
   (evil-define-key 'normal magit-mode-map "N" 'evil-ex-search-previous)
   (evil-define-key 'normal magit-mode-map "z" nil)
