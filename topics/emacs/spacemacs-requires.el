@@ -5,3 +5,5 @@
 (require 'fill-column-indicator)
 (add-to-load-path "~/src/alchemist.el")
 (require 'alchemist)
+(add-to-load-path "~/src/intellij-lsp-server")
+(require 'lsp-mode)

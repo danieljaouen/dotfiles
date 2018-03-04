@@ -8,3 +8,7 @@
  '((lisp . t)))
 
 (put 'dired-find-alternate-file 'disabled nil)
+
+(with-eval-after-load 'lsp-mode
+  (require 'lsp-intellij)
+  (add-hook 'java-mode-hook #'lsp-intellij-enable))
