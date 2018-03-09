@@ -59,6 +59,7 @@ values."
      markdown
      nginx
      ocaml
+     octave
      org
      osx
      ; php
