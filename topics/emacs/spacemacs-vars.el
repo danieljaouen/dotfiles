@@ -30,3 +30,4 @@
       (remove 'evil-goto-definition spacemacs-default-jump-handlers))
 (setq c-basic-offset 2)
 (setq user-mail-address "dcj24@cornell.edu")
+(setq dotspacemacs-ask-for-lazy-installation nil)
