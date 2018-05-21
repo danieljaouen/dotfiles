@@ -33,6 +33,7 @@
 
 (define-key isearch-mode-map "\C-h" 'backward-delete-char)
 (define-key isearch-mode-map "\C-w" 'evil-delete-backward-word)
+(define-key Buffer-menu-mode-map "k" 'evil-previous-line)
 
 (define-key evil-evilified-state-map "/" 'evil-ex-search-forward)
 (define-key evil-evilified-state-map "?" 'evil-ex-search-backward)
