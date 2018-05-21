@@ -1,3 +1,5 @@
+(global-display-line-numbers-mode)
+
 (if (not (server-running-p))
     (progn
       (atomic-chrome-start-server)
