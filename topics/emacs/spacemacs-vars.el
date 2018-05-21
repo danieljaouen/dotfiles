@@ -1,3 +1,4 @@
+(setq explicit-shell-file-name "/usr/local/bin/fish")
 (setq fci-rule-column 79)
 (setq inferior-lisp-program "sbcl")
 (setq-default evil-escape-key-sequence "jk")
