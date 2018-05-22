@@ -1,6 +1,7 @@
 (setq evil-escape-excluded-major-modes '(magit-status-mode
                                          magit-revision-mode
-                                         magit-diff-mode))
+                                         magit-diff-mode
+                                         help-mode))
 (setq explicit-shell-file-name "/usr/local/bin/fish")
 (setq fci-rule-column 79)
 (setq inferior-lisp-program "sbcl")
