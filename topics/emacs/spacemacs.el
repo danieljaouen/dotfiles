@@ -99,7 +99,6 @@ values."
                                       android-mode
                                       atomic-chrome
                                       column-marker
-                                      dired+
                                       fill-column-indicator
                                       key-chord
                                       kotlin-mode
