@@ -9,6 +9,8 @@
  'org-babel-load-languages
  '((lisp . t)))
 
+(defalias 'sl 'sort-lines)
+
 (put 'dired-find-alternate-file 'disabled nil)
 
 ; (with-eval-after-load 'lsp-mode
