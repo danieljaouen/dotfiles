@@ -103,6 +103,7 @@ values."
                                       key-chord
                                       kotlin-mode
                                       lsp-mode
+                                      ox-reveal
                                       vimish-fold
                                       evil-vimish-fold
                                       )
