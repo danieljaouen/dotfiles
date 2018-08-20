@@ -6,3 +6,5 @@
 (require 'alchemist)
 (add-to-load-path "~/src/intellij-lsp-server")
 (require 'lsp-mode)
+(add-to-load-path "~/src/org-reveal")
+(require 'ox-reveal)
