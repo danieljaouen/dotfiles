@@ -87,6 +87,7 @@ brew "lua"
 brew "python", link: false
 brew "macvim", link: false
 brew "mariadb", restart_service: true
+brew "mas"
 brew "memcached", restart_service: true
 brew "mit-scheme"
 brew "mongodb"
@@ -151,3 +152,23 @@ cask "vagrant"
 cask "virtualbox"
 cask "virtualbox-extension-pack"
 cask "wireshark-chmodbpf"
+mas "1Password", id: 443987910
+mas "Alarm Clock", id: 755731884
+mas "Alfred", id: 405843582
+mas "ClamXav", id: 430207028
+mas "ColorSnapper", id: 418176775
+mas "GarageBand", id: 682658836
+mas "Growl", id: 467939042
+mas "Hopper Disassembler", id: 422856039
+mas "iPhoto", id: 408981381
+mas "Joystick Mapper", id: 528183797
+mas "Kindle", id: 405399194
+mas "Linkinus", id: 402390998
+mas "Photo Transfer App", id: 509182449
+mas "Pixelmator", id: 407963104
+mas "Slack", id: 803453959
+mas "TextWrangler", id: 404010395
+mas "Transmit", id: 403388562
+mas "Wake Up Time", id: 495945638
+mas "Witch", id: 412485838
+mas "YoruFukurou", id: 428834068
