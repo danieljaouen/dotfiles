@@ -152,7 +152,7 @@ cask "macvim"
 cask "vagrant"
 cask "virtualbox"
 cask "virtualbox-extension-pack"
-cask "wireshark-chmodbpf"
+cask "wireshark"
 mas "1Password", id: 443987910
 mas "Alarm Clock", id: 755731884
 mas "Alfred", id: 405843582
