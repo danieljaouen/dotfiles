@@ -566,6 +566,7 @@ defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://
 ###############################################################################
 defaults write com.alfredapp.Alfred scope.paths -array-add "/usr/local/Caskroom"
 defaults write com.alfredapp.Alfred scope.paths -array-add "/usr/local/Cellar"
+defaults write com.alfredapp.Alfred scope.paths -array-add "/Applications"
 
 ###############################################################################
 # GPGMail 2                                                                   #
