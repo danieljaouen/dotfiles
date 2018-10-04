@@ -16,3 +16,6 @@
 ; (with-eval-after-load 'lsp-mode
 ;   (require 'lsp-intellij)
 ;   (add-hook 'java-mode-hook #'lsp-intellij-enable))
+
+(eval-after-load "company"
+  '(add-to-list 'company-backends 'company-anaconda))
