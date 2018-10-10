@@ -6,13 +6,13 @@ export PATH=$HOME/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/
 
 # Setting PATH for Python 3.6
 # The original version is saved in .bash_profile.pysave
-PATH="${HOME}/.bin:${HOME}/.pyenv/bin:${HOME}/.rbenv/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+PATH="${HOME}/.bin:${HOME}/.pyenv/bin:${HOME}/.rbenv/bin:/Library/TeX/texbin:/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 export PATH
 
 # rbenv ------------------------------------------------------------------- {{{
-export PATH="/Users/dan/.rbenv/shims:${PATH}"
+export PATH="${HOME}/.rbenv/shims:${PATH}"
 export RBENV_SHELL=bash
-source '/Users/dan/.rbenv/libexec/../completions/rbenv.bash'
+source '${HOME}/.rbenv/libexec/../completions/rbenv.bash'
 command rbenv rehash 2>/dev/null
 rbenv() {
     local command
@@ -31,9 +31,9 @@ rbenv() {
 # /rbenv ------------------------------------------------------------------ }}}
 
 # pyenv ------------------------------------------------------------------- {{{
-export PATH="/Users/dan/.pyenv/shims:${PATH}"
+export PATH="${HOME}/.pyenv/shims:${PATH}"
 export PYENV_SHELL=bash
-source '/Users/dan/.pyenv/libexec/../completions/pyenv.bash'
+source '${HOME}/.pyenv/libexec/../completions/pyenv.bash'
 command pyenv rehash 2>/dev/null
 pyenv() {
     local command
