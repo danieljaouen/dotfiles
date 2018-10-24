@@ -32,7 +32,9 @@ values."
    dotspacemacs-configuration-layers
    '(
      ; ansible
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-enable-help-tooltip t
+                      auto-completion-enable-sort-by-usage t)
      c-c++
      clojure
      colors
@@ -60,7 +62,8 @@ values."
      nginx
      ocaml
      octave
-     org
+     (org :variables
+          org-enable-reveal-js-support t)
      osx
      ; php
      puppet
