@@ -99,7 +99,6 @@ values."
                                       android-mode
                                       atomic-chrome
                                       company-lsp
-                                      company-quickhelp
                                       epresent
                                       fill-column-indicator
                                       key-chord
