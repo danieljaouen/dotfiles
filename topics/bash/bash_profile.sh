@@ -12,7 +12,7 @@ export PATH
 # rbenv ------------------------------------------------------------------- {{{
 export PATH="${HOME}/.rbenv/shims:${PATH}"
 export RBENV_SHELL=bash
-source '${HOME}/.rbenv/libexec/../completions/rbenv.bash'
+source "${HOME}/.rbenv/libexec/../completions/rbenv.bash"
 command rbenv rehash 2>/dev/null
 rbenv() {
     local command
@@ -33,7 +33,7 @@ rbenv() {
 # pyenv ------------------------------------------------------------------- {{{
 export PATH="${HOME}/.pyenv/shims:${PATH}"
 export PYENV_SHELL=bash
-source '${HOME}/.pyenv/libexec/../completions/pyenv.bash'
+source "${HOME}/.pyenv/libexec/../completions/pyenv.bash"
 command pyenv rehash 2>/dev/null
 pyenv() {
     local command
