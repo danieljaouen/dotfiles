@@ -362,24 +362,7 @@ source $HOME/.virtualfish/global_requirements.fish
 set -x VIRTUAL_ENV_DISABLE_PROMPT 0
 
 # pyenv -------------------------------------- {{{
-# . "(pyenv init -)"
-# . "(pyenv virtualenv-init -)"
-set -gx PATH "$HOME/.pyenv/shims" $PATH
-setenv PYENV_SHELL fish
-. "$HOME/.pyenv/libexec/../completions/pyenv.fish"
-command pyenv rehash 2>/dev/null
-function pyenv
-    set command $argv[1]
-    set -e argv[1]
-
-    switch "$command"
-    case rehash shell
-        . (pyenv "sh-$command" $argv|psub)
-    case '*'
-        command pyenv "$command" $argv
-    end
-end
-
+status --is-interactive; and source (pyenv init - | psub)
 # /pyenv ------------------------------------- }}}
 
 function da
@@ -435,21 +418,7 @@ end
 
 # ruby/rails ------------------------------------------------------- {{{
 # rbenv -------------------------------------- {{{
-set -gx PATH "$HOME/.rbenv/shims" $PATH
-setenv RBENV_SHELL fish
-source "$HOME/.rbenv/libexec/../completions/rbenv.fish"
-command rbenv rehash 2>/dev/null
-function rbenv
-    set command $argv[1]
-    set -e argv[1]
-
-    switch "$command"
-    case rehash shell
-        source (rbenv "sh-$command" $argv|psub)
-    case '*'
-        command rbenv "$command" $argv
-    end
-end
+status --is-interactive; and source (rbenv init - | psub)
 # /rbenv ------------------------------------- }}}
 
 function b
