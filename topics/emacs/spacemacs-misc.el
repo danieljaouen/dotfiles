@@ -15,3 +15,9 @@
 
 (eval-after-load "company"
   '(add-to-list 'company-backends 'company-anaconda))
+
+(if (string-equal system-type "gnu/linux")
+    (progn
+      (require 'exwm)
+      (require 'exwm-config)
+      (exwm-config-default)))
