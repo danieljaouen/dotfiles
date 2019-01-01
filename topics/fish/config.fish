@@ -67,6 +67,8 @@ switch (uname)
         set -x GOPATH /var/go
         set LOCAL_PATH $GOPATH/bin
         set LOCAL_PATH $HOME/.cabal/bin $LOCAL_PATH
+        set LOCAL_PATH $HOME/.rbenv/bin $LOCAL_PATH
+        set LOCAL_PATH $HOME/.pyenv/bin $LOCAL_PATH
         set LOCAL_PATH $HOME/.bin $LOCALPATH
         set -x PATH $LOCAL_PATH $BASE_PATH
 end

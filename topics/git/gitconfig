@@ -43,3 +43,6 @@
 
 [push]
     default = upstream
+[user]
+	name = Daniel Jaouen
+	email = dcj24@cornell.edu
