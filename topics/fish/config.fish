@@ -198,6 +198,10 @@ end
 function ec
   command emacsclient -c $argv
 end
+
+function et
+    command emacsclient -c $argv
+end
 # /emacs ----------------------------------------------------------- }}}
 
 # cloc ------------------------------------------------------------- {{{
