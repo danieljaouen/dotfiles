@@ -35,6 +35,7 @@ values."
      (auto-completion :variables
                       ; auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t
+                      auto-completion-enable-snippets-in-popup t
                       )
      c-c++
      clojure
@@ -43,7 +44,7 @@ values."
      django
      docker
      elixir
-     elm
+     (elm :variables elm-sort-imports-on-save t)
      emacs-lisp
      emoji
      erlang
