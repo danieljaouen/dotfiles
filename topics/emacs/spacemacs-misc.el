@@ -14,7 +14,9 @@
 (put 'dired-find-alternate-file 'disabled nil)
 
 (eval-after-load "company"
-  '(add-to-list 'company-backends 'company-anaconda))
+  '(progn
+     (add-to-list 'company-backends 'company-anaconda)
+     (add-to-list 'company-backends 'company-elm)))
 
 (if (string-equal system-type "gnu/linux")
     (progn
