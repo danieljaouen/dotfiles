@@ -21,6 +21,8 @@
 (define-key iedit-mode-occurrence-keymap "\C-h" 'backward-delete-char)
 (define-key evil-visual-state-map ",ah" 'align-repeat)
 (evil-define-key 'insert web-mode-map "\C-d" nil)
+;; (evil-define-key 'insert web-mode-map "\C-do" 'insert-opening-non-printed-j2)
+;; (evil-define-key 'insert web-mode-map "\C-dt" 'insert-opening-printed-j2)
 (evil-define-key 'insert web-mode-map "\C-do" 'insert-opening-non-printed)
 (evil-define-key 'insert web-mode-map "\C-dt" 'insert-opening-printed)
 (evil-define-key 'insert yaml-mode-map "\C-d" nil)
