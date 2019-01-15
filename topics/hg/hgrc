@@ -6,6 +6,7 @@ editor         = vim
 commitsubrepos = False
 logtemplate    = '\033[33m{rev}:{node|short}\033[0m \033[32;1m[{phase}]\033[0m {desc|firstline|strip} \033[34m{branch}\033[0m \033[35m{tags}\033[0m\n'
 ignore         = ~/.hgignore
+tls            = False
 # /ui --------------------------------------------------------------------- }}}
 
 # extensions -------------------------------------------------------------- {{{
