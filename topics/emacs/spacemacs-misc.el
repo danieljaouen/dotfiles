@@ -23,3 +23,21 @@
       (require 'exwm)
       (require 'exwm-config)
       (exwm-config-default)))
+
+(use-package lsp-mode
+  :commands lsp
+  :ensure t
+  :diminish lsp-mode
+  :hook
+  (elixir-mode . lsp)
+  :init
+  (add-to-list 'exec-path "~/src/elixir-ls/release"))
+
+(with-eval-after-load 'elixir-mode
+  (spacemacs/declare-prefix-for-mode 'elixir-mode
+    "mt" "tests" "testing related functionality")
+  (spacemacs/set-leader-keys-for-major-mode 'elixir-mode
+    "tb" 'exunit-verify-all
+    "ta" 'exunit-verify
+    "tk" 'exunit-rerun
+    "tt" 'exunit-verify-single))
