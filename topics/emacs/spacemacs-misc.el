@@ -35,3 +35,8 @@
     "ta" 'exunit-verify
     "tk" 'exunit-rerun
     "tt" 'exunit-verify-single))
+
+
+(add-to-list 'auto-mode-alist '("\\.leex\\'" . web-mode))
+(setq web-mode-engines-alist
+      '(("elixir" . "\\.leex\\'")))
