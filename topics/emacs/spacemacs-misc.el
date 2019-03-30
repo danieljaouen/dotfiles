@@ -40,3 +40,12 @@
 (add-to-list 'auto-mode-alist '("\\.leex\\'" . web-mode))
 (setq web-mode-engines-alist
       '(("elixir" . "\\.leex\\'")))
+
+(setq TeX-PDF-mode t)
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (push
+             '("latexmk" "latexmk -pdf %s" TeX-run-TeX nil t
+               :help "Run latexmk on file")
+             TeX-command-list)))
+(add-hook 'TeX-mode-hook '(lambda () (setq TeX-command-default "latexmk")))
