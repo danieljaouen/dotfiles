@@ -3,7 +3,8 @@
 # source $fish_path/oh-my-fish.fish
 
 # Global Options and Aliases --------------------------------------- {{{
-set -x EDITOR vim
+set -x EDITOR "emacsclient -t"
+set -x ELIXIR_EDITOR "emacsclient -t"
 set -x TERM screen-256color-bce
 set -x PYENV_ROOT $HOME/.pyenv
 set -x ANSIBLE_NOCOWS 1
