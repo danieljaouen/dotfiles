@@ -50,3 +50,4 @@
              TeX-command-list)))
 (add-hook 'TeX-mode-hook '(lambda () (setq TeX-command-default "latexmk")))
 (setq flycheck-python-flake8-executable "flake8")
+(setq flycheck-python-pylint-executable "pylint")
