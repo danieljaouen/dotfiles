@@ -10,7 +10,6 @@ esac
 # PATH -------------------------------------------------------------------- {{{
 BASE_PATH=/opt/homebrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 RBENV_PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin
-# PYENV_PATH=$HOME/.pyenv/shims:$HOME/.pyenv/bin
 if [[ "x$OS" == "xOSX" ]]
 then
     # LOCAL_PATH --------------------------------------------------- {{{
@@ -75,7 +74,6 @@ source $ZSH/oh-my-zsh.sh
 # OS-specific config ------------------------------------------------------ {{{
 BASE_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 RBENV_PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin
-# PYENV_PATH=$HOME/.pyenv/shims:$HOME/.pyenv/bin
 if [[ "x$OS" == "xOSX" ]]
 then
     export MAIL=~/Mail
@@ -105,7 +103,6 @@ setopt INTERACTIVE_COMMENTS
 
 export EDITOR=vim
 export TERM=screen-256color-bce
-export PYENV_ROOT=$HOME/.pyenv
 export ANSIBLE_PARAMIKO_AGENT_FORWARDING=sudo_user
 export ANSIBLE_NOCOWS=1
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
@@ -205,7 +202,7 @@ alias hup="hg up"
 # /javascript/node.js ----------------------------------------------------- }}}
 
 # python/django ----------------------------------------------------------- {{{
-# eval "$(pyenv init - zsh)"
+eval "$(pyenv init --path)"
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
 
 alias daspt='django-admin.py startproject --template=https://github.com/twoscoops/django-twoscoops-project/archive/master.zip --extension=py,rst,html'
@@ -262,10 +259,6 @@ function prompt_char {
 
 function rbenv_info {
     rbenv local 2>/dev/null || rbenv global 2>/dev/null
-}
-
-function pyenv_info {
-    # pyenv local 2>/dev/null || pyenv global 2>/dev/null
 }
 
 function battery_charge {
