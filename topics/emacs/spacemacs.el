@@ -103,10 +103,8 @@ values."
    dotspacemacs-additional-packages '(
                                       android-mode
                                       atomic-chrome
-                                      company-lsp
                                       epresent
                                       exunit
-                                      fill-column-indicator
                                       key-chord
                                       kotlin-mode
                                       lsp-mode

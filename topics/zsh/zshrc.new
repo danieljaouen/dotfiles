@@ -8,7 +8,7 @@ esac
 # /oh-my-zsh defaults ----------------------------------------------------- }}}
 
 # PATH -------------------------------------------------------------------- {{{
-BASE_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+BASE_PATH=/opt/homebrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 RBENV_PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin
 # PYENV_PATH=$HOME/.pyenv/shims:$HOME/.pyenv/bin
 if [[ "x$OS" == "xOSX" ]]

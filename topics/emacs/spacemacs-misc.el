@@ -1,9 +1,9 @@
 (global-display-line-numbers-mode)
 
-(if (not (server-running-p))
-    (progn
-      (atomic-chrome-start-server)
-      (server-start)))
+; (if (not (server-running-p))
+;     (progn
+;       (atomic-chrome-start-server)
+;       (server-start)))
 
 (org-babel-do-load-languages
  'org-babel-load-languages

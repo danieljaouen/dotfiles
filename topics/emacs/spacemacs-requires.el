@@ -1,6 +1,6 @@
 (require 'atomic-chrome)
 (require 'helm)
 (require 'iedit)
-(require 'fill-column-indicator)
+; (require 'fill-column-indicator)
 ; (add-to-load-path "~/src/alchemist.el")
 ; (require 'alchemist)
