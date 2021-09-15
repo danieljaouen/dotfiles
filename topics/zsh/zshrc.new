@@ -58,6 +58,7 @@ base_plugins=(
     vagrant
     virtualenv
     vundle
+    zsh-syntax-highlighting
 )
 if [[ "x$OS" == "xOSX" ]]
 then
