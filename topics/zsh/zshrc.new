@@ -222,6 +222,7 @@ alias pyr='pyenv rehash'
 # /python/django ---------------------------------------------------------- }}}
 
 # ruby/rails -------------------------------------------------------------- {{{
+eval "$(rbenv init -)"
 alias b='bundle'
 alias be='bundle exec'
 alias bec='bundle exec cucumber'
