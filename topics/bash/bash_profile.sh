@@ -52,3 +52,5 @@ pyenv() {
 # /pyenv ------------------------------------------------------------------ }}}
 export PATH="${HOME}/.cargo/bin:${PATH}"
 source "$HOME/.cargo/env"
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh

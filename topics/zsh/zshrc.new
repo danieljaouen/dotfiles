@@ -452,3 +452,5 @@ if [[ -s $HOME/.zshrc.local ]]; then
     source $HOME/.zshrc.local
 fi
 # /Local Configuration ---------------------------------------------------- }}}
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
