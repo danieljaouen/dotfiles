@@ -1,7 +1,7 @@
 # Dotfile config
 
 ## Install
-`$ curl https://raw.github.com/danieljaouen/dotfiles/master/topics/bin/bootstrap.sh | bash`
+`$ rake # (inside directory)`
 
 ## Structure
 1. Symlinks (under `locations`) indicate where the soon-to-be-created symlinks
