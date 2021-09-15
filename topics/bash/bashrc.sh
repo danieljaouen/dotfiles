@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export PATH=$HOME/.bin:$HOME/.pyenv/bin:$HOME/.rbenv/bin:/Library/TeX/texbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export PATH=$HOME/.bin:$HOME/.pyenv/bin:$HOME/.rbenv/bin:/opt/homebrew/bin:/Library/TeX/texbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 . ~/.asdf/asdf.sh
 
