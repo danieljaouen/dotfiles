@@ -38,8 +38,9 @@
 
 
 (add-to-list 'auto-mode-alist '("\\.leex\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.heex\\'" . web-mode))
 (setq web-mode-engines-alist
-      '(("elixir" . "\\.leex\\'")))
+      '(("elixir" . "\\.leex\\'") ("elixir" . "\\.heex\\'")))
 
 (setq TeX-PDF-mode t)
 (add-hook 'LaTeX-mode-hook
