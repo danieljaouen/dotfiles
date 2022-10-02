@@ -30,8 +30,9 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
-     ; ansible
+   '(csv
+     ansible
+                                        ; ansible
      (auto-completion :variables
                       ; auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t
