@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/bashrc.pre.bash" ]] && builtin source "$HOME/.fig/shell/bashrc.pre.bash"
 #!/usr/bin/env bash
 
 export PATH=$HOME/.bin:$HOME/.pyenv/bin:$HOME/.rbenv/bin:/opt/homebrew/bin:/Library/TeX/texbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -47,3 +49,6 @@ pyenv() {
 # /pyenv ------------------------------------------------------------------ }}}
 export PATH="${HOME}/.cargo/bin:${PATH}"
 source "$HOME/.cargo/env"
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/bashrc.post.bash" ]] && builtin source "$HOME/.fig/shell/bashrc.post.bash"

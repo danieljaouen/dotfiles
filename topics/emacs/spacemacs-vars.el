@@ -9,6 +9,7 @@
 (setq-default evil-escape-delay 0.4)
 (setq-default evil-escape-unordered-key-sequence nil)
 (setq js-indent-level 2)
+(setq typescript-indent-level 2)
 (setq backup-by-copying t
       make-backup-files nil
       create-lockfiles nil)
