@@ -54,6 +54,7 @@ switch (uname)
         set LOCAL_PATH /usr/X11/bin
         set LOCAL_PATH /Library/TeX/texbin $LOCAL_PATH
         set LOCAL_PATH /usr/local/opt/ruby/bin $LOCAL_PATH
+        set LOCAL_PATH /opt/homebrew/bin
         # set LOCAL_PATH /usr/local/deployd/bin $LOCAL_PATH
         # set LOCAL_PATH /usr/local/share/npm/bin $LOCAL_PATH
         # set LOCAL_PATH /usr/local/Cellar/go/1.2/libexec/bin $LOCAL_PATH
@@ -143,7 +144,7 @@ end
 
 # aliases and language-specific setup ------------------------------------- {{{
 # asdf ------------------------------------------------------------- {{{
-source ~/.asdf/asdf.fish
+# source ~/.asdf/asdf.fish
 # /asdf ------------------------------------------------------------ }}}
 
 # ag --------------------------------------------------------------- {{{
@@ -363,11 +364,11 @@ end
 # python/django ---------------------------------------------------- {{{
 set -x PYTHONSTARTUP "$HOME/.pythonrc.py"
 
-set -x VIRTUALFISH_COMPAT_ALIASES 1
-source $HOME/.virtualfish/virtual.fish
-source $HOME/.virtualfish/auto_activation.fish
-source $HOME/.virtualfish/global_requirements.fish
-set -x VIRTUAL_ENV_DISABLE_PROMPT 0
+# set -x VIRTUALFISH_COMPAT_ALIASES 1
+# source $HOME/.virtualfish/virtual.fish
+# source $HOME/.virtualfish/auto_activation.fish
+# source $HOME/.virtualfish/global_requirements.fish
+# set -x VIRTUAL_ENV_DISABLE_PROMPT 0
 
 # pyenv -------------------------------------- {{{
 status --is-interactive; and source (pyenv init - | psub)
