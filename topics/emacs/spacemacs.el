@@ -106,6 +106,7 @@ values."
                                       atomic-chrome
                                       epresent
                                       exunit
+                                      hy-mode
                                       key-chord
                                       kotlin-mode
                                       lsp-mode
