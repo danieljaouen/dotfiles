@@ -82,7 +82,7 @@ then
     export MAIL=~/Mail
     export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
     export SHELL=/usr/local/bin/zsh
-    export PAGER=vimpager
+    export PAGER=less
 
     alias update='curl https://raw.github.com/danieljaouen/dotfiles/master/topics/bin/bootstrap.sh | bash'
 
