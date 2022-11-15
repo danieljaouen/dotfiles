@@ -1,6 +1,7 @@
 theme = "solarized_dark"
 
 [keys.normal]
+";" = "command_mode"
 V = ["select_mode", "extend_to_line_bounds"]
 "{" = ["goto_prev_paragraph", "collapse_selection"]
 "}" = ["goto_next_paragraph", "collapse_selection"]
