@@ -107,6 +107,7 @@ values."
                                       epresent
                                       exunit
                                       hy-mode
+                                      julia-mode
                                       key-chord
                                       kotlin-mode
                                       lsp-mode
