@@ -34,6 +34,7 @@ p = "replace_selections_with_clipboard" # No life without this
 P = "paste_clipboard_before"
 
 [editor]
+auto-save = true
 line-number = "relative"
 
 [editor.cursor-shape]

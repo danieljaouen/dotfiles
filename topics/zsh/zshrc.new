@@ -10,7 +10,7 @@ esac
 # /oh-my-zsh defaults ----------------------------------------------------- }}}
 
 # PATH -------------------------------------------------------------------- {{{
-BASE_PATH=/opt/homebrew/anaconda3/bin:/opt/homebrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+BASE_PATH=/opt/homebrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 RBENV_PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin
 if [[ "x$OS" == "xOSX" ]]
 then
@@ -455,6 +455,7 @@ if [[ -s $HOME/.zshrc.local ]]; then
 fi
 # /Local Configuration ---------------------------------------------------- }}}
 
+PATH=/opt/homebrew/anaconda3/bin:$PATH
 conda init zsh
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
