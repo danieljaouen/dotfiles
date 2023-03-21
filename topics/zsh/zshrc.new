@@ -482,3 +482,4 @@ unset __conda_setup
 export PATH="/Users/danieljaouen/.deno/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias rgf='rg . | fzf | cut -d ":" -f 1'
