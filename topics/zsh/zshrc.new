@@ -480,3 +480,5 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH="/Users/danieljaouen/.deno/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
