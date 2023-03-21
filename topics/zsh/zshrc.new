@@ -483,3 +483,4 @@ export PATH="/Users/danieljaouen/.deno/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias rgf='rg . | fzf | cut -d ":" -f 1'
+alias ec="emacsclient"
