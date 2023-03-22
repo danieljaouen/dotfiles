@@ -39,3 +39,4 @@
 (setq dotspacemacs-ask-for-lazy-installation nil)
 (setq python-shell-interpreter "~/.pyenv/shims/python3")
 (setq python-shell-interpreter-args "")
+(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
