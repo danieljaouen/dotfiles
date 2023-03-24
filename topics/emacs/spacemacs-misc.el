@@ -79,7 +79,8 @@
                               dired-mode-hook
                               compilation-mode-hook
                               flutter-mode-hook
-                              minibuffer-mode-hook)
+                              minibuffer-mode-hook
+                              markdown-mode)
   "Modes in which copilot is inconvenient.")
 
 (defun rk/copilot-disable-predicate ()
