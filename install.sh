@@ -76,9 +76,9 @@ ln -s ~/.dotfiles/topics/tmux/tmux.linux.conf ~/.tmux.conf
 # -----------------------------
 # manually:
 # -----------------------------
+chsh # to /usr/bin/zsh
 tmux # --> C-t I
 nv ~/.tmux.conf
 vim # :PluginInstall
 emacs
 emacs
-chsh # to /usr/bin/zsh
