@@ -71,13 +71,14 @@ git pull origin main
 rake
 cd -
 ln -s ~/.dotfiles/topics/tmux/tmux.linux.conf ~/.tmux.conf
-# tmux --> C-t I
-nv ~/.tmux.conf
-vim # :PluginInstall
-emacs
-emacs
+
 
 # -----------------------------
 # manually:
 # -----------------------------
+tmux --> C-t I
+nv ~/.tmux.conf
+vim # :PluginInstall
+emacs
+emacs
 chsh # to /usr/bin/zsh
