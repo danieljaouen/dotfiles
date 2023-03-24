@@ -4,7 +4,6 @@
 # - git
 # - zsh
 # - emacs
-# - vim
 # - nvim
 # - asdf
 # - erlang
@@ -25,7 +24,6 @@
 # pacman -Sy git
 # pacman -Sy zsh
 # pacman -Sy emacs
-# pacman -Sy neovim
 # pacman -Sy erlang
 # pacman -Sy elixir
 # pacman -Sy ruby
@@ -52,7 +50,6 @@ git pull origin dan
 popd
 git clone https://github.com/tmux-plugins/tpm.git ~/.tmux/plugins/tpm
 git clone https://github.com/elixir-lsp/elixir-ls.git ~/src/elixir-ls
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
@@ -79,6 +76,5 @@ ln -s ~/.dotfiles/topics/tmux/tmux.linux.conf ~/.tmux.conf
 chsh # to /usr/bin/zsh
 tmux # --> C-t I
 nv ~/.tmux.conf
-vim # :PluginInstall
 emacs
 emacs
