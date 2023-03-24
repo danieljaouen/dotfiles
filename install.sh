@@ -78,5 +78,5 @@ ln -s ~/.dotfiles/topics/tmux/tmux.linux.conf ~/.tmux.conf
 nv ~/.tmux.conf
 vim # :PluginInstall
 emacs
-
-# remember to remove ~/.config/nvim/init.vim !!
+emacs
+rm ~/.config/nvim/init.vim
