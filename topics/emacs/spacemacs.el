@@ -66,8 +66,6 @@ values."
      nginx
      ocaml
      octave
-     (org :variables
-          org-enable-reveal-js-support t)
      osx
      ; php
      puppet
