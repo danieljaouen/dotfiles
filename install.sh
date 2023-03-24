@@ -13,6 +13,7 @@
 # - ruby
 # - rake
 # - starship
+# - pyenv
 # - fzf (and its install script)
 
 # pacman -Syu
