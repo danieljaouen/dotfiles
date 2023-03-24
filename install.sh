@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # prerequisites:
+# - git
 # - zsh
 # - emacs
 # - vim
