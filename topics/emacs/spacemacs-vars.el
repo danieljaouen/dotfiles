@@ -40,3 +40,4 @@
 (setq python-shell-interpreter "~/.pyenv/shims/python3")
 (setq python-shell-interpreter-args "")
 (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
+(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")

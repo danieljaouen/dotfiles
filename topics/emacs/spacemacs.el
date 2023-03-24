@@ -107,6 +107,7 @@ values."
                                       atomic-chrome
                                       epresent
                                       exunit
+                                      evil-vimish-fold
                                       hy-mode
                                       julia-mode
                                       key-chord
@@ -115,7 +116,6 @@ values."
                                       lsp-ui
                                       ox-reveal
                                       vimish-fold
-                                      evil-vimish-fold
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
