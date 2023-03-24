@@ -18,7 +18,7 @@
     # publish = !legit publish \"$@\"
     # graft = !legit graft \"$@\"
 
-    gl   = log -10 --color=always --all --graph --topo-order --pretty='format:%h %s %d%n(%cr by %cn)%n'
+    gl   = log -n 10 --color=always --all --graph --topo-order --pretty='format:%h %s %d%n(%cr by %cn)%n'
     gll  = log --color=always --all --graph --topo-order --pretty='format:%h %s %d%n(%cr by %cn)%n'
 
     ull  = pull
