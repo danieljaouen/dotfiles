@@ -11,7 +11,6 @@
 # - elixir
 # - tmux
 # - ruby
-# - rake
 # - starship
 # - pyenv
 # - fzf (and its install script)
