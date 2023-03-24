@@ -27,6 +27,8 @@ git clone https://github.com/danieljaouen/AstroNvim.git ~/.config/nvim
 git clone https://github.com/tmux-plugins/tpm.git ~/.tmux/plugins/tpm
 git clone https://github.com/elixir-lsp/elixir-ls.git ~/src/elixir-ls
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
 cd ~/src/elixir-ls
 mix local.hex --force
