@@ -155,13 +155,13 @@ set number
 set ruler                                                    " show where you are
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)           " A ruler on steroids
 set shiftround                  " indents of 2
-set shiftwidth=4                " indents of 2
+set shiftwidth=2                " indents of 2
 set showcmd
 set smartcase  " match case if a capital letter is present in the regexp
 set smarttab                    " make <tab> and <backspace> smarter
-set softtabstop=4               " softtabstops of 2
+set softtabstop=2               " softtabstops of 2
 set spell spelllang=en_us
-set tabstop=4                   " tabstops of 2
+set tabstop=2                   " tabstops of 2
 set tw=79   " width of document (used by gd)
 set undolevels=10000            " number of forgivable mistakes
 set updatecount=100             " write swap file to disk every 100 chars
