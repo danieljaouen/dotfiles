@@ -73,5 +73,8 @@ ln -s ~/.dotfiles/topics/tmux/tmux.linux.conf ~/.tmux.conf
 chsh # to /usr/bin/zsh
 tmux # --> C-t I
 nv ~/.tmux.conf
+# :TSInstall! lua
+# :TSInstall! elixir
+# :TSInstall! python
 emacs
 emacs
