@@ -43,11 +43,8 @@ pushd ~/.emacs.d
 git checkout develop
 git pull origin develop
 popd
-git clone https://github.com/danieljaouen/AstroNvim.git ~/.config/nvim
-pushd ~/.config/nvim
-git checkout dan
-git pull origin dan
-popd
+git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+git clone https://github.com/danieljaouen/AstroNvimUser.git ~/.config/nvim/lua/user
 git clone https://github.com/tmux-plugins/tpm.git ~/.tmux/plugins/tpm
 git clone https://github.com/elixir-lsp/elixir-ls.git ~/src/elixir-ls
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
