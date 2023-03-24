@@ -64,8 +64,6 @@ mix compile
 mix elixir_ls.release -o release
 cd -
 
-chsh # to /usr/bin/zsh
-
 git clone https://github.com/danieljaouen/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 git checkout main
@@ -78,3 +76,8 @@ nv ~/.tmux.conf
 vim # :PluginInstall
 emacs
 emacs
+
+# -----------------------------
+# manually:
+# -----------------------------
+chsh # to /usr/bin/zsh
