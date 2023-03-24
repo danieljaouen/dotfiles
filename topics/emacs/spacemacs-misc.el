@@ -85,8 +85,7 @@
 
 (defun rk/copilot-disable-predicate ()
   "When copilot should not automatically show completions."
-  (or rk/copilot-manual-mode
-      (member major-mode rk/no-copilot-modes)
+  (or (member major-mode rk/no-copilot-modes)
       (company--active-p)))
 
 (with-eval-after-load 'copilot
