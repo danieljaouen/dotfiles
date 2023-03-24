@@ -46,3 +46,6 @@
 (define-key evil-normal-state-map "?" 'evil-ex-search-backward)
 (define-key evil-normal-state-map "n" 'evil-ex-search-next)
 (define-key evil-normal-state-map "N" 'evil-ex-search-previous)
+
+(define-key evil-insert-state-map (kbd "C-j") #'copilot-next-completion)
+(define-key evil-insert-state-map (kbd "C-k") #'copilot-previous-completion)
