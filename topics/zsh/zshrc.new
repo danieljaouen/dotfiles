@@ -222,7 +222,11 @@ alias pyr='pyenv rehash'
 # /python/django ---------------------------------------------------------- }}}
 
 # ruby/rails -------------------------------------------------------------- {{{
-eval "$(rbenv init -)"
+
+if [[ "x$OS" == "xOSX" ]]
+then
+    eval "$(rbenv init -)"
+fi
 alias b='bundle'
 alias be='bundle exec'
 alias bec='bundle exec cucumber'
