@@ -105,6 +105,12 @@ values."
    dotspacemacs-additional-packages '(
                                       android-mode
                                       atomic-chrome
+                                      dash
+                                      (copilot :location (recipe
+                                                          :fetcher github
+                                                          :repo "zerolfx/copilot.el"
+                                                          :files ("*.el" "dist")))
+                                      editorconfig
                                       epresent
                                       exunit
                                       evil-vimish-fold
@@ -115,6 +121,7 @@ values."
                                       lsp-mode
                                       lsp-ui
                                       ox-reveal
+                                      s
                                       vimish-fold
                                       )
    ;; A list of packages that cannot be updated.

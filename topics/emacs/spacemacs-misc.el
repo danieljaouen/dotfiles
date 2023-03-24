@@ -51,3 +51,44 @@
 (setq rust-format-on-save t)
 (pyenv-mode)
 (global-display-fill-column-indicator-mode)
+
+;; --------------------------------------------------------------------------------------------------
+;; -- Copilot
+;; --------------------------------------------------------------------------------------------------
+(with-eval-after-load 'company
+  ;; disable inline previews
+  (delq 'company-preview-if-just-one-frontend company-frontends))
+
+(add-hook 'prog-mode-hook 'copilot-mode)
+
+(define-key evil-insert-state-map (kbd "C-<tab>") 'copilot-accept-completion-by-word)
+(define-key evil-insert-state-map (kbd "C-TAB") 'copilot-accept-completion-by-word)
+
+(defun rk/no-copilot-mode ()
+  "Helper for `rk/no-copilot-modes'."
+  (copilot-mode -1))
+
+(defvar rk/no-copilot-modes '(shell-mode
+                              inferior-python-mode
+                              eshell-mode
+                              term-mode
+                              vterm-mode
+                              comint-mode
+                              compilation-mode
+                              debugger-mode
+                              dired-mode-hook
+                              compilation-mode-hook
+                              flutter-mode-hook
+                              minibuffer-mode-hook)
+  "Modes in which copilot is inconvenient.")
+
+(defun rk/copilot-disable-predicate ()
+  "When copilot should not automatically show completions."
+  (or rk/copilot-manual-mode
+      (member major-mode rk/no-copilot-modes)
+      (company--active-p)))
+
+(with-eval-after-load 'copilot
+  (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
+  (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
+  (add-to-list 'copilot-disable-predicates #'rk/copilot-disable-predicate))
