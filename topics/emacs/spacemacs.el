@@ -63,7 +63,6 @@ values."
      latex
      markdown
      nginx
-     ocaml
      octave
      (org :variables
           org-enable-reveal-js-support t)

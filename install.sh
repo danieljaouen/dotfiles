@@ -14,6 +14,8 @@
 # - pyenv
 # - fzf (and its install script)
 # -  nodejs
+# - duf
+# - glances
 
 # pacman -Syu
 # pacman -Sy neovim
@@ -32,6 +34,8 @@
 # pacman -Sy fzf
 # pacman -Sy pyenv
 # pacman -Sy nodejs
+# pacman -Sy duf
+# pacman -Sy glances
 
 mkdir -p ~/.config
 mkdir -p ~/.tmux/bundle
