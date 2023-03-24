@@ -16,7 +16,7 @@
 
 # pacman -Syu
 # pacman -Sy neovim
-# nvim /etc/ssh/sshd_config to not allow PasswordLogins
+# nvim /etc/ssh/sshd_config # to not allow PasswordLogins
 # systemctl reload sshd
 # pacman -Sy tmux
 # tmux
