@@ -52,7 +52,6 @@ values."
      erlang
      ess
      git
-     github
      gnus
      go
      graphviz
