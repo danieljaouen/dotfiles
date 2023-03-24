@@ -70,7 +70,7 @@ ln -s ~/.dotfiles/topics/tmux/tmux.linux.conf ~/.tmux.conf
 # -----------------------------
 # manually:
 # -----------------------------
-chsh # to /usr/bin/zsh
+chsh # to /usr/bin/zsh or /usr/local/bin/zsh
 tmux # --> C-t I
 nv ~/.tmux.conf
 # :TSInstall! lua
