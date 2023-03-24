@@ -64,7 +64,6 @@ git checkout main
 git pull origin main
 rake
 popd
-ln -s ~/.dotfiles/topics/tmux/tmux.linux.conf ~/.tmux.conf
 
 
 # -----------------------------
