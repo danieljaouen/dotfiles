@@ -41,35 +41,35 @@ git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/syl20bnr/spacemacs.git ~/.emacs.d
-cd ~/.emacs.d
+pushd ~/.emacs.d
 git checkout develop
 git pull origin develop
-cd -
+popd
 git clone https://github.com/danieljaouen/AstroNvim.git ~/.config/nvim
-cd ~/.config/nvim
+pushd ~/.config/nvim
 git checkout dan
 git pull origin dan
-cd -
+popd
 git clone https://github.com/tmux-plugins/tpm.git ~/.tmux/plugins/tpm
 git clone https://github.com/elixir-lsp/elixir-ls.git ~/src/elixir-ls
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-cd ~/src/elixir-ls
+pushd ~/src/elixir-ls
 mix local.hex --force
 mix local.rebar --force
 mix deps.get
 mix compile
 mix elixir_ls.release -o release
-cd -
+popd
 
 git clone https://github.com/danieljaouen/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
+pushd ~/.dotfiles
 git checkout main
 git pull origin main
 rake
-cd -
+popd
 ln -s ~/.dotfiles/topics/tmux/tmux.linux.conf ~/.tmux.conf
 
 
