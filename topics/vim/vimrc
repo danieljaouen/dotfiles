@@ -2,6 +2,8 @@ set nocompatible
 set shell=/bin/bash
 
 " Notes ------------------------------------------------------------------- {{{
+" mkdir -p ~/.config
+" git clone https://github.com/danieljaouen/AstroNvim.git ~/.config/nvim
 " - folding:
 "   - to 'reveal' folds:
 "     - zo (to open current fold)
