@@ -37,7 +37,6 @@ fi
 base_plugins=(
     bundler
     capistrano
-    django
     fabric
     gem
     git
@@ -64,7 +63,7 @@ base_plugins=(
 )
 if [[ "x$OS" == "xOSX" ]]
 then
-    local_plugins=(osx brew)
+    local_plugins=(brew)
     plugins=($local_plugins $base_plugins)
 else
     local_plugins=()
@@ -84,16 +83,15 @@ then
     export SHELL=/usr/local/bin/zsh
     export PAGER=less
 
-    alias update='curl https://raw.github.com/danieljaouen/dotfiles/master/topics/bin/bootstrap.sh | bash'
-
-    unalias run-help
-    autoload run-help
-    HELPDIR=/usr/local/share/zsh/helpfiles
+    # unalias run-help
+    # autoload run-help
+    # HELPDIR=/usr/local/share/zsh/helpfiles
 
     # aws --------------------------------------------------------------------- {{{
     export AWS_CREDENTIAL_FILE="$HOME/.boto"
     export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.6.12.0/libexec"
     # /aws -------------------------------------------------------------------- }}}
+
 else
     export SHELL=/usr/bin/zsh
     # eval "$(ssh-agent)"
@@ -455,34 +453,21 @@ if [[ -s $HOME/.zshrc.local ]]; then
 fi
 # /Local Configuration ---------------------------------------------------- }}}
 
-PATH=/opt/homebrew/anaconda3/bin:$PATH
-conda init zsh
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 eval "$(starship init zsh)"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/homebrew/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-export PATH="/Users/danieljaouen/.deno/bin:$PATH"
+export PATH="$HOME/.deno/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias rgf='rg . | fzf | cut -d ":" -f 1'
 alias ec="emacsclient"
 alias nv="nvim"
 setopt inc_append_history
+
+if [[ "x$OS" == "xOSX" ]]
+then
+    . /opt/homebrew/opt/asdf/libexec/asdf.sh
+fi
