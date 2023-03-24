@@ -15,10 +15,6 @@
                                    gnus-topic-mode-map
                                    )
           )
-(add-hook 'gnus-group-mode-hook   (my-gnus-mode-hook-wrapper
-                                   gnus-group-mode-map
-                                   )
-          )
 (add-hook 'gnus-server-mode-hook  (my-gnus-mode-hook-wrapper
                                    gnus-server-mode-map
                                    )
@@ -29,10 +25,6 @@
           )
 (add-hook 'gnus-article-mode-hook (my-gnus-mode-hook-wrapper
                                    gnus-article-mode-map
-                                   )
-          )
-(add-hook 'gnus-summary-mode-hook (my-gnus-mode-hook-wrapper
-                                   gnus-summary-mode-map
                                    )
           )
 
