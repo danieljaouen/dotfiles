@@ -78,4 +78,3 @@ nv ~/.tmux.conf
 vim # :PluginInstall
 emacs
 emacs
-rm ~/.config/nvim/init.vim
