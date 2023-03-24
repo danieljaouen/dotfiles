@@ -16,8 +16,8 @@
 # - fzf (and its install script)
 
 # pacman -Syu
-# pacman -Sy vim
-# edit /etc/ssh/sshd_config to not allow PasswordLogins
+# pacman -Sy neovim
+# nvim /etc/ssh/sshd_config to not allow PasswordLogins
 # systemctl reload sshd
 # pacman -Sy tmux
 # tmux
