@@ -13,6 +13,7 @@
 # - starship
 # - pyenv
 # - fzf (and its install script)
+# -  nodejs
 
 # pacman -Syu
 # pacman -Sy neovim
@@ -30,6 +31,7 @@
 # pacman -Sy starship
 # pacman -Sy fzf
 # pacman -Sy pyenv
+# pacman -Sy nodejs
 
 mkdir -p ~/.config
 mkdir -p ~/.tmux/bundle
@@ -77,3 +79,5 @@ nv ~/.tmux.conf
 # :TSInstall! python
 emacs
 emacs
+# open a file
+# M-x copilot-login
