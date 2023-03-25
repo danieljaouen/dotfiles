@@ -121,6 +121,7 @@ values."
                                       ox-reveal
                                       s
                                       vimish-fold
+                                      yasnippet-snippets
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
