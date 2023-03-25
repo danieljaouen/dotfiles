@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+#
+# -----------------------------------------------------------------------
+# Note: this script requires some manual intervention.  Don't just run it
+# blindly!
+# -----------------------------------------------------------------------
 
 # prerequisites:
 # - git
