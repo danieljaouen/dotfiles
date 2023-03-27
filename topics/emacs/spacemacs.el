@@ -114,6 +114,7 @@ values."
                                       evil-vimish-fold
                                       hy-mode
                                       julia-mode
+                                      just-mode
                                       key-chord
                                       kotlin-mode
                                       lsp-mode
