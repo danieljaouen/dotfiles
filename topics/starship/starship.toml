@@ -46,13 +46,12 @@ disabled = false
 [directory]
 truncation_length = 1
 truncation_symbol = "…/"
-home_symbol = " ~"
+home_symbol = " ~"
 read_only_style = "197"
-read_only = "  "
 format = "at [$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
-symbol = " "
+symbol = ""
 format = "via [$symbol$branch]($style) "
 # truncation_length = 4
 truncation_symbol = "…/"
@@ -69,17 +68,17 @@ disabled = true
 # (deactivated because of no space left)
 #
 [terraform]
-format = "via [ terraform $version]($style) 壟 [$workspace]($style) "
+format = "via [terraform $version]($style) 壟 [$workspace]($style) "
 disabled = true
 
 [vagrant]
-format = "via [ vagrant $version]($style) "
+format = "via [vagrant $version]($style) "
 disabled = true
 
 [docker_context]
-format = "via [ $context](bold blue) "
+format = "via [$context](bold blue) "
 disabled = true
 
 [helm]
-format = "via [ $version](bold purple) "
+format = "via [$version](bold purple) "
 disabled = true
