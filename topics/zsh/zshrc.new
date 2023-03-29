@@ -108,6 +108,9 @@ export TERM=screen-256color-bce
 export ANSIBLE_PARAMIKO_AGENT_FORWARDING=sudo_user
 export ANSIBLE_NOCOWS=1
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+if [ -r ~/.openai_api_key ]; then
+    export OPENAI_API_KEY=$(cat ~/.openai_api_key)
+fi
 
 alias debug_email="python -m smtpd -n -c DebuggingServer localhost:1025"
 alias j="z"
