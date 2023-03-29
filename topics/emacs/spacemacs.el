@@ -108,6 +108,10 @@ values."
                                                           :fetcher github
                                                           :repo "zerolfx/copilot.el"
                                                           :files ("*.el" "dist")))
+                                      (chatgpt-shell :location (recipe
+                                                                :fetcher github
+                                                                :repo "xenodium/chatgpt-shell"
+                                                                :files ("*.el")))
                                       editorconfig
                                       epresent
                                       exunit

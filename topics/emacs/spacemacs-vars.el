@@ -42,3 +42,4 @@
 (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
 (setq-default display-fill-column-indicator-column 101)
+(setq chatgpt-shell-openai-key (getenv "OPENAI_API_KEY"))
