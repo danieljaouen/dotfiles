@@ -14,15 +14,6 @@
      (add-to-list 'company-backends 'company-anaconda)
      (add-to-list 'company-backends 'company-elm)))
 
-(use-package lsp-mode
-  :commands lsp
-  :ensure t
-  :diminish lsp-mode
-  :hook
-  (elixir-mode . lsp)
-  :init
-  (add-to-list 'exec-path "~/src/elixir-ls/release"))
-
 (with-eval-after-load 'elixir-mode
   (spacemacs/declare-prefix-for-mode 'elixir-mode
     "mt" "tests" "testing related functionality")
@@ -110,3 +101,6 @@ cleared, make sure the overlay doesn't come back too soon."
     (error handler)))
 
 (advice-add 'keyboard-quit :before #'rk/copilot-quit)
+
+(require 'eglot)
+(add-to-list 'eglot-server-programs '(elixir-mode "~/src/elixir-ls/release/language_server.sh"))

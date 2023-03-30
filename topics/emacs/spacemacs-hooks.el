@@ -60,3 +60,12 @@
 
 (add-hook 'elixir-mode-hook
           (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
+
+(add-hook
+ 'elixir-mode-hook
+ (lambda ()
+   (subword-mode)
+   (eglot-ensure)
+   (company-mode)
+   (flymake-mode)
+   (add-hook 'before-save-hook 'eglot-format nil t)))
