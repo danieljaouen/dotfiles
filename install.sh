@@ -71,6 +71,8 @@ mix compile
 mix elixir_ls.release -o release
 popd
 
+touch ~/.openai_api_key # blank for now
+
 git clone https://github.com/danieljaouen/dotfiles.git ~/.dotfiles
 pushd ~/.dotfiles
 git checkout main
