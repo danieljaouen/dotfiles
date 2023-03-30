@@ -80,6 +80,8 @@ popd
 # -----------------------------------------------------------------------
 # manually:
 # -----------------------------------------------------------------------
+# rsync ~/.openai_api_key <remote>
+# chmod 0600 ~/.openai_api_key
 chsh # to /usr/bin/zsh or /usr/local/bin/zsh
 tmux # --> C-t I
 nv ~/.tmux.conf
