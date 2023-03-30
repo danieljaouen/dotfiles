@@ -21,6 +21,7 @@
 # -  nodejs
 # - duf
 # - glances
+# - rsync
 
 # pacman -Syu
 # pacman -Sy neovim
@@ -41,6 +42,7 @@
 # pacman -Sy nodejs
 # pacman -Sy duf
 # pacman -Sy glances
+# pacman -Sy rsync
 
 mkdir -p ~/.config
 mkdir -p ~/.tmux/bundle
