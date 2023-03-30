@@ -27,7 +27,7 @@ then
     export PATH=$RBENV_PATH:$LOCAL_PATH:$BASE_PATH
 else
     # LOCAL_PATH --------------------------------------------------- {{{
-    LOCAL_PATH=$HOME/.asdf/shims:$HOME/.asdf/bin:$HOME/.local/bin:$HOME/.bin:$LOCAL_PATH
+    LOCAL_PATH=$HOME/.fly/bin:$HOME/.asdf/shims:$HOME/.asdf/bin:$HOME/.local/bin:$HOME/.bin:$LOCAL_PATH
     # /LOCAL_PATH -------------------------------------------------- }}}
 
     export PATH=$RBENV_PATH:$LOCAL_PATH:$BASE_PATH
