@@ -97,6 +97,7 @@ else
     export SHELL=/usr/bin/zsh
     # eval "$(ssh-agent)"
     alias open=xdg-open
+    alias hx=helix
 fi
 # /OS-specific config ----------------------------------------------------- }}}
 
