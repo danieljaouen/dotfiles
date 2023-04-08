@@ -94,3 +94,4 @@ emacs
 emacs
 # open a file
 # M-x copilot-login
+# systemctl enable --now certbot-renew.timer
