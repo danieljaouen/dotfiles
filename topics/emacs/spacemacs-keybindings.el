@@ -1,4 +1,3 @@
-(define-key evil-insert-state-map (kbd "TAB") 'my-tab-command)
 (define-key evil-normal-state-map (kbd ";") 'evil-ex)
 (define-key evil-visual-state-map (kbd ";") 'evil-ex)
 (define-key evil-normal-state-map (kbd "TAB") 'evil-toggle-fold)
