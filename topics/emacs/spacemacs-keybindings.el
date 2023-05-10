@@ -1,6 +1,6 @@
 (define-key evil-normal-state-map (kbd ";") 'evil-ex)
 (define-key evil-visual-state-map (kbd ";") 'evil-ex)
-(define-key evil-normal-state-map (kbd "TAB") 'evil-toggle-fold)
+;(define-key evil-normal-state-map (kbd "TAB") 'evil-toggle-fold)
 (global-set-key "\C-h" 'backward-delete-char)
 (global-set-key "\C-w" 'evil-delete-backward-word)
 (define-key helm-map "\C-h" 'delete-backward-char)
