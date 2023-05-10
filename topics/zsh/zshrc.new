@@ -125,6 +125,7 @@ alias n="newsbeuter"
 alias serve_this="python -m SimpleHTTPServer 8100"
 alias t="task"
 alias zless=$PAGER
+alias ms=markserv
 # /Global Options and Aliases --------------------------------------------- }}}
 
 # ag ---------------------------------------------------------------------- {{{
