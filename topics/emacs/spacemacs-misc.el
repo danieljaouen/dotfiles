@@ -103,4 +103,4 @@ cleared, make sure the overlay doesn't come back too soon."
 (advice-add 'keyboard-quit :before #'rk/copilot-quit)
 
 (require 'eglot)
-(add-to-list 'eglot-server-programs '(elixir-mode "~/src/elixir-ls/release/language_server.sh"))
+;; (add-to-list 'eglot-server-programs '(elixir-mode "~/src/elixir-ls/release/language_server.sh"))
