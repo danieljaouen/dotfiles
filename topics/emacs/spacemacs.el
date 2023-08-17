@@ -117,6 +117,7 @@ values."
                                       epresent
                                       exunit
                                       evil-vimish-fold
+                                      exec-path-from-shell
                                       hy-mode
                                       julia-mode
                                       just-mode
