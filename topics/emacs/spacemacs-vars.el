@@ -44,3 +44,4 @@
 (setq-default display-fill-column-indicator-column 101)
 (setq chatgpt-shell-openai-key (getenv "OPENAI_API_KEY"))
 (setq lsp-elixir-local-server-command "~/src/elixir-ls/release/language_server.sh")
+(setq helm-ag-use-grep-ignore-list nil)
