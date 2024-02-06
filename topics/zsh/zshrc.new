@@ -481,6 +481,7 @@ export PATH="$HOME/.deno/bin:$PATH"
 alias rgf='rg . | fzf | cut -d ":" -f 1'
 alias ec="emacsclient"
 alias nv="nvim"
+alias dc="docker-compose"
 setopt inc_append_history
 
 if [[ "x$OS" == "xOSX" ]]
