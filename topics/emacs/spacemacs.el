@@ -117,6 +117,7 @@ values."
                                       eglot
                                       epresent
                                       exunit
+                                      evil-ledger
                                       evil-vimish-fold
                                       exec-path-from-shell
                                       hy-mode
@@ -124,6 +125,8 @@ values."
                                       just-mode
                                       key-chord
                                       kotlin-mode
+                                      ledger-mode
+                                      ledger-import
                                       ox-reveal
                                       s
                                       vimish-fold
