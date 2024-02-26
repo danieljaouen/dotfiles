@@ -474,7 +474,8 @@ eval "$(starship init zsh)"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-[[ -f "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh" ]] && . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+
+[[ ! $(command -v nix) && -e "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh" ]] && source "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
 
 export PATH="$HOME/.deno/bin:$PATH"
 
@@ -482,11 +483,16 @@ export PATH="$HOME/.deno/bin:$PATH"
 alias rgf='rg . | fzf | cut -d ":" -f 1'
 alias ec="emacsclient"
 alias nv="nvim"
+alias n="nix"
+alias npi="nix profile install"
+alias nsn="nix search nixpkgs"
 alias dc="docker-compose"
 alias lbal='ledger -f ~/Dropbox/ledger/budget.dat balance \^assets \^liabilities'
 alias lbie='ledger -f ~/Dropbox/ledger/budget.dat balance \^income \^expenses'
 alias lref='ledger -M register -f ~/Dropbox/ledger/budget.dat expenses:food'
 setopt inc_append_history
+
+[[ $(command -v direnv) ]] && eval "$(direnv hook zsh)"
 
 if [[ "x$OS" == "xOSX" ]]
 then
