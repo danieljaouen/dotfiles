@@ -499,7 +499,7 @@ if [[ "x$OS" == "xOSX" ]]; then
     alias gxpli="brew list"
     alias gxu="brew upgrade"
     alias gxr="brew remove"
-    alias gxs="brew info"
+    alias gxi="brew info"
     alias gxgc="brew cleanup"
 else
     alias gx="guix"
@@ -510,7 +510,7 @@ else
     alias gxprb="guix package --roll-back"
     alias gxu="guix upgrade"
     alias gxr="guix remove"
-    alias gxs="guix show"
+    alias gxi="guix show"
     alias gxgc="guix gc"
 fi
 alias dc="docker-compose"
