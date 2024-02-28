@@ -513,6 +513,7 @@ else
     alias gxp="guix package"
     alias gxpi="guix show"
     alias gxgc="guix gc"
+    alias gxsh="guix shell"
 fi
 alias dc="docker-compose"
 alias lbal='ledger -f ~/Dropbox/ledger/budget.dat balance \^assets \^liabilities'
