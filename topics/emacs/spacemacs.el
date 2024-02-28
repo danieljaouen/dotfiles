@@ -120,6 +120,7 @@ values."
                                       evil-ledger
                                       evil-vimish-fold
                                       exec-path-from-shell
+                                      guix
                                       hy-mode
                                       julia-mode
                                       just-mode
