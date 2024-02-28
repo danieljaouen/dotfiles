@@ -474,8 +474,12 @@ eval "$(starship init zsh)"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-if [[ -d "$HOME/.guix-profile" ]]; then
-    GUIX_PROFILE="$HOME/.guix-profile"
+GUIX_PROFILE="$HOME/.guix-profile"
+if [[ -d "$GUIX_PROFILE" ]]; then
+    . "$GUIX_PROFILE/etc/profile"
+fi
+GUIX_PROFILE="$HOME/.config/guix/current"
+if [[ -d "$GUIX_PROFILE" ]]; then
     . "$GUIX_PROFILE/etc/profile"
 fi
 
