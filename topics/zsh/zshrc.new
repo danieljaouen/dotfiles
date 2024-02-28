@@ -510,6 +510,7 @@ else
     alias gxprb="guix package --roll-back"
     alias gxu="guix upgrade"
     alias gxr="guix remove"
+    alias gxp="guix package"
     alias gxpi="guix show"
     alias gxgc="guix gc"
 fi
