@@ -53,6 +53,7 @@ values."
      erlang
      ess
      git
+     gleam-mode
      gnus
      go
      graphviz
