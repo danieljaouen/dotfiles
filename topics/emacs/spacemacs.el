@@ -128,6 +128,7 @@ values."
                                       kotlin-mode
                                       ledger-mode
                                       ledger-import
+                                      lfe-mode
                                       ox-reveal
                                       s
                                       vimish-fold
