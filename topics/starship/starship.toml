@@ -50,9 +50,6 @@ home_symbol = " ~"
 read_only_style = "197"
 format = "at [$path]($style)[$read_only]($read_only_style) "
 
-[direnv]
-disabled = false
-
 [git_branch]
 symbol = ""
 format = "via [$symbol$branch]($style) "
