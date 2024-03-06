@@ -69,3 +69,8 @@
    (company-mode)
    (flymake-mode)
    (add-hook 'before-save-hook 'eglot-format nil t)))
+
+(add-hook
+ 'lfe-mode-hook
+ (lambda ()
+   (copilot-mode)))
