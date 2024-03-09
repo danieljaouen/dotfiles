@@ -120,7 +120,9 @@ values."
                                       evil-ledger
                                       evil-vimish-fold
                                       exec-path-from-shell
+                                      f
                                       guix
+                                      ht
                                       hy-mode
                                       julia-mode
                                       just-mode
@@ -130,6 +132,7 @@ values."
                                       ledger-import
                                       lfe-mode
                                       ox-reveal
+                                      request
                                       s
                                       vimish-fold
                                       yasnippet-snippets
