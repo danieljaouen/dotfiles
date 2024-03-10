@@ -525,6 +525,7 @@ alias lrac='ledger -M register -f ~/Dropbox/ledger/budget.dat assets:checking'
 alias lri='ledger -M register -f ~/Dropbox/ledger/budget.dat income'
 alias lrlcc='ledger -M register -f ~/Dropbox/ledger/budget.dat liabilities:credit cards'
 alias rr="rebar3"
+alias prf="python -m ruff format"
 setopt inc_append_history
 
 [[ $(command -v direnv) ]] && eval "$(direnv hook zsh)"
