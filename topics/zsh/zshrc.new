@@ -533,8 +533,10 @@ if [[ "x$OS" == "xOSX" ]]
 then
     . /opt/homebrew/opt/asdf/libexec/asdf.sh
 fi
+
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/opt/homebrew/Cellar/hy/0.28.0/libexec/bin:$PATH"
+[[ -d "$HOME/.rye" ]] && source "$HOME/.rye/env"
 export PATH="$HOME/.local/share/pipx/venvs/hy/bin/:$PATH"
 export MODULAR_HOME="${HOME}/.modular"
 export PATH="${HOME}/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
