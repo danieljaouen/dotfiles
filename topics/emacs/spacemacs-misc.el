@@ -40,7 +40,6 @@
 (setq flycheck-python-flake8-executable "flake8")
 (setq flycheck-python-pylint-executable "pylint")
 (setq rust-format-on-save t)
-(pyenv-mode)
 (global-display-fill-column-indicator-mode)
 
 ;; --------------------------------------------------------------------------------------------------

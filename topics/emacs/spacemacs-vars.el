@@ -37,7 +37,6 @@
 (setq c-basic-offset 2)
 (setq user-mail-address "dcj24@cornell.edu")
 (setq dotspacemacs-ask-for-lazy-installation nil)
-(setq python-shell-interpreter "~/.pyenv/shims/python3")
 (setq python-shell-interpreter-args "")
 (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
