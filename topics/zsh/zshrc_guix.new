@@ -485,7 +485,7 @@ fi
 if [[ "x$OS" != "xOSX" ]]; then
     export PATH="/run/current-system/profile/bin:$PATH"
 fi
-    
+
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 GUIX_PROFILE="$HOME/.guix-profile"
@@ -522,6 +522,7 @@ if [[ "x$OS" == "xOSX" ]]; then
     alias gxgc="brew cleanup"
 else
     alias copy="xclip -sel clip -i"
+    alias paste="xclip -o"
     alias gx="guix"
     alias gxi="guix install"
     alias gxd="guix describe"
