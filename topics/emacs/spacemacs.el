@@ -136,6 +136,7 @@ values."
                                       request
                                       s
                                       vimish-fold
+                                      xclip
                                       yasnippet-snippets
                                       )
    ;; A list of packages that cannot be updated.
