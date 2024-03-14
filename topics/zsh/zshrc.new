@@ -503,6 +503,7 @@ if [[ "x$OS" == "xOSX" ]]; then
     alias gxpi="brew info"
     alias gxgc="brew cleanup"
 else
+    alias copy="xclip -sel clip -i"
     alias gx="guix"
     alias gxi="guix install"
     alias gxd="guix describe"
