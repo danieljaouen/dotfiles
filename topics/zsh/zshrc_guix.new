@@ -499,6 +499,7 @@ fi
 if [[ "x$OS" != "xOSX" ]]; then
     export PATH="/run/setuid-programs:$PATH"
     export PAGER="less -R"
+    eval `ssh-agent -s`
 fi
 
 [[ ! $(command -v nix) && -e "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh" ]] && source "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
