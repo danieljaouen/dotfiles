@@ -517,7 +517,7 @@ else
     alias gxsh="guix shell"
     setxkbmap -option
     setxkbmap -option "caps:ctrl_modifier"
-    xset -dpms
+    xset dpms 0 0 0
 fi
 alias dc="docker-compose"
 alias lbal='ledger -f ~/Dropbox/ledger/budget.dat balance \^assets \^liabilities'
