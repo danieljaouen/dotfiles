@@ -52,7 +52,7 @@ values."
      emoji
      erlang
      ess
-     exwm
+     (exwm :variables exwm-enable-systray t)
      git
      gnus
      go
