@@ -406,6 +406,8 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
     (setq exwm-randr-workspace-monitor-plist '(0 "eDP-1" 1 "DP-1"))
+    (start-process-shell-command
+     "xrandr" nil "xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1 --off --output HDMI-2 --off")
     (exwm-randr-enable)
     (exwm-enable)
     (load "~/.spacemacs.d/requires")
