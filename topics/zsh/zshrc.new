@@ -1,8 +1,4 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # oh-my-zsh defaults ------------------------------------------------------ {{{
-ZSH=$HOME/.oh-my-zsh
-
 case "$OSTYPE" in
   darwin*) OS="OSX" ;;
   linux*) OS="LINUX" ;;
@@ -34,9 +30,24 @@ else
     LOCAL_PATH=/usr/local/var/go/bin:$LOCAL_PATH
     # /LOCAL_PATH -------------------------------------------------- }}}
 
-    export PATH=$RBENV_PATH:$LOCAL_PATH:$BASE_PATH
+    export PATH="$RBENV_PATH:$LOCAL_PATH:$BASE_PATH:/run/current-system/profile/bin"
+    [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+    GUIX_PROFILE="$HOME/.guix-profile"
+    if [[ -d "$GUIX_PROFILE" ]]; then
+        . "$GUIX_PROFILE/etc/profile"
+    fi
+    GUIX_PROFILE="$HOME/.config/guix/current"
+    if [[ -d "$GUIX_PROFILE" ]]; then
+        . "$GUIX_PROFILE/etc/profile"
+    fi
+    if [[ "x$OS" != "xOSX" ]]; then
+        export PATH="/run/setuid-programs:$PATH:/run/current-system/profile/sbin"
+        export PAGER="less -R"
+    fi
 fi
 # /PATH ------------------------------------------------------------------- }}}
+
+ZSH=$HOME/.oh-my-zsh
 
 # Plugins ----------------------------------------------------------------- {{{
 base_plugins=(
@@ -122,13 +133,11 @@ fi
 alias debug_email="python -m smtpd -n -c DebuggingServer localhost:1025"
 alias j="z"
 alias l='ls -lah'
-alias less=$PAGER
 alias mtr="sudo mtr -t"
 alias mute="vol 0"
 alias n="newsbeuter"
 alias serve_this="python -m SimpleHTTPServer 8100"
 alias t="task"
-alias zless=$PAGER
 alias ms=markserv
 alias e=emacsclient
 # /Global Options and Aliases --------------------------------------------- }}}
@@ -216,7 +225,6 @@ alias hup="hg up"
 # /javascript/node.js ----------------------------------------------------- }}}
 
 # python/django ----------------------------------------------------------- {{{
-eval "$(pyenv init --path)"
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
 
 alias daspt='django-admin.py startproject --template=https://github.com/twoscoops/django-twoscoops-project/archive/master.zip --extension=py,rst,html'
@@ -231,7 +239,6 @@ alias pmsdb='python manage.py syncdb'
 alias pmsi='python manage.py schemamigration --initial'
 alias pmsm='python manage.py schemamigration --auto'
 alias pmsp='python manage.py shell_plus'
-alias pyr='pyenv rehash'
 # /python/django ---------------------------------------------------------- }}}
 
 # ruby/rails -------------------------------------------------------------- {{{
@@ -389,59 +396,59 @@ ${BLACK_BACKGROUND}\
 >" 2>/dev/null
 }
 
-PROMPT='\
-${RESET_COLORS}
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-[\
-${RED_FOREGROUND_BOLD}\
-%n\
-${GREEN_FOREGROUND_BOLD}\
-@\
-${RESET_COLORS}\
-${MAGENTA_FOREGROUND}\
-${BLACK_BACKGROUND}\
-%m\
-${GREEN_FOREGROUND_BOLD}\
-] \
-${GREEN_FOREGROUND_BOLD}\
-[\
-${RESET_COLORS}\
-${BLACK_BACKGROUND}\
-pwd: \
-${RESET_COLORS}\
-${CYAN_FOREGROUND}\
-${BLACK_BACKGROUND}\
-$(collapse_pwd)\
-${GREEN_FOREGROUND_BOLD}\
-]\
-$(git_prompt_info)\
-$(hg_prompt_info)\
-${RESET_COLORS}
-${GREEN_FOREGROUND}\
-${BLACK_BACKGROUND}\
-$(virtualenv_info)\
-${RESET_COLORS}\
-${BLACK_BACKGROUND}\
-$(prompt_char)\
-${RESET_COLORS} '
+# PROMPT='\
+# ${RESET_COLORS}
+# ${GREEN_FOREGROUND_BOLD}\
+# ${BLACK_BACKGROUND}\
+# [\
+# ${RED_FOREGROUND_BOLD}\
+# %n\
+# ${GREEN_FOREGROUND_BOLD}\
+# @\
+# ${RESET_COLORS}\
+# ${MAGENTA_FOREGROUND}\
+# ${BLACK_BACKGROUND}\
+# %m\
+# ${GREEN_FOREGROUND_BOLD}\
+# ] \
+# ${GREEN_FOREGROUND_BOLD}\
+# [\
+# ${RESET_COLORS}\
+# ${BLACK_BACKGROUND}\
+# pwd: \
+# ${RESET_COLORS}\
+# ${CYAN_FOREGROUND}\
+# ${BLACK_BACKGROUND}\
+# $(collapse_pwd)\
+# ${GREEN_FOREGROUND_BOLD}\
+# ]\
+# $(git_prompt_info)\
+# $(hg_prompt_info)\
+# ${RESET_COLORS}
+# ${GREEN_FOREGROUND}\
+# ${BLACK_BACKGROUND}\
+# $(virtualenv_info)\
+# ${RESET_COLORS}\
+# ${BLACK_BACKGROUND}\
+# $(prompt_char)\
+# ${RESET_COLORS} '
 
-ZSH_THEME_GIT_PROMPT_PREFIX="\
-${CLEAR_TO_EOL}\
-${RESET_COLORS}
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-[\
-${RESET_COLORS}\
-${BLACK_BACKGROUND}\
-git: \
-${RESET_COLORS}\
-${BLUE_FOREGROUND}\
-${BLACK_BACKGROUND}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="${GREEN_FOREGROUND_BOLD}]"
-ZSH_THEME_GIT_PROMPT_DIRTY="${RED_FOREGROUND_BOLD}!"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="${RED_FOREGROUND_BOLD}?"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
+# ZSH_THEME_GIT_PROMPT_PREFIX="\
+# ${CLEAR_TO_EOL}\
+# ${RESET_COLORS}
+# ${GREEN_FOREGROUND_BOLD}\
+# ${BLACK_BACKGROUND}\
+# [\
+# ${RESET_COLORS}\
+# ${BLACK_BACKGROUND}\
+# git: \
+# ${RESET_COLORS}\
+# ${BLUE_FOREGROUND}\
+# ${BLACK_BACKGROUND}"
+# ZSH_THEME_GIT_PROMPT_SUFFIX="${GREEN_FOREGROUND_BOLD}]"
+# ZSH_THEME_GIT_PROMPT_DIRTY="${RED_FOREGROUND_BOLD}!"
+# ZSH_THEME_GIT_PROMPT_UNTRACKED="${RED_FOREGROUND_BOLD}?"
+# ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 # function hg_prompt_info {
 #     hg prompt --angle-brackets "\
@@ -464,6 +471,8 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 # ZSH_THEME_GIT_PROMPT_CLEAN=""
 # /prompt ----------------------------------------------------------------- }}}
 
+ZSH_THEME="robbyrussell"
+
 # Local Configuration ----------------------------------------------------- {{{
 if [[ -s $HOME/.zshrc.local ]]; then
     source $HOME/.zshrc.local
@@ -471,7 +480,11 @@ fi
 # /Local Configuration ---------------------------------------------------- }}}
 
 
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
+
+if [[ "x$OS" != "xOSX" ]]; then
+    export PATH="/run/current-system/profile/bin:$PATH"
+fi
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
@@ -482,6 +495,11 @@ fi
 GUIX_PROFILE="$HOME/.config/guix/current"
 if [[ -d "$GUIX_PROFILE" ]]; then
     . "$GUIX_PROFILE/etc/profile"
+fi
+if [[ "x$OS" != "xOSX" ]]; then
+    export PATH="/run/setuid-programs:$PATH"
+    export PAGER="less -R"
+    eval `ssh-agent -s`
 fi
 
 [[ ! $(command -v nix) && -e "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh" ]] && source "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
@@ -504,6 +522,7 @@ if [[ "x$OS" == "xOSX" ]]; then
     alias gxgc="brew cleanup"
 else
     alias copy="xclip -sel clip -i"
+    alias paste="xclip -o"
     alias gx="guix"
     alias gxi="guix install"
     alias gxd="guix describe"
@@ -545,6 +564,7 @@ if [[ "x$OS" != "xOSX" ]]; then
     export SSL_CERT_DIR="$HOME/.guix-profile/etc/ssl/certs"
     export SSL_CERT_FILE="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
     export GIT_SSL_CAINFO="$SSL_CERT_FILE"
+    export $(dbus-launch)
 fi
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"

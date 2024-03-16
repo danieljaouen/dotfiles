@@ -1,0 +1,48 @@
+[include]
+    path = .gitconfig.local
+
+[core]
+    pager = cat
+    editor = nvim
+    excludesfile = ~/.gitignore
+    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	autocrlf = input
+
+[alias]
+    # switch = !legit switch \"$@\"
+    # branches = !legit branches
+    # sprout = !legit sprout \"$@\"
+    # unpublish = !legit unpublish \"$@\"
+    # harvest = !legit harvest \"$@\"
+    # sync = !legit sync \"$@\"
+    # publish = !legit publish \"$@\"
+    # graft = !legit graft \"$@\"
+
+    gl   = log -n 10 --color=always --all --graph --topo-order --pretty='format:%h %s %d%n(%cr by %cn)%n'
+    gll  = log --color=always --all --graph --topo-order --pretty='format:%h %s %d%n(%cr by %cn)%n'
+
+    ull  = pull
+    ll   = pull
+    ush  = push
+    sh   = push
+    st   = status
+    ci   = commit
+    br   = branch
+    co   = checkout
+    df   = diff
+    dc   = diff --cached
+    lg   = log -p
+    ls   = ls-files
+    ign  = ls-files -o -i --exclude-standard
+
+[branch]
+    autosetuprebase = always
+
+[color]
+    ui = auto
+
+[push]
+    default = upstream
+[user]
+	name = Daniel Jaouen
+	email = dcj24@cornell.edu
