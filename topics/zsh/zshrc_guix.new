@@ -40,7 +40,7 @@ else
         . "$GUIX_PROFILE/etc/profile"
     fi
     export PATH="/run/setuid-programs:$PATH:/run/current-system/profile/sbin"
-    export PATH=$HOME/.fly/bin:$HOME/.asdf/shims:$HOME/.asdf/bin:$HOME/.local/bin:$HOME/.bin:$PATH
+    export PATH=$HOME/.fly/bin:$HOME/.asdf/installs/elixir/1.16.2/.mix/escripts:$HOME/.asdf/shims:$HOME/.asdf/bin:$HOME/.local/bin:$HOME/.bin:$PATH
     export PAGER="less -R"
     export KERL_CONFIGURE_OPTIONS="--disable-debug --disable-silent-rules --without-javac --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-sctp --enable-smp-support --enable-threads --enable-kernel-poll --disable-wx --enable-darwin-64bit --with-odbc=/home/djaouen/.guix-profile --with-ssl=/home/djaouen/.guix-profile"
 fi
