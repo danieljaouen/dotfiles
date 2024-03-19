@@ -109,7 +109,7 @@ then
 
 else
     export SHELL=/usr/bin/zsh
-    # eval "$(ssh-agent)"
+    eval "$(ssh-agent -s)"
     alias open=xdg-open
     alias hx=helix
 fi
