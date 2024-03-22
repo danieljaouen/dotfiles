@@ -13,7 +13,6 @@ eval "$(guix package --search-paths \
 
 # Prepend setuid programs.
 export PATH="/run/setuid-programs:$PATH"
-export PATH="$HOME/.asdf/installs/elixir/1.16.2/.mix/escripts:$HOME/.asdf/shims:$HOME/.asdf/bin:$HOME/.local/bin:$HOME/.bin:$PATH"
 
 setxkbmap -option
 setxkbmap -option "caps:ctrl_modifier"
