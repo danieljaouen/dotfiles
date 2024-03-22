@@ -12,10 +12,14 @@ eval "$(guix package --search-paths \
 -p /run/current-system/profile)"
 
 # Prepend setuid programs.
-export PATH=/run/setuid-programs:$PATH
+export PATH="/run/setuid-programs:$PATH"
+export PATH="$HOME/.asdf/installs/elixir/1.16.2/.mix/escripts:$HOME/.asdf/shims:$HOME/.asdf/bin:$HOME/.local/bin:$HOME/.bin:$PATH"
+
 setxkbmap -option
 setxkbmap -option "caps:ctrl_modifier"
 xset s off
 xset s noblank
 xset dpms 0 0 0
 alias copy="xclip -sel clip -i"
+alias g="git"
+export PAGER="less -R"
