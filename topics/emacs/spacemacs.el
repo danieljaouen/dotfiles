@@ -405,7 +405,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-    (exwm-enable)
+    (setq org-preview-latex-default-process 'verbatim)
     (load "~/.spacemacs.d/requires")
     (load "~/.spacemacs.d/defuns")
     (load "~/.spacemacs.d/vars")
