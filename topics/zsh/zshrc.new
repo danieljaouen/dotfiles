@@ -75,6 +75,7 @@ base_plugins=(
     vagrant
     virtualenv
     vundle
+    zsh-autosuggestions
     zsh-syntax-highlighting
 )
 if [[ "x$OS" == "xOSX" ]]
@@ -471,7 +472,7 @@ ${BLACK_BACKGROUND}\
 # ZSH_THEME_GIT_PROMPT_CLEAN=""
 # /prompt ----------------------------------------------------------------- }}}
 
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Local Configuration ----------------------------------------------------- {{{
 if [[ -s $HOME/.zshrc.local ]]; then
@@ -480,7 +481,7 @@ fi
 # /Local Configuration ---------------------------------------------------- }}}
 
 
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 
 if [[ "x$OS" != "xOSX" ]]; then
     export PATH="/run/current-system/profile/bin:$PATH"
