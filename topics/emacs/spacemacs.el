@@ -116,11 +116,12 @@ values."
                                                                 :files ("*.el")))
                                       editorconfig
                                       eglot
+                                      (envrc :config (envrc-global-mode +1))
                                       epresent
+                                      exec-path-from-shell
                                       exunit
                                       evil-ledger
                                       evil-vimish-fold
-                                      exec-path-from-shell
                                       f
                                       guix
                                       ht
