@@ -560,6 +560,9 @@ if [[ "x$OS" == "xOSX" ]]
 then
     . /opt/homebrew/opt/asdf/libexec/asdf.sh
     export PATH="$PATH:/nix/var/nix/profiles/default/bin"
+    if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+        . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+    fi
 fi
 
 if [[ "x$OS" != "xOSX" ]]; then
