@@ -25,13 +25,11 @@ then
     export PATH=$RBENV_PATH:$LOCAL_PATH:$BASE_PATH
 else
     # LOCAL_PATH --------------------------------------------------- {{{
-    LOCAL_PATH=$HOME/.fly/bin:$HOME/.asdf/shims:$HOME/.asdf/bin:$HOME/.local/bin:$HOME/.bin:$LOCAL_PATH
-    LOCAL_PATH=$HOME/.config/composer/vendor/bin:$HOME/.asdf/installs/elixir/1.16.0/.mix/escripts:$LOCAL_PATH
+    LOCAL_PATH=$HOME/.fly/bin:$HOME/.local/bin:$HOME/.bin:$LOCAL_PATH
     LOCAL_PATH=/usr/local/var/go/bin:$LOCAL_PATH
     # /LOCAL_PATH -------------------------------------------------- }}}
 
     export PATH="$RBENV_PATH:$LOCAL_PATH:$BASE_PATH:/run/current-system/profile/bin"
-    [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
     GUIX_PROFILE="$HOME/.guix-profile"
     if [[ -d "$GUIX_PROFILE" ]]; then
         . "$GUIX_PROFILE/etc/profile"
@@ -44,6 +42,10 @@ else
         export PATH="/run/setuid-programs:$PATH:/run/current-system/profile/sbin"
         export PAGER="less -R"
     fi
+    export PATH="/run/setuid-programs:$PATH:/run/current-system/profile/sbin"
+    export PATH=$HOME/.fly/bin:$HOME/.local/bin:$HOME/.bin:$PATH
+    export PAGER="less -R"
+    export KERL_CONFIGURE_OPTIONS="--disable-debug --disable-silent-rules --without-javac --without-wx --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-sctp --enable-smp-support --enable-threads --enable-kernel-poll --enable-darwin-64bit --with-odbc=/home/djaouen/.guix-profile --with-ssl=/home/djaouen/.guix-profile"
 fi
 # /PATH ------------------------------------------------------------------- }}}
 
@@ -487,26 +489,6 @@ if [[ "x$OS" != "xOSX" ]]; then
     export PATH="/run/current-system/profile/bin:$PATH"
 fi
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-GUIX_PROFILE="$HOME/.guix-profile"
-if [[ -d "$GUIX_PROFILE" ]]; then
-    . "$GUIX_PROFILE/etc/profile"
-fi
-GUIX_PROFILE="$HOME/.config/guix/current"
-if [[ -d "$GUIX_PROFILE" ]]; then
-    . "$GUIX_PROFILE/etc/profile"
-fi
-if [[ "x$OS" != "xOSX" ]]; then
-    export PATH="/run/setuid-programs:$PATH"
-    export PAGER="less -R"
-    eval `ssh-agent -s`
-fi
-
-[[ ! $(command -v nix) && -e "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh" ]] && source "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
-
-export PATH="$HOME/.deno/bin:$PATH"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias rgf='rg . | fzf | cut -d ":" -f 1'
 alias ec="emacsclient"
@@ -556,10 +538,11 @@ setopt inc_append_history
 
 [[ $(command -v direnv) ]] && eval "$(direnv hook zsh)"
 
+export PATH="$PATH:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin"
+
 if [[ "x$OS" == "xOSX" ]]
 then
     . /opt/homebrew/opt/asdf/libexec/asdf.sh
-    export PATH="$PATH:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin"
     if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
         . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
     fi

@@ -25,12 +25,11 @@ then
     export PATH=$RBENV_PATH:$LOCAL_PATH:$BASE_PATH
 else
     # LOCAL_PATH --------------------------------------------------- {{{
-    LOCAL_PATH=$HOME/.config/composer/vendor/bin:$LOCAL_PATH
+    LOCAL_PATH=$HOME/.fly/bin:$HOME/.local/bin:$HOME/.bin:$LOCAL_PATH
     LOCAL_PATH=/usr/local/var/go/bin:$LOCAL_PATH
     # /LOCAL_PATH -------------------------------------------------- }}}
 
     export PATH="$RBENV_PATH:$LOCAL_PATH:$BASE_PATH:/run/current-system/profile/bin"
-    [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
     GUIX_PROFILE="$HOME/.guix-profile"
     if [[ -d "$GUIX_PROFILE" ]]; then
         . "$GUIX_PROFILE/etc/profile"
@@ -487,6 +486,10 @@ fi
 
 # eval "$(starship init zsh)"
 
+if [[ "x$OS" != "xOSX" ]]; then
+    export PATH="/run/current-system/profile/bin:$PATH"
+fi
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias rgf='rg . | fzf | cut -d ":" -f 1'
 alias ec="emacsclient"
@@ -536,9 +539,11 @@ setopt inc_append_history
 
 [[ $(command -v direnv) ]] && eval "$(direnv hook zsh)"
 
+export PATH="$PATH:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin"
+
 if [[ "x$OS" == "xOSX" ]]
 then
-    export PATH="$PATH:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin"
+    . /opt/homebrew/opt/asdf/libexec/asdf.sh
     if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
         . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
     fi
@@ -549,8 +554,6 @@ if [[ "x$OS" != "xOSX" ]]; then
     export SSL_CERT_FILE="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
     export GIT_SSL_CAINFO="$SSL_CERT_FILE"
     export $(dbus-launch)
-
-    export PATH="$PATH:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin"
 fi
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
