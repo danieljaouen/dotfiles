@@ -25,7 +25,7 @@ then
     export PATH=$RBENV_PATH:$LOCAL_PATH:$BASE_PATH
 else
     # LOCAL_PATH --------------------------------------------------- {{{
-    LOCAL_PATH=$HOME/.config/composer/vendor/bin:$HOME/.asdf/installs/elixir/1.16.0/.mix/escripts:$LOCAL_PATH
+    LOCAL_PATH=$HOME/.config/composer/vendor/bin:$LOCAL_PATH
     LOCAL_PATH=/usr/local/var/go/bin:$LOCAL_PATH
     # /LOCAL_PATH -------------------------------------------------- }}}
 
@@ -39,8 +39,12 @@ else
     if [[ -d "$GUIX_PROFILE" ]]; then
         . "$GUIX_PROFILE/etc/profile"
     fi
+    if [[ "x$OS" != "xOSX" ]]; then
+        export PATH="/run/setuid-programs:$PATH:/run/current-system/profile/sbin"
+        export PAGER="less -R"
+    fi
     export PATH="/run/setuid-programs:$PATH:/run/current-system/profile/sbin"
-    export PATH=$HOME/.fly/bin:$HOME/.asdf/installs/elixir/1.16.2/.mix/escripts:$HOME/.asdf/shims:$HOME/.asdf/bin:$HOME/.local/bin:$HOME/.bin:$PATH
+    export PATH=$HOME/.fly/bin:$HOME/.local/bin:$HOME/.bin:$PATH
     export PAGER="less -R"
     export KERL_CONFIGURE_OPTIONS="--disable-debug --disable-silent-rules --without-javac --without-wx --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-sctp --enable-smp-support --enable-threads --enable-kernel-poll --enable-darwin-64bit --with-odbc=/home/djaouen/.guix-profile --with-ssl=/home/djaouen/.guix-profile"
 fi
@@ -74,6 +78,7 @@ base_plugins=(
     vagrant
     virtualenv
     vundle
+    zsh-autosuggestions
     zsh-syntax-highlighting
 )
 if [[ "x$OS" == "xOSX" ]]
@@ -112,6 +117,7 @@ else
     eval "$(ssh-agent -s)"
     alias open=xdg-open
     alias hx=helix
+    eval "$(vfox activate zsh)"
 fi
 # /OS-specific config ----------------------------------------------------- }}}
 
@@ -532,7 +538,10 @@ setopt inc_append_history
 
 if [[ "x$OS" == "xOSX" ]]
 then
-    . /opt/homebrew/opt/asdf/libexec/asdf.sh
+    export PATH="$PATH:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin"
+    if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+        . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+    fi
 fi
 
 if [[ "x$OS" != "xOSX" ]]; then
@@ -540,6 +549,8 @@ if [[ "x$OS" != "xOSX" ]]; then
     export SSL_CERT_FILE="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
     export GIT_SSL_CAINFO="$SSL_CERT_FILE"
     export $(dbus-launch)
+
+    export PATH="$PATH:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin"
 fi
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
