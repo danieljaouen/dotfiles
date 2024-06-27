@@ -111,11 +111,15 @@ then
     export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.6.12.0/libexec"
     # /aws -------------------------------------------------------------------- }}}
 
+    # ZSH_THEME="robbyrussell"
+    eval "$(starship init zsh)"
 else
     export SHELL=/usr/bin/zsh
-    # eval "$(ssh-agent)"
+    eval "$(ssh-agent)"
     alias open=xdg-open
     alias hx=helix
+    eval "$(vfox activate zsh)"
+    ZSH_THEME="robbyrussell"
 fi
 # /OS-specific config ----------------------------------------------------- }}}
 
@@ -474,16 +478,12 @@ ${BLACK_BACKGROUND}\
 # ZSH_THEME_GIT_PROMPT_CLEAN=""
 # /prompt ----------------------------------------------------------------- }}}
 
-# ZSH_THEME="robbyrussell"
-
 # Local Configuration ----------------------------------------------------- {{{
 if [[ -s $HOME/.zshrc.local ]]; then
     source $HOME/.zshrc.local
 fi
 # /Local Configuration ---------------------------------------------------- }}}
 
-
-eval "$(starship init zsh)"
 
 if [[ "x$OS" != "xOSX" ]]; then
     export PATH="/run/current-system/profile/bin:$PATH"
