@@ -29,7 +29,9 @@ else
     LOCAL_PATH=/usr/local/var/go/bin:$LOCAL_PATH
     # /LOCAL_PATH -------------------------------------------------- }}}
 
-    export PATH="$RBENV_PATH:$LOCAL_PATH:$BASE_PATH:/run/current-system/profile/bin"
+    export PATH="/run/setuid-programs:$RBENV_PATH:$LOCAL_PATH:$BASE_PATH:/run/current-system/profile/bin"
+    export PATH="$PATH:/run/current-system/profile/sbin"
+
     GUIX_PROFILE="$HOME/.guix-profile"
     if [[ -d "$GUIX_PROFILE" ]]; then
         . "$GUIX_PROFILE/etc/profile"
@@ -38,10 +40,8 @@ else
     if [[ -d "$GUIX_PROFILE" ]]; then
         . "$GUIX_PROFILE/etc/profile"
     fi
-    if [[ "x$OS" != "xOSX" ]]; then
-        export PATH="/run/setuid-programs:$PATH:/run/current-system/profile/sbin"
-        export PAGER="less -R"
-    fi
+
+    export PAGER="less -R"
     export PATH="/run/setuid-programs:$PATH:/run/current-system/profile/sbin"
     export PATH=$HOME/.fly/bin:$HOME/.local/bin:$HOME/.bin:$PATH
     export PAGER="less -R"
@@ -484,10 +484,6 @@ if [[ -s $HOME/.zshrc.local ]]; then
 fi
 # /Local Configuration ---------------------------------------------------- }}}
 
-
-if [[ "x$OS" != "xOSX" ]]; then
-    export PATH="/run/current-system/profile/bin:$PATH"
-fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias rgf='rg . | fzf | cut -d ":" -f 1'
