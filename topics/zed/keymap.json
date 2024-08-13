@@ -8,6 +8,11 @@
 [
   {
     "bindings": {
+      "ctrl-g": ["workspace::SendKeystrokes", "escape"]
+    },
+  },
+  {
+    "bindings": {
       "context": "vim_mode == normal",
       "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
       "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
@@ -23,7 +28,7 @@
     }
   },
   {
-    "context": "Editor",
+    "context": "Editor && vim_mode == insert",
     "bindings": {
       "j k": ["workspace::SendKeystrokes", "escape"],
       "ctrl-g": ["workspace::SendKeystrokes", "escape"]
