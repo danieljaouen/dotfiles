@@ -25,7 +25,8 @@
   {
     "context": "Editor",
     "bindings": {
-      "j k": ["workspace::SendKeystrokes", "escape"]
+      "j k": ["workspace::SendKeystrokes", "escape"],
+      "ctrl-g": ["workspace::SendKeystrokes", "escape"]
     }
   }
 ]
