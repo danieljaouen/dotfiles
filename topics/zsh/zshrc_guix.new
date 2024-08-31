@@ -551,6 +551,7 @@ if [[ "x$OS" != "xOSX" ]]; then
     export GIT_SSL_CAINFO="$SSL_CERT_FILE"
     export $(dbus-launch)
     export LD_LIBRARY_PATH=~/.guix-profile/lib
+    export PKG_CONFIG_PATH=~/.guix-profile/lib/pkgconfig:~/.guix-profile/share/pkgconfig
 fi
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
