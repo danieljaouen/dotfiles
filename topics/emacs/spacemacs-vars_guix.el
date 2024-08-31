@@ -19,6 +19,9 @@
 (if (eq system-type 'darwin)
     (setq browse-url-browser-function 'browse-url-default-macosx-browser))
 
+(setenv "LD_LIBRARY_PATH" "~/.guix-profile/lib")
+(setenv "PKG_CONFIG_PATH" "/home/djaouen/.guix-profile/lib/pkgconfig:/home/djaouen/.guix-profile/share/pkgconfig")
+
 (setq org-agenda-files `(,(expand-file-name "~/Dropbox/org/")))
 
 (setq js2-mode-show-parse-errors nil)
