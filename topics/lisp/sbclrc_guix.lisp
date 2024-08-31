@@ -7,3 +7,4 @@
     (load quicklisp-init)))
 
 (ql:quickload "ciel")
+(in-package :ciel-user)
