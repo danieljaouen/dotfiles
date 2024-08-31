@@ -2,9 +2,8 @@
                                          magit-revision-mode
                                          magit-diff-mode
                                          help-mode))
-(setq explicit-shell-file-name "/usr/local/bin/fish")
 (setq fci-rule-column 79)
-(setq inferior-lisp-program "sbcl")
+(setq inferior-lisp-program "~/.guix-profile/bin/sbcl")
 (setq-default evil-escape-key-sequence "jk")
 (setq-default evil-escape-delay 0.4)
 (setq-default evil-escape-unordered-key-sequence nil)
@@ -39,7 +38,6 @@
 (setq dotspacemacs-ask-for-lazy-installation nil)
 (setq python-shell-interpreter-args "")
 (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
-(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
 (setq-default display-fill-column-indicator-column 101)
 (setq chatgpt-shell-openai-key (getenv "OPENAI_API_KEY"))
 (setq lsp-elixir-local-server-command "~/src/elixir-ls/release/language_server.sh")
