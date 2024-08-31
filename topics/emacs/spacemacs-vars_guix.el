@@ -21,6 +21,7 @@
 
 (setenv "LD_LIBRARY_PATH" "/home/djaouen/.guix-profile/lib")
 (setenv "PKG_CONFIG_PATH" "/home/djaouen/.guix-profile/lib/pkgconfig:/home/djaouen/.guix-profile/share/pkgconfig")
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
 
 (setq org-agenda-files `(,(expand-file-name "~/Dropbox/org/")))
 
