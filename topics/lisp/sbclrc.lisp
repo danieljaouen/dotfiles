@@ -8,3 +8,4 @@
 
 (ql:quickload "quicklisp-slime-helper")
 (ql:quickload "ciel")
+(in-package :ciel-user)
