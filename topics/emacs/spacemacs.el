@@ -52,7 +52,6 @@ values."
      emoji
      erlang
      ess
-     exwm
      git
      gnus
      go
