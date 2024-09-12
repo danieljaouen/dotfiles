@@ -126,7 +126,7 @@ fi
 unsetopt correct_all
 setopt INTERACTIVE_COMMENTS
 
-export EDITOR=nvim
+export EDITOR=vim
 export TERM=screen-256color-bce
 export ANSIBLE_PARAMIKO_AGENT_FORWARDING=sudo_user
 export ANSIBLE_NOCOWS=1
