@@ -20,6 +20,7 @@ then
     LOCAL_PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$LOCAL_PATH"
     LOCAL_PATH=$HOME/.asdf/installs/elixir/1.16.0/.mix/escripts:$LOCAL_PATH
     LOCAL_PATH=$HOME/.stack/programs/aarch64-osx/ghc-9.4.6/bin:$LOCAL_PATH
+    LOCAL_PATH=$HOME/.local/bin:$LOCAL_PATH
     # /LOCAL_PATH -------------------------------------------------- }}}
 
     export PATH=$RBENV_PATH:$LOCAL_PATH:$BASE_PATH
