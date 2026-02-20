@@ -26,7 +26,7 @@ then
 else
     # LOCAL_PATH --------------------------------------------------- {{{
     LOCAL_PATH=$HOME/.fly/bin:$HOME/.local/bin:$HOME/.bin:$LOCAL_PATH
-    LOCAL_PATH=/usr/local/var/go/bin:$LOCAL_PATH
+    LOCAL_PATH=$HOME/.npm-global/bin:/usr/local/var/go/bin:$LOCAL_PATH
     # /LOCAL_PATH -------------------------------------------------- }}}
 
     export PATH="/run/setuid-programs:$RBENV_PATH:$LOCAL_PATH:$BASE_PATH:/run/current-system/profile/bin"
@@ -551,3 +551,7 @@ export PATH="$HOME/.local/share/pipx/venvs/hy/bin/:$PATH"
 export MODULAR_HOME="${HOME}/.modular"
 export PATH="${HOME}/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
 eval "$(starship init zsh)"
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+# OpenClaw Completion
+source "/home/djaouen/.openclaw/completions/openclaw.zsh"
