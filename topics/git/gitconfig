@@ -46,3 +46,5 @@
 [user]
 	name = Daniel Jaouen
 	email = dcj24@cornell.edu
+[http]
+	sslVerify = false

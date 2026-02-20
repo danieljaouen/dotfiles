@@ -45,7 +45,6 @@ else
     export PATH="/run/setuid-programs:$PATH:/run/current-system/profile/sbin"
     export PATH=$HOME/.fly/bin:$HOME/.local/bin:$HOME/.bin:$PATH
     export PAGER="less -R"
-    export KERL_CONFIGURE_OPTIONS="--disable-debug --disable-silent-rules --without-javac --without-wx --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-sctp --enable-smp-support --enable-threads --enable-kernel-poll --enable-darwin-64bit --with-odbc=/home/djaouen/.guix-profile --with-ssl=/home/djaouen/.guix-profile"
 fi
 # /PATH ------------------------------------------------------------------- }}}
 
@@ -117,7 +116,6 @@ else
     eval "$(ssh-agent)"
     alias open=xdg-open
     alias hx=helix
-    eval "$(vfox activate zsh)"
     ZSH_THEME="robbyrussell"
 fi
 # /OS-specific config ----------------------------------------------------- }}}
@@ -515,9 +513,6 @@ else
     alias gxsh="guix shell"
     setxkbmap -option
     setxkbmap -option "caps:ctrl_modifier"
-    xset s off
-    xset s noblank
-    xset dpms 0 0 0
 fi
 alias dc="docker-compose"
 alias lbal='ledger -f ~/Dropbox/ledger/budget.dat balance \^assets \^liabilities'
@@ -545,12 +540,8 @@ then
 fi
 
 if [[ "x$OS" != "xOSX" ]]; then
-    export SSL_CERT_DIR="$HOME/.guix-profile/etc/ssl/certs"
-    export SSL_CERT_FILE="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
     export GIT_SSL_CAINFO="$SSL_CERT_FILE"
     export $(dbus-launch)
-    export LD_LIBRARY_PATH=~/.guix-profile/lib:~/.guix-profile/share
-    export PKG_CONFIG_PATH=~/.guix-profile/lib/pkgconfig:~/.guix-profile/share/pkgconfig
 fi
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
@@ -559,3 +550,4 @@ export PATH="$HOME/.local/share/pipx/venvs/hy/bin/:$PATH"
 [[ -d "$HOME/.rye" ]] && source "$HOME/.rye/env"
 export MODULAR_HOME="${HOME}/.modular"
 export PATH="${HOME}/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
+eval "$(starship init zsh)"
