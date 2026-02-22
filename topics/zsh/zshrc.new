@@ -543,7 +543,6 @@ export PATH="$PATH:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin"
 
 if [[ "x$OS" == "xOSX" ]]
 then
-    . /opt/homebrew/opt/asdf/libexec/asdf.sh
     if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
         . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
     fi
