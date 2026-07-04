@@ -5,6 +5,7 @@
 (setq explicit-shell-file-name "/usr/local/bin/fish")
 (setq fci-rule-column 79)
 (setq inferior-lisp-program "sbcl")
+(evil-escape-mode)
 (setq-default evil-escape-key-sequence "jk")
 (setq-default evil-escape-delay 0.4)
 (setq-default evil-escape-unordered-key-sequence nil)
