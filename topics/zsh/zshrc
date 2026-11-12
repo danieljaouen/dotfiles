@@ -1,6 +1,4 @@
 # oh-my-zsh defaults ------------------------------------------------------ {{{
-ZSH=$HOME/.oh-my-zsh
-
 case "$OSTYPE" in
   darwin*) OS="OSX" ;;
   linux*) OS="LINUX" ;;
@@ -8,35 +6,35 @@ esac
 # /oh-my-zsh defaults ----------------------------------------------------- }}}
 
 # PATH -------------------------------------------------------------------- {{{
-BASE_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-RBENV_PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin
-# PYENV_PATH=$HOME/.pyenv/shims:$HOME/.pyenv/bin
+BASE_PATH=/opt/homebrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 if [[ "x$OS" == "xOSX" ]]
 then
     # LOCAL_PATH --------------------------------------------------- {{{
     LOCAL_PATH=/usr/X11/bin
-    LOCAL_PATH=/usr/local/opt/ruby/bin:$LOCAL_PATH
-    LOCAL_PATH=/usr/local/share/npm/bin:$LOCAL_PATH
     LOCAL_PATH=/usr/local/var/go/bin:$LOCAL_PATH
     LOCAL_PATH=/usr/texbin:$LOCAL_PATH
     LOCAL_PATH=$HOME/.bin:$LOCAL_PATH
+    LOCAL_PATH=$HOME/.local/bin:$LOCAL_PATH
     # /LOCAL_PATH -------------------------------------------------- }}}
 
-    export PATH=$RBENV_PATH:$LOCAL_PATH:$BASE_PATH
+    export PATH="$LOCAL_PATH:$BASE_PATH"
+    export PATH="/run/current-system/profile/bin:$PATH"
 else
     # LOCAL_PATH --------------------------------------------------- {{{
-    LOCAL_PATH=$HOME/.bin:$LOCAL_PATH
+    LOCAL_PATH=$HOME/.fly/bin:$HOME/.local/bin:$HOME/.bin:$LOCAL_PATH
+    LOCAL_PATH=/usr/local/var/go/bin:$LOCAL_PATH
     # /LOCAL_PATH -------------------------------------------------- }}}
 
-    export PATH=$RBENV_PATH:$LOCAL_PATH:$BASE_PATH
+    export PATH="$LOCAL_PATH:$BASE_PATH"
 fi
 # /PATH ------------------------------------------------------------------- }}}
+
+ZSH=$HOME/.oh-my-zsh
 
 # Plugins ----------------------------------------------------------------- {{{
 base_plugins=(
     bundler
     capistrano
-    django
     fabric
     gem
     git
@@ -56,86 +54,60 @@ base_plugins=(
     rsync
     ruby
     taskwarrior
-    tmux
     vagrant
     virtualenv
-    virtualenvwrapper
     vundle
+    zsh-autosuggestions
     zsh-syntax-highlighting
 )
 if [[ "x$OS" == "xOSX" ]]
 then
-    local_plugins=(osx brew)
-    plugins=($local_plugins $base_plugins)
+    local_plugins=(brew)
 else
     local_plugins=()
-    plugins=($local_plugins $base_plugins)
 fi
+plugins=($local_plugins $base_plugins)
 # /Plugins ---------------------------------------------------------------- }}}
 
 source $ZSH/oh-my-zsh.sh
 
 # OS-specific config ------------------------------------------------------ {{{
-BASE_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-RBENV_PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin
-# PYENV_PATH=$HOME/.pyenv/shims:$HOME/.pyenv/bin
 if [[ "x$OS" == "xOSX" ]]
 then
-    export MAIL=~/Mail
-    export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
     export SHELL=/usr/local/bin/zsh
-    export JAVA_HOME="$(/usr/libexec/java_home)"
-    export PAGER=vimpager
 
-    alias update='curl https://raw.github.com/danieljaouen/dotfiles/master/topics/bin/bootstrap.sh | bash'
-
-    unalias run-help
-    autoload run-help
-    HELPDIR=/usr/local/share/zsh/helpfiles
-
-    # aws --------------------------------------------------------------------- {{{
-    export AWS_CREDENTIAL_FILE="$HOME/.boto"
-    export JAVA_HOME="$(/usr/libexec/java_home)"
-    export EC2_PRIVATE_KEY="$(/bin/ls "$HOME"/.ec2/pk-*.pem | /usr/bin/head -1)"
-    export EC2_CERT="$(/bin/ls "$HOME"/.ec2/cert-*.pem | /usr/bin/head -1)"
-    export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.6.12.0/libexec"
-    # /aws -------------------------------------------------------------------- }}}
+    eval "$(starship init zsh)"
 else
-    export SHELL=/usr/bin/zsh
-    # eval "$(ssh-agent)"
+    eval "$(ssh-agent)"
+    alias open=xdg-open
+    alias hx=helix
+    ZSH_THEME="robbyrussell"
+
+    export $(dbus-launch)
 fi
 # /OS-specific config ----------------------------------------------------- }}}
 
 # Global Options and Aliases ---------------------------------------------- {{{
 unsetopt correct_all
 setopt INTERACTIVE_COMMENTS
+setopt inc_append_history
 
 export EDITOR=vim
 export TERM=screen-256color-bce
-export PYENV_ROOT=$HOME/.pyenv
 export ANSIBLE_PARAMIKO_AGENT_FORWARDING=sudo_user
 export ANSIBLE_NOCOWS=1
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+export ERL_AFLAGS="-kernel shell_history enabled"
+if [ -r ~/.openai_api_key ]; then
+    export OPENAI_API_KEY=$(cat ~/.openai_api_key)
+fi
 
-alias debug_email="python -m smtpd -n -c DebuggingServer localhost:1025"
-alias j="z"
 alias l='ls -lah'
-alias less=$PAGER
-alias mtr="sudo mtr -t"
 alias mute="vol 0"
-alias n="newsbeuter"
 alias serve_this="python -m SimpleHTTPServer 8100"
 alias t="task"
-alias zless=$PAGER
+alias e=emacsclient
 # /Global Options and Aliases --------------------------------------------- }}}
-
-# ag ---------------------------------------------------------------------- {{{
-alias agjs="ag -G '.*\.js$'"
-alias agpy="ag -G '.*\.py$'"
-alias aghtml="ag -G '.*\.html$'"
-alias agyml="ag -G '.*\.yml$'"
-alias agrb="ag -G '.*\.rb$'"
-# /ag --------------------------------------------------------------------- }}}
 
 # ansible ----------------------------------------------------------------- {{{
 alias a="ansible"
@@ -147,10 +119,6 @@ alias apvik="ansible-playbook -vvvv --ask-sudo-pass -i"
 alias apio="ansible-playbook -i ~/.ansible.d/inventories/osx"
 alias apios="ansible-playbook -i ~/.ansible.d/inventories/osx ~/.ansible.d/site.yml"
 # /ansible ---------------------------------------------------------------- }}}
-
-# cloc -------------------------------------------------------------------- {{{
-alias cloc="cloc --read-lang-def=${HOME}/.clocrc"
-# /cloc ------------------------------------------------------------------- }}}
 
 # docker ------------------------------------------------------------------ {{{
 alias dr="docker"
@@ -166,14 +134,13 @@ alias drs="docker search"
 alias m="mix"
 alias mc="mix compile"
 alias mcf="mix compile --all --force"
-alias md="mix dynamo"
 alias mdg="mix deps.get"
 alias mn="mix new"
-alias mwn="mix weber.new"
 # /elixir ----------------------------------------------------------------- }}}
 
 # erlang ------------------------------------------------------------------ {{{
 alias re="rebar"
+alias rr="rebar3"
 # /erlang ----------------------------------------------------------------- }}}
 
 # git --------------------------------------------------------------------- {{{
@@ -208,20 +175,12 @@ alias hqst="hg qst"
 alias hup="hg up"
 # /hg --------------------------------------------------------------------- }}}
 
-# javascript/node.js ------------------------------------------------------ {{{
-. ~/.nvm/nvm.sh
-# /javascript/node.js ----------------------------------------------------- }}}
+# nvim -------------------------------------------------------------------- {{{
+alias nv="nvim"
+# /nvim ------------------------------------------------------------------- }}}
 
 # python/django ----------------------------------------------------------- {{{
-# eval "$(pyenv init - zsh)"
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
-
-if [[ "x$OS" == "xOSX" ]]; then
-    . /usr/local/bin/virtualenvwrapper.sh
-else
-    . /usr/local/bin/virtualenvwrapper.sh
-fi
-export VIRTUAL_ENV_DISABLE_PROMPT=0
 
 alias daspt='django-admin.py startproject --template=https://github.com/twoscoops/django-twoscoops-project/archive/master.zip --extension=py,rst,html'
 alias fd="fab dev"
@@ -235,11 +194,9 @@ alias pmsdb='python manage.py syncdb'
 alias pmsi='python manage.py schemamigration --initial'
 alias pmsm='python manage.py schemamigration --auto'
 alias pmsp='python manage.py shell_plus'
-alias pyr='pyenv rehash'
 # /python/django ---------------------------------------------------------- }}}
 
 # ruby/rails -------------------------------------------------------------- {{{
-eval "$(rbenv init - zsh)"
 alias b='bundle'
 alias be='bundle exec'
 alias bec='bundle exec cucumber'
@@ -256,245 +213,41 @@ function bug {
     bundle gem $1 --bin --test
 }
 # /ruby/rails ------------------------------------------------------------- }}}
-
-# vagrant ----------------------------------------------------------------- {{{
-alias v="vagrant"
-alias vp="vagrant provision"
-alias vs="vagrant suspend"
-alias vup="vagrant up"
-alias vupa="vagrant up --provider=aws"
-# /vagrant ---------------------------------------------------------------- }}}
-
-# prompt ------------------------------------------------------------------ {{{
-function collapse_pwd {
-    echo $(pwd | sed -e "s,^$HOME,~,")
-}
-
-function prompt_char {
-    git branch >/dev/null 2>/dev/null && echo '±' && return
-    hg root >/dev/null 2>/dev/null && echo '☿' && return
-    echo '○'
-}
-
-function rbenv_info {
-    rbenv local 2>/dev/null || rbenv global 2>/dev/null
-}
-
-function pyenv_info {
-    # pyenv local 2>/dev/null || pyenv global 2>/dev/null
-}
-
-function battery_charge {
-    echo `$BAT_CHARGE` 2>/dev/null
-}
-
-function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
-}
-
-# TODO: this is a terrible way to do this.  fix this up when it's not 3:30AM.
-# zsh prompt expansions -------------------------------------------- {{{
-local RESET_COLORS="[0m"
-local RESET_COLORS_TMUX="Ptmux;[0m\\"
-local BLACK_FOREGROUND="[30m"
-local BLACK_FOREGROUND_BOLD="[1m[30m"
-local BLACK_BACKGROUND="[40m"
-local RED_FOREGROUND="[31m"
-local RED_FOREGROUND_BOLD="[1m[31m"
-local RED_BACKGROUND="[41m"
-local GREEN_FOREGROUND="[32m"
-local GREEN_FOREGROUND_BOLD="[1m[32m"
-local GREEN_BACKGROUND="[42m"
-local YELLOW_FOREGROUND="[33m"
-local YELLOW_FOREGROUND_BOLD="[1m[33m"
-local YELLOW_BACKGROUND="[43m"
-local BLUE_FOREGROUND="[34m"
-local BLUE_FOREGROUND_BOLD="[1m[34m"
-local BLUE_BACKGROUND="[44m"
-local MAGENTA_FOREGROUND="[35m"
-local MAGENTA_FOREGROUND_BOLD="[1m[35m"
-local MAGENTA_BACKGROUND="[45m"
-local CYAN_FOREGROUND="[36m"
-local CYAN_FOREGROUND_BOLD="[1m[36m"
-local CYAN_BACKGROUND="[46m"
-local WHITE_FOREGROUND="[37m"
-local WHITE_FOREGROUND_BOLD="[1m[37m"
-local WHITE_BACKGROUND="[47m"
-local CLEAR_TO_EOL="[K"
-local CLEAR_TO_EOL_TMUX="Ptmux;[K\\"
-# /zsh prompt expansions ------------------------------------------- }}}
-
-if [[ ! "x$TMUX" = "x" ]]; then
-    CLEAR_TO_EOL=$CLEAR_TO_EOL_TMUX
-fi
-
-function hg_prompt_info {
-    hg prompt --angle-brackets "\
-${CLEAR_TO_EOL}\
-${RESET_COLORS}
-${GREEN_BOLD}\
-${BLACK_BACKGROUND}\
-[\
-${BLACK_BACKGROUND}\
-hg: \
-${RESET_COLORS}\
-${BLUE_FOREGROUND}\
-${BLACK_BACKGROUND}\
-<branch>\
-${RESET_COLORS}\
-${RED_FOREGROUND}\
-${BLACK_BACKGROUND}\
-<status|modified|unknown>\
-<update>\
-${RESET_COLORS}\
-${BLACK_BACKGROUND}\
- \
-<\
-${RESET_COLORS}\
-${MAGENTA_FOREGROUND}\
-${BLACK_BACKGROUND}\
-<\
-tags|\
-${RESET_COLORS}\
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-:\
-${RESET_COLORS}\
-${MAGENTA_FOREGROUND}\
-${BLACK_BACKGROUND}\
->\
->\
-${RESET_COLORS}\
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-]\
-${CLEAR_TO_EOL}\
-${RESET_COLORS}\
-<
-${RESET_COLORS}\
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-[\
-${RESET_COLORS}\
-${BLACK_BACKGROUND}\
-hg-patches: \
-<\
-patches\
-|join( → )\
-|pre_applied(${RESET_COLORS}${YELLOW_FOREGROUND}${BLACK_BACKGROUND})\
-|post_applied(${RESET_COLORS}${BLACK_BACKGROUND})\
-|pre_unapplied(${RESET_COLORS}${GREEN_FOREGROUND_BOLD}${BLACK_BACKGROUND})\
-|post_unapplied(${RESET_COLORS}${BLACK_BACKGROUND})\
->\
-${RESET_COLORS}\
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-]\
->" 2>/dev/null
-}
-
-PROMPT='\
-${RESET_COLORS}
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-[\
-${RED_FOREGROUND_BOLD}\
-%n\
-${GREEN_FOREGROUND_BOLD}\
-@\
-${RESET_COLORS}\
-${MAGENTA_FOREGROUND}\
-${BLACK_BACKGROUND}\
-%m\
-${GREEN_FOREGROUND_BOLD}\
-] \
-${GREEN_FOREGROUND_BOLD}\
-[\
-${RESET_COLORS}\
-${BLACK_BACKGROUND}\
-pwd: \
-${RESET_COLORS}\
-${CYAN_FOREGROUND}\
-${BLACK_BACKGROUND}\
-$(collapse_pwd)\
-${GREEN_FOREGROUND_BOLD}\
-]\
-$(git_prompt_info)\
-$(hg_prompt_info)\
-${CLEAR_TO_EOL}\
-${RESET_COLORS}
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-[\
-${RESET_COLORS}\
-${BLACK_BACKGROUND}\
-python: \
-${RESET_COLORS}\
-${YELLOW_FOREGROUND}\
-${BLACK_BACKGROUND}\
-$(pyenv_info)\
-${RESET_COLORS}\
-${BLACK_BACKGROUND}\
-, \
-ruby: \
-${RESET_COLORS}\
-${YELLOW_FOREGROUND}\
-${BLACK_BACKGROUND}\
-$(rbenv_info)\
-${RESET_COLORS}\
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-]\
-${CLEAR_TO_EOL}\
-${RESET_COLORS}
-${GREEN_FOREGROUND}\
-${BLACK_BACKGROUND}\
-$(virtualenv_info)\
-${RESET_COLORS}\
-${BLACK_BACKGROUND}\
-$(prompt_char)\
-${RESET_COLORS} '
-
-ZSH_THEME_GIT_PROMPT_PREFIX="\
-${CLEAR_TO_EOL}\
-${RESET_COLORS}
-${GREEN_FOREGROUND_BOLD}\
-${BLACK_BACKGROUND}\
-[\
-${RESET_COLORS}\
-${BLACK_BACKGROUND}\
-git: \
-${RESET_COLORS}\
-${BLUE_FOREGROUND}\
-${BLACK_BACKGROUND}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="${GREEN_FOREGROUND_BOLD}]"
-ZSH_THEME_GIT_PROMPT_DIRTY="${RED_FOREGROUND_BOLD}!"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="${RED_FOREGROUND_BOLD}?"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
-
-# function hg_prompt_info {
-#     hg prompt --angle-brackets "\
-# < on %{$fg[red]%}<branch>%{$reset_color%}>\
-# < at %{$fg[yellow]%}<tags|%{$reset_color%}, %{$fg[yellow]%}>%{$reset_color%}>\
-# %{$fg[green]%}<status|modified|unknown><update>%{$reset_color%}<
-# patches: <patches|join( → )|pre_applied(%{$fg[yellow]%})|post_applied(%{$reset_color%})|pre_unapplied(%{$fg_bold[green]%})|post_unapplied(%{$reset_color%})>>" 2>/dev/null
-# }
-# 
-# PROMPT='
-# %{$fg[red]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}$(git_prompt_info)$(hg_prompt_info)
-# $(virtualenv_info)$(prompt_char) '
-# 
-# RPROMPT='$(battery_charge)'
-# 
-# ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[red]%}"
-# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-# ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}!"
-# ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[green]%}?"
-# ZSH_THEME_GIT_PROMPT_CLEAN=""
-# /prompt ----------------------------------------------------------------- }}}
-
 # Local Configuration ----------------------------------------------------- {{{
 if [[ -s $HOME/.zshrc.local ]]; then
     source $HOME/.zshrc.local
 fi
 # /Local Configuration ---------------------------------------------------- }}}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [[ "x$OS" == "xOSX" ]]; then
+    alias gx="brew"
+    alias gxi="brew install"
+    alias gxd="brew freeze"
+    alias gxs="brew search"
+    alias gxpli="brew list"
+    alias gxu="brew upgrade"
+    alias gxr="brew remove"
+    alias gxpi="brew info"
+    alias gxgc="brew cleanup"
+else
+    alias copy="xclip -sel clip -i"
+    alias paste="xclip -o"
+    alias gx="guix"
+    alias gxi="guix install"
+    alias gxd="guix describe"
+    alias gxs="guix search"
+    alias gxpli="guix package --list-installed"
+    alias gxprb="guix package --roll-back"
+    alias gxu="guix upgrade"
+    alias gxr="guix remove"
+    alias gxp="guix package"
+    alias gxpi="guix show"
+    alias gxgc="guix gc"
+    alias gxsh="guix shell"
+    setxkbmap -option
+    setxkbmap -option "caps:ctrl_modifier"
+    xset s off
+    xset s noblank
+    xset dpms 0 0 0
+fi
