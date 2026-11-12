@@ -104,15 +104,6 @@ values."
    dotspacemacs-additional-packages '(
                                       android-mode
                                       atomic-chrome
-                                      (copilot
-                                       :straight (:host github :repo "copilot-emacs/copilot.el" :files ("*.el"))
-                                       :ensure t
-                                       :hook (prog-mode . copilot-mode)
-                                       :bind (:map copilot-completion-map
-                                                   ("<tab>" . copilot-accept-completion)
-                                                   ("TAB" . copilot-accept-completion)
-                                                   ("C-n" . copilot-next-completion)
-                                                   ("C-p" . copilot-previous-completion)))
                                       dash
                                       editorconfig
                                       eglot
