@@ -10,6 +10,7 @@ defmodule MyIExHelpers do
 
   @doc "~x(cmd) runs cmd in the shell, e.g. ~x(ls -la)"
   def sigil_x(cmd, _modifiers), do: sh(cmd)
+  def sigil_X(cmd, _modifiers), do: sh(cmd)
 end
 
 import MyIExHelpers
