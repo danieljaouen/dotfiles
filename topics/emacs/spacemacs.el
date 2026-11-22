@@ -4,7 +4,8 @@
   (setq-default
    dotspacemacs-ask-for-lazy-installation nil
    dotspacemacs-configuration-layers
-   '(ansible
+   '(toml
+     ansible
      (auto-completion :variables
                       auto-completion-enable-sort-by-usage t
                       auto-completion-enable-snippets-in-popup t)
